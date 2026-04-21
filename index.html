@@ -138,6 +138,7 @@
     <input type="file" id="pdfInput" accept=".pdf" style="display:none">
     <button class="btn hdr-btn" id="uploadPdfBtn">📄 Ladda upp avtal</button>
     <button class="btn hdr-btn" id="openPasteBtn">📋 Klistra in</button>
+    <button class="btn hdr-btn" id="exportBtn" title="Exportera alla pass som JSON">💾 Exportera</button>
     <button class="btn hdr-btn" id="forceRefreshBtn" title="Rensa och hämta om alla pass från shifts.json">🔄 Uppdatera</button>
     <button class="btn hdr-btn primary" id="openAddBtn">+ Lägg till pass</button>
   </div>
@@ -340,7 +341,7 @@ function showSyncBanner(added, updated) {
 
 async function loadShiftsJson() {
   try {
-    const res = await fetch('/shifts.json?t=' + Date.now());
+    const res = await fetch('shifts.json?t=' + Date.now());
     if (!res.ok) return;
     const jsonShifts = await res.json();
     const { added, updated } = mergeFromJson(jsonShifts);
@@ -902,6 +903,16 @@ function closeModals() {
 document.getElementById('prevMonth').addEventListener('click',()=>{currentMonth--;if(currentMonth<0){currentMonth=11;currentYear--;}renderCalendar();});
 document.getElementById('nextMonth').addEventListener('click',()=>{currentMonth++;if(currentMonth>11){currentMonth=0;currentYear++;}renderCalendar();});
 document.getElementById('openAddBtn').addEventListener('click',()=>openAdd(''));
+document.getElementById('exportBtn').addEventListener('click', () => {
+  const data = JSON.stringify(shifts, null, 2);
+  const blob = new Blob([data], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'shifts.json';
+  a.click();
+  URL.revokeObjectURL(url);
+});
 document.getElementById('forceRefreshBtn').addEventListener('click', async () => {
   const btn = document.getElementById('forceRefreshBtn');
   btn.textContent = '⏳ Hämtar…';
