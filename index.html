@@ -139,10 +139,6 @@
   .m-stat-val.green { color: #34d399; }
   .m-stat-label { font-size: .66rem; color: #555; }
 
-  .m-tabs { display: flex; margin: 14px 20px 0; background: #13131a; border-radius: 14px; padding: 4px; gap: 4px; }
-  .m-tab { flex: 1; padding: 10px; border-radius: 10px; border: none; font-size: .88rem; font-weight: 600; cursor: pointer; background: transparent; color: #666; transition: all .15s; font-family: inherit; }
-  .m-tab.active { background: #7c3aed; color: #fff; }
-
   .m-content { flex: 1; padding: 16px 20px 40px; overflow-y: auto; }
 
   .m-today-header { margin-bottom: 22px; }
@@ -283,10 +279,6 @@
       <span class="m-stat-val green" id="mStatPay">0 kr</span>
       <span class="m-stat-label">månadslön</span>
     </div>
-  </div>
-  <div class="m-tabs">
-    <button class="m-tab active" id="mTabToday" onclick="switchMobileTab('today')">Idag</button>
-    <button class="m-tab" id="mTabCalendar" onclick="switchMobileTab('calendar')">Kalender</button>
   </div>
   <div class="m-content" id="mContent"></div>
 </div>
@@ -1263,88 +1255,18 @@ const DAYS_SHORT = ['Sön','Mån','Tis','Ons','Tor','Fre','Lör'];
 const MONS_FULL  = ['Januari','Februari','Mars','April','Maj','Juni','Juli','Augusti','September','Oktober','November','December'];
 const MONS_SHORT = ['Jan','Feb','Mar','Apr','Maj','Jun','Jul','Aug','Sep','Okt','Nov','Dec'];
 
-let mobileTab = 'today';
-
 function isMobile() { return window.innerWidth <= 700; }
-
-function switchMobileTab(tab) {
-  mobileTab = tab;
-  document.getElementById('mTabToday').classList.toggle('active', tab === 'today');
-  document.getElementById('mTabCalendar').classList.toggle('active', tab === 'calendar');
-  renderMobile();
-}
 
 function renderMobile() {
   if (!isMobile()) return;
-  // Stats
   const conf = shifts.filter(s => s.status === 'confirmed');
   const pend = shifts.filter(s => s.status === 'pending');
-  const now2 = new Date(), todayStr2 = toDateStr(now2);
   const monthConf = conf.filter(s => { const d = new Date(s.date+'T00:00:00'); return d.getFullYear()===currentYear && d.getMonth()===currentMonth; });
   const monthPay  = monthConf.reduce((t,s) => t + calcPay(s), 0);
   document.getElementById('mStatConf').textContent = conf.length;
   document.getElementById('mStatPend').textContent = pend.length;
   document.getElementById('mStatPay').textContent  = Math.round(monthPay).toLocaleString('sv') + ' kr';
-  if (mobileTab === 'today') renderMobileToday();
-  else renderMobileList();
-}
 
-function renderMobileToday() {
-  const now2 = new Date(), todayStr2 = toDateStr(now2);
-  const todayShifts = shifts.filter(s => s.date === todayStr2);
-  const upcoming    = shifts.filter(s => s.date > todayStr2)
-    .sort((a,b) => a.date.localeCompare(b.date) || (a.start||'').localeCompare(b.start||''));
-
-  let html = `<div class="m-today-header">
-    <div class="m-today-dayname">${DAYS_FULL[now2.getDay()]}</div>
-    <div class="m-today-bigdate">${now2.getDate()} <span>${MONS_FULL[now2.getMonth()].toUpperCase()}</span></div>
-  </div>`;
-
-  if (todayShifts.length) {
-    html += '<div class="m-section-label">Dagens pass</div>';
-    todayShifts.forEach(s => { html += mShiftCard(s); });
-  } else {
-    html += `<div class="m-no-shifts"><div class="m-no-shifts-emoji">🎪</div><div class="m-no-shifts-text">Inga pass idag</div></div>`;
-  }
-
-  if (upcoming.length) {
-    html += '<div class="m-section-label">Kommande pass</div>';
-    upcoming.slice(0, 10).forEach(s => {
-      const d = new Date(s.date+'T00:00:00');
-      const timeStr = s.start ? s.start + (s.end ? '–'+s.end : '') : 'Tid okänd';
-      html += `<div class="m-upcoming-row" onclick="openDetail('${s.id}')">
-        <div class="m-upcoming-date">
-          <div class="m-upcoming-date-day">${DAYS_SHORT[d.getDay()]}</div>
-          <div class="m-upcoming-date-num">${d.getDate()}</div>
-          <div class="m-upcoming-date-mon">${MONS_SHORT[d.getMonth()]}</div>
-        </div>
-        <div class="m-upcoming-info">
-          <div class="m-upcoming-name">${escHtml(s.event)}</div>
-          <div class="m-upcoming-sub">${timeStr} · ${escHtml(s.venue||'')}</div>
-        </div>
-        <div class="m-upcoming-dot ${s.status}"></div>
-      </div>`;
-    });
-  }
-  document.getElementById('mContent').innerHTML = html;
-}
-
-function mShiftCard(s) {
-  const pay = calcPay(s);
-  const payStr = pay > 0 ? `<div class="m-shift-pay">≈ ${Math.round(pay).toLocaleString('sv')} kr</div>` : '';
-  const timeStr = s.start ? s.start + (s.end ? ' – '+s.end : '') : 'Tid okänd';
-  return `<div class="m-shift-card ${s.status}" onclick="openDetail('${s.id}')">
-    <div class="m-shift-card-top">
-      <div class="m-shift-name">${escHtml(s.event)}</div>
-      <span class="m-shift-badge ${s.status}">${s.status==='confirmed'?'Bekräftad':'Väntande'}</span>
-    </div>
-    <div class="m-shift-time">${timeStr}</div>
-    <div class="m-shift-venue">${escHtml(s.venue||'')}</div>
-    ${payStr}
-  </div>`;
-}
-
-function renderMobileList() {
   const todayStr2 = toDateStr(new Date());
   const monthShifts = shifts.filter(s => {
     if (!s.date) return false;
@@ -1390,8 +1312,8 @@ function renderMobileList() {
   document.getElementById('mContent').innerHTML = html;
 }
 
-function mPrevMonth() { currentMonth--; if(currentMonth<0){currentMonth=11;currentYear--;} renderMobileList(); }
-function mNextMonth() { currentMonth++; if(currentMonth>11){currentMonth=0;currentYear++;} renderMobileList(); }
+function mPrevMonth() { currentMonth--; if(currentMonth<0){currentMonth=11;currentYear--;} renderMobile(); }
+function mNextMonth() { currentMonth++; if(currentMonth>11){currentMonth=0;currentYear++;} renderMobile(); }
 
 document.getElementById('mUploadPdfBtn').addEventListener('click', () => document.getElementById('pdfInput').click());
 document.getElementById('mAddBtn').addEventListener('click', () => openAdd(''));
