@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arenajobben</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f0f13; color: #e8e8f0; min-height: 100vh; }
+
+  /* ── Header ── */
+  header { display: flex; align-items: center; justify-content: space-between; padding: 20px 32px; border-bottom: 1px solid #1e1e2e; }
+  header h1 { font-size: 1.3rem; font-weight: 600; letter-spacing: .5px; }
+  header h1 span { color: #a78bfa; }
+  .nav-controls { display: flex; align-items: center; gap: 10px; }
+  .nav-controls button { background: #1e1e2e; border: none; color: #e8e8f0; width: 34px; height: 34px; border-radius: 8px; cursor: pointer; font-size: 1rem; transition: background .15s; }
+  .nav-controls button:hover { background: #2a2a3e; }
+  .nav-controls h2 { font-size: 1rem; font-weight: 500; min-width: 160px; text-align: center; }
+  .hdr-btn { background: #1e1e2e !important; width: auto !important; padding: 0 14px !important; font-size: .82rem !important; font-weight: 600; height: 34px; border-radius: 8px; letter-spacing: .2px; display: flex; align-items: center; gap: 5px; }
+  .hdr-btn:hover { background: #2a2a3e !important; }
+  .hdr-btn.primary { background: #7c3aed !important; }
+  .hdr-btn.primary:hover { background: #6d28d9 !important; }
+
+  /* ── Stats ── */
+  .stats { display: flex; gap: 24px; padding: 14px 32px; background: #13131a; border-bottom: 1px solid #1e1e2e; }
+  .stat { font-size: .8rem; color: #888; }
+  .stat strong { color: #e8e8f0; font-weight: 600; margin-right: 4px; }
+  .stat.confirmed strong { color: #a78bfa; }
+  .stat.pending strong { color: #fbbf24; }
+  .stat.pay strong { color: #34d399; }
+
+  /* ── Calendar ── */
+  .calendar-wrap { padding: 24px 32px; }
+  .day-headers { display: grid; grid-template-columns: 28px repeat(7, 1fr); gap: 4px; margin-bottom: 4px; }
+  .day-header { text-align: center; font-size: .7rem; font-weight: 600; color: #555; text-transform: uppercase; letter-spacing: .8px; padding: 4px 0; }
+  .calendar-grid { display: grid; grid-template-columns: 28px repeat(7, 1fr); gap: 4px; }
+  .week-num-cell { display: flex; align-items: flex-start; justify-content: center; padding-top: 9px; font-size: .62rem; font-weight: 700; color: #3b3b5c; letter-spacing: .3px; }
+  .day-cell { background: #13131a; border: 1px solid #1e1e2e; border-radius: 10px; min-height: 110px; padding: 8px; cursor: pointer; transition: border-color .15s; }
+  .day-cell:hover { border-color: #3b3b5c; }
+  .day-cell.other-month { opacity: .3; }
+  .day-cell.today { border-color: #7c3aed; }
+  .day-cell.ob-day { background: #0a1f0f; border-color: #1a5c2a; }
+  .day-cell.ob-day:hover { border-color: #2a8a40; }
+  .day-cell.ob-day .day-num { color: #4ade80; }
+  .day-cell.today.ob-day { border-color: #7c3aed; }
+  .day-num { font-size: .75rem; font-weight: 600; color: #666; margin-bottom: 6px; }
+  .day-cell.today .day-num { background: #7c3aed; color: #fff; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: .7rem; }
+  .shift-chip { border-radius: 6px; padding: 4px 7px; margin-bottom: 3px; font-size: .7rem; font-weight: 500; cursor: pointer; transition: opacity .15s; line-height: 1.35; overflow: hidden; }
+  .shift-chip:hover { opacity: .8; }
+  .shift-chip.confirmed { background: #4c1d95; color: #c4b5fd; border-left: 3px solid #a78bfa; }
+  .shift-chip.pending { background: #1c1a0e; color: #fbbf24; border-left: 3px solid #fbbf24; }
+  .chip-name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: flex; align-items: center; gap: 4px; }
+  .chip-premium { font-size: .6rem; background: #92400e; color: #fcd34d; border-radius: 3px; padding: 0 3px; flex-shrink: 0; font-weight: 700; letter-spacing: .3px; }
+  .chip-time { font-size: .65rem; opacity: .8; white-space: nowrap; }
+
+  /* ── Modals ── */
+  .overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.7); z-index: 100; align-items: center; justify-content: center; }
+  .overlay.open { display: flex; }
+  .modal { background: #16161f; border: 1px solid #2a2a3e; border-radius: 16px; padding: 28px; width: 500px; max-width: 95vw; max-height: 90vh; overflow-y: auto; }
+  .modal h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 20px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .form-group { margin-bottom: 14px; display: flex; flex-direction: column; }
+  .form-group.full { grid-column: 1 / -1; }
+  label { font-size: .75rem; color: #888; font-weight: 500; margin-bottom: 5px; text-transform: uppercase; letter-spacing: .5px; }
+  input, select, textarea { background: #1e1e2e; border: 1px solid #2a2a3e; color: #e8e8f0; border-radius: 8px; padding: 9px 12px; font-size: .9rem; outline: none; transition: border-color .15s; width: 100%; font-family: inherit; }
+  input:focus, select:focus, textarea:focus { border-color: #7c3aed; }
+  select option { background: #1e1e2e; }
+  textarea { resize: vertical; min-height: 130px; line-height: 1.6; }
+
+  .pay-preview { background: #0d1f15; border: 1px solid #1a3d2b; border-radius: 8px; padding: 10px 14px; margin-bottom: 18px; font-size: .85rem; color: #34d399; display: none; }
+  .pay-preview span { font-weight: 700; font-size: 1rem; }
+
+  .modal-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 16px; }
+  .btn { padding: 9px 20px; border-radius: 8px; border: none; font-size: .88rem; font-weight: 600; cursor: pointer; transition: background .15s; font-family: inherit; }
+  .btn-ghost { background: transparent; color: #888; border: 1px solid #2a2a3e; }
+  .btn-ghost:hover { background: #1e1e2e; color: #e8e8f0; }
+  .btn-danger { background: #3d1515; color: #f87171; border: 1px solid #5c2020; margin-right: auto; }
+  .btn-danger:hover { background: #5c2020; }
+  .btn-primary { background: #7c3aed; color: #fff; }
+  .btn-primary:hover { background: #6d28d9; }
+  .btn-teal { background: #0f4c3a; color: #34d399; border: 1px solid #1a6b52; }
+  .btn-teal:hover { background: #1a6b52; }
+
+  /* ── Paste modal steps ── */
+  .paste-step { }
+  .paste-step.hidden { display: none; }
+  .paste-hints { margin-top: 10px; padding: 10px 14px; background: #0f0f13; border: 1px solid #1e1e2e; border-radius: 8px; font-size: .75rem; color: #555; line-height: 1.7; }
+  .paste-hints strong { color: #444; display: block; margin-bottom: 3px; }
+
+  /* ── Parsed shift cards ── */
+  .parsed-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 4px; }
+  .parsed-card { background: #1a1a27; border: 1px solid #2a2a3e; border-radius: 10px; padding: 14px; position: relative; }
+  .parsed-card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 10px; }
+  .parsed-card-head input { background: transparent; border: none; border-bottom: 1px solid #2a2a3e; border-radius: 0; padding: 2px 0; font-size: .95rem; font-weight: 600; color: #e8e8f0; }
+  .parsed-card-head input:focus { border-bottom-color: #7c3aed; outline: none; }
+  .parsed-card-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+  .pcf { display: flex; flex-direction: column; }
+  .pcf label { font-size: .65rem; color: #555; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 2px; }
+  .pcf input, .pcf select { background: #13131a; border: 1px solid #222232; color: #e8e8f0; border-radius: 6px; padding: 6px 8px; font-size: .8rem; outline: none; font-family: inherit; }
+  .pcf input:focus, .pcf select:focus { border-color: #7c3aed; }
+  .pcf select option { background: #13131a; }
+  .pcf.full { grid-column: 1 / -1; }
+  .card-pay-preview { font-size: .75rem; color: #34d399; margin-top: 6px; min-height: 16px; }
+  .missing-warn { font-size: .72rem; color: #f59e0b; margin-top: 6px; }
+  .parsed-count { font-size: .85rem; color: #888; margin-bottom: 12px; }
+  .parsed-count strong { color: #a78bfa; }
+
+  /* ── Detail modal ── */
+  .detail-field { margin-bottom: 12px; }
+  .detail-label { font-size: .7rem; text-transform: uppercase; letter-spacing: .6px; color: #555; margin-bottom: 2px; font-weight: 600; }
+  .detail-value { font-size: .95rem; color: #e8e8f0; }
+  .detail-pay { background: #0d1f15; border: 1px solid #1a3d2b; border-radius: 10px; padding: 14px; margin: 16px 0; text-align: center; }
+  .detail-pay .pay-label { font-size: .75rem; color: #555; text-transform: uppercase; letter-spacing: .6px; }
+  .detail-pay .pay-amount { font-size: 1.6rem; font-weight: 700; color: #34d399; margin-top: 2px; }
+  .detail-pay .pay-hours { font-size: .8rem; color: #666; margin-top: 2px; }
+  .status-badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: .75rem; font-weight: 600; }
+  .status-badge.confirmed { background: #4c1d95; color: #c4b5fd; }
+  .status-badge.pending { background: #1c1a0e; color: #fbbf24; border: 1px solid #fbbf24; }
+
+  @media (max-width: 700px) {
+    header { padding: 14px 16px; flex-wrap: wrap; gap: 10px; }
+    .stats { padding: 10px 16px; flex-wrap: wrap; gap: 12px; }
+    .calendar-wrap { padding: 12px 8px; }
+    .day-cell { min-height: 70px; padding: 5px; }
+    .shift-chip { font-size: .62rem; padding: 3px 5px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Arena<span>jobben</span></h1>
+  <div class="nav-controls">
+    <button id="prevMonth">&#8249;</button>
+    <h2 id="monthLabel"></h2>
+    <button id="nextMonth">&#8250;</button>
+    <input type="file" id="pdfInput" accept=".pdf" style="display:none">
+    <button class="btn hdr-btn" id="uploadPdfBtn">📄 Ladda upp avtal</button>
+    <button class="btn hdr-btn" id="openPasteBtn">📋 Klistra in</button>
+    <button class="btn hdr-btn" id="forceRefreshBtn" title="Rensa och hämta om alla pass från shifts.json">🔄 Uppdatera</button>
+    <button class="btn hdr-btn primary" id="openAddBtn">+ Lägg till pass</button>
+  </div>
+</header>
+
+<div class="stats">
+  <div class="stat confirmed"><strong id="statConfirmed">0</strong>bekräftade</div>
+  <div class="stat pending"><strong id="statPending">0</strong>väntande</div>
+  <div class="stat pay">
+    <strong id="statPayMonth">0 kr</strong><span id="statPayMonthLabel">lön</span>
+    <span id="statHoursMonth" style="color:#6c7086;font-size:12px;margin-left:6px;"></span>
+  </div>
+  <div class="stat pay" style="border-left:1px solid #1e1e2e;padding-left:24px">
+    <strong id="statPayYear">0 kr</strong>årets lön
+    <span id="statHoursYear" style="color:#6c7086;font-size:12px;margin-left:6px;"></span>
+  </div>
+  <div class="stat pay" style="border-left:1px solid #1e1e2e;padding-left:24px;display:flex;align-items:center;gap:6px;">
+    <input id="defaultRate" type="number" min="0" step="1"
+      style="width:70px;background:#1e1e2e;color:#cdd6f4;border:1px solid #313244;border-radius:6px;padding:2px 6px;font-size:13px;text-align:right;"
+      value="150" title="Standardtimlön (kr) — används för pass utan individuell lön">
+    <span style="color:#a6adc8;font-size:13px;">kr/tim</span>
+  </div>
+</div>
+
+<div class="calendar-wrap">
+  <div class="day-headers">
+    <div class="day-header"></div>
+    <div class="day-header">Mån</div><div class="day-header">Tis</div><div class="day-header">Ons</div>
+    <div class="day-header">Tor</div><div class="day-header">Fre</div><div class="day-header">Lör</div>
+    <div class="day-header">Sön</div>
+  </div>
+  <div class="calendar-grid" id="calendarGrid"></div>
+</div>
+
+<!-- Smart Paste Modal -->
+<div class="overlay" id="pasteOverlay">
+  <div class="modal" style="width:560px">
+    <h3 id="pasteModalTitle">📋 Klistra in schema</h3>
+
+    <!-- Step 1: input -->
+    <div class="paste-step" id="pasteStep1">
+      <div class="form-group">
+        <label>Klistra in ditt schema — ett eller flera pass</label>
+        <textarea id="pasteInput" placeholder="Klistra in schematext här…"></textarea>
+      </div>
+      <div class="paste-hints">
+        <strong>Stödjer dessa format:</strong>
+        Evenemangsnamn • Datum • Start–Slut • Plats • Status<br>
+        t.ex. <em>Coldplay at Rod Laver Arena, 28th March, 6pm–11pm, $35/hr, confirmed</em><br>
+        eller ett kopierat schemablock med flera evenemang
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-ghost" id="pasteCancelBtn">Avbryt</button>
+        <button class="btn btn-teal" id="parseBtn">✦ Analysera</button>
+      </div>
+    </div>
+
+    <!-- Step 2: review -->
+    <div class="paste-step hidden" id="pasteStep2">
+      <p class="parsed-count" id="parsedCount"></p>
+      <div class="parsed-list" id="parsedList"></div>
+      <div class="modal-actions">
+        <button class="btn btn-ghost" id="reviewBackBtn">← Tillbaka</button>
+        <button class="btn btn-primary" id="saveAllBtn">Spara alla pass</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Add/Edit Modal -->
+<div class="overlay" id="shiftOverlay">
+  <div class="modal">
+    <h3 id="modalTitle">Lägg till pass</h3>
+    <div class="form-row">
+      <div class="form-group full"><label>Evenemangsnamn</label><input type="text" id="fieldEvent" placeholder="t.ex. Taylor Swift Night"></div>
+      <div class="form-group full"><label>Plats / Arena</label><input type="text" id="fieldVenue" placeholder="t.ex. Avicii Arena"></div>
+      <div class="form-group full"><label>Datum</label><input type="date" id="fieldDate"></div>
+      <div class="form-group"><label>Starttid</label><input type="time" id="fieldStart"></div>
+      <div class="form-group"><label>Sluttid</label><input type="time" id="fieldEnd"></div>
+      <div class="form-group"><label>Timlön (kr)</label><input type="number" id="fieldRate" placeholder="0.00" min="0" step="0.01"></div>
+      <div class="form-group"><label>Status</label>
+        <select id="fieldStatus"><option value="confirmed">Bekräftad</option><option value="pending">Väntande</option></select>
+      </div>
+    </div>
+    <div class="pay-preview" id="payPreview">Beräknad lön: <span id="payPreviewAmt"></span></div>
+    <div class="modal-actions">
+      <button class="btn btn-danger" id="deleteBtn" style="display:none">Ta bort</button>
+      <button class="btn btn-ghost" id="cancelBtn">Avbryt</button>
+      <button class="btn btn-primary" id="saveBtn">Spara pass</button>
+    </div>
+  </div>
+</div>
+
+<!-- PDF Upload Modal -->
+<div class="overlay" id="pdfOverlay">
+  <div class="modal" style="width:520px">
+    <h3>📄 Tarantsec – Anställningsavtal</h3>
+    <div id="pdfModalContent" style="margin-top:16px"></div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" id="pdfCancelBtn">Avbryt</button>
+      <button class="btn btn-primary" id="pdfApplyBtn">Uppdatera pass</button>
+    </div>
+  </div>
+</div>
+
+<!-- Detail Modal -->
+<div class="overlay" id="detailOverlay">
+  <div class="modal">
+    <h3 id="detailTitle"></h3>
+    <div class="detail-field"><div class="detail-label">Plats</div><div class="detail-value" id="detailVenue"></div></div>
+    <div class="detail-field"><div class="detail-label">Datum &amp; Tid</div><div class="detail-value" id="detailTime"></div></div>
+    <div class="detail-field"><div class="detail-label">Status</div><div id="detailStatus"></div></div>
+    <div class="detail-pay" id="detailPay">
+      <div class="pay-label">Total lön</div>
+      <div class="pay-amount" id="detailPayAmt"></div>
+      <div class="pay-hours" id="detailPayHours"></div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-danger" id="detailDeleteBtn">Ta bort</button>
+      <button class="btn btn-ghost" id="detailCloseBtn">Stäng</button>
+      <button class="btn btn-primary" id="detailEditBtn">Redigera</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── Data ──────────────────────────────────────────────────────────────
+let shifts = JSON.parse(localStorage.getItem('concertShifts') || '[]');
+let currentYear, currentMonth, editingId = null, viewingId = null;
+
+function save() { localStorage.setItem('concertShifts', JSON.stringify(shifts)); }
+
+// ── Deleted-shift tombstones (survives force-refresh) ─────────────────
+// Stored as Set of "YYYY-MM-DD|event_lowercase" keys
+function loadTombstones() {
+  try { return new Set(JSON.parse(localStorage.getItem('concertShiftsDeleted') || '[]')); }
+  catch (_) { return new Set(); }
+}
+function saveTombstones(t) { localStorage.setItem('concertShiftsDeleted', JSON.stringify([...t])); }
+function tombstoneKey(s) { return `${s.date}|${(s.event||'').toLowerCase().trim()}`; }
+function addTombstone(s) { const t = loadTombstones(); t.add(tombstoneKey(s)); saveTombstones(t); }
+
+// Rensa automatiskt väntande pass vars datum har passerat
+function prunePastPending() {
+  const today = new Date(); today.setHours(0,0,0,0);
+  const before = shifts.length;
+  shifts = shifts.filter(s => {
+    if (s.status !== 'pending') return true;       // bekräftade alltid kvar
+    if (!s.date) return true;                       // inget datum → behåll
+    return new Date(s.date + 'T00:00:00') >= today; // framtida → behåll
+  });
+  if (shifts.length < before) save();
+}
+
+function initDefaultRate() {
+  const el = document.getElementById('defaultRate');
+  const saved = localStorage.getItem('defaultRate');
+  if (saved !== null) el.value = saved;
+  el.addEventListener('input', () => {
+    localStorage.setItem('defaultRate', el.value);
+    updateStats();
+  });
+}
+function uid()  { return Date.now().toString(36) + Math.random().toString(36).slice(2); }
+function padZ(n){ return String(n).padStart(2,'0'); }
+
+// ── Email sync: läs shifts.json och slå ihop med localStorage ─────────
+function mergeFromJson(jsonShifts) {
+  let added = 0, updated = 0;
+  const tombstones = loadTombstones();
+  jsonShifts.forEach(incoming => {
+    // Skip shifts the user has manually deleted
+    if (tombstones.has(tombstoneKey(incoming))) return;
+    const idx = shifts.findIndex(s =>
+      s.date === incoming.date &&
+      s.event.toLowerCase().trim() === (incoming.event||'').toLowerCase().trim()
+    );
+    if (idx === -1) {
+      shifts.push({ ...incoming, id: incoming.id || uid() });
+      added++;
+    } else if (incoming.status === 'confirmed' && shifts[idx].status === 'pending') {
+      shifts[idx].status = 'confirmed';
+      if (incoming.start) shifts[idx].start = incoming.start;
+      if (incoming.end)   shifts[idx].end   = incoming.end;
+      if (incoming.tag)   shifts[idx].tag   = incoming.tag;
+      updated++;
+    }
+  });
+  return { added, updated };
+}
+
+function showSyncBanner(added, updated) {
+  if (added === 0 && updated === 0) return;
+  const b = document.createElement('div');
+  b.style.cssText = 'position:fixed;bottom:20px;right:20px;background:#1a2e1a;border:1px solid #2a6b2a;color:#4ade80;padding:12px 18px;border-radius:10px;font-size:.82rem;z-index:999;line-height:1.6';
+  b.innerHTML = `📬 E-postsynk klar<br>${added > 0 ? `<strong>+${added}</strong> nya pass` : ''}${added>0&&updated>0?'  ·  ':''}${updated > 0 ? `<strong>${updated}</strong> uppdaterade` : ''}`;
+  document.body.appendChild(b);
+  setTimeout(() => b.remove(), 5000);
+}
+
+async function loadShiftsJson() {
+  try {
+    const res = await fetch('/shifts.json?t=' + Date.now());
+    if (!res.ok) return;
+    const jsonShifts = await res.json();
+    const { added, updated } = mergeFromJson(jsonShifts);
+    prunePastPending();   // rensa utgångna väntande direkt efter import
+    if (added > 0 || updated > 0) {
+      save();
+      renderCalendar();
+      showSyncBanner(added, updated);
+    } else {
+      renderCalendar();   // rendera ändå om prune tog bort något
+    }
+  } catch (_) {
+    // shifts.json finns inte än — ingen fara
+  }
+}
+
+// ── Pay / time helpers ────────────────────────────────────────────────
+function parseHours(date, start, end) {
+  if (!date || !start || !end) return 0;
+  const s = new Date(`${date}T${start}`), e = new Date(`${date}T${end}`);
+  if (isNaN(s) || isNaN(e)) return 0;
+  let d = (e - s) / 3600000; if (d < 0) d += 24; return Math.max(0, d);
+}
+function getDefaultRate() { return parseFloat(document.getElementById('defaultRate')?.value) || 0; }
+function calcPay(s) {
+  const rate = parseFloat(s.rate) || getDefaultRate();
+  return parseHours(s.date, s.start, s.end) * rate;
+}
+function fmtPay(n) { return n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,' ') + ' kr'; }
+function fmtTime(t) { return t || ''; } // already HH:MM 24h from input
+function fmtDate(ds) {
+  if (!ds) return '';
+  const s = new Date(ds+'T00:00:00').toLocaleDateString('sv-SE',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+  return s.charAt(0).toUpperCase() + s.slice(1);
+}
+function toDateStr(d) {
+  if (!(d instanceof Date)||isNaN(d)) return '';
+  return `${d.getFullYear()}-${padZ(d.getMonth()+1)}-${padZ(d.getDate())}`;
+}
+function toTimeStr(h,m){ return `${padZ(h)}:${padZ(m||0)}`; }
+
+// ── Text parsers ──────────────────────────────────────────────────────
+const MONTHS_MAP = {
+  january:0,jan:0,february:1,feb:1,march:2,mar:2,april:3,apr:3,may:4,
+  june:5,jun:5,july:6,jul:6,august:7,aug:7,september:8,sep:8,sept:8,
+  october:9,oct:9,november:10,nov:10,december:11,dec:11
+};
+const WEEKDAYS_MAP = {
+  sunday:0,sun:0,monday:1,mon:1,tuesday:2,tue:2,wednesday:3,wed:3,
+  thursday:4,thu:4,friday:5,fri:5,saturday:6,sat:6
+};
+
+function parseDateFromText(text) {
+  const now = new Date(), lower = text.toLowerCase();
+  if (/\btoday\b/.test(lower)) return toDateStr(now);
+  if (/\btomorrow\b/.test(lower)) { const d=new Date(now); d.setDate(d.getDate()+1); return toDateStr(d); }
+
+  // DD/MM/YYYY
+  let m = text.match(/\b(\d{1,2})[\/\-\.](\d{1,2})[\/\-\.](\d{2,4})\b/);
+  if (m) { let y=parseInt(m[3]); if(y<100)y+=2000; return toDateStr(new Date(y,parseInt(m[2])-1,parseInt(m[1]))); }
+
+  // "28 Mar 2026" or "28th March 2026" or "28 Mar"
+  m = lower.match(/\b(\d{1,2})(?:st|nd|rd|th)?\s+(january|february|march|april|may|june|july|august|september|october|november|december|jan|feb|mar|apr|jun|jul|aug|sep|sept|oct|nov|dec)\b(?:\s+(\d{4}))?/);
+  if (m) { const yr=m[3]?parseInt(m[3]):now.getFullYear(); return toDateStr(new Date(yr,MONTHS_MAP[m[2]],parseInt(m[1]))); }
+
+  // "March 28, 2026"
+  m = lower.match(/\b(january|february|march|april|may|june|july|august|september|october|november|december|jan|feb|mar|apr|jun|jul|aug|sep|sept|oct|nov|dec)\s+(\d{1,2})(?:st|nd|rd|th)?(?:\s*,?\s*(\d{4}))?/);
+  if (m) { const yr=m[3]?parseInt(m[3]):now.getFullYear(); return toDateStr(new Date(yr,MONTHS_MAP[m[1]],parseInt(m[2]))); }
+
+  // weekday name
+  m = lower.match(/\b(?:next\s+|this\s+|on\s+)?(monday|tuesday|wednesday|thursday|friday|saturday|sunday|mon|tue|wed|thu|fri|sat|sun)\b/);
+  if (m) { const t=WEEKDAYS_MAP[m[1]], d=new Date(now), diff=(t-d.getDay()+7)%7||7; d.setDate(d.getDate()+diff); return toDateStr(d); }
+  return '';
+}
+
+function parseTimeToken(token) {
+  const t = token.trim().toLowerCase().replace(/\s/g,'');
+  const m = t.match(/^(\d{1,2})(?::(\d{2}))?(am|pm)?$/);
+  if (!m) return '';
+  let h=parseInt(m[1]); const min=parseInt(m[2]||'0'), ampm=m[3];
+  if (ampm==='pm'&&h<12) h+=12; else if (ampm==='am'&&h===12) h=0;
+  else if (!ampm&&h<8) h+=12;
+  return toTimeStr(h,min);
+}
+
+// ── MULTI-EVENT PARSER ────────────────────────────────────────────────
+// Detects the schedule-app format:
+//   Event Name [TAG]
+//   DD Mon YYYY • HH:MM – HH:MM
+//   Venue
+//   City (optional)
+//   Status word (optional, e.g. "Jobbar")
+// Falls back to freeform single-event parsing if pattern not found.
+
+const STRUCTURED_DATE_RE = /^(\d{1,2}\s+\w+\s+\d{4})\s*[•·]\s*(\d{2}:\d{2})\s*[–\-]\s*(\d{2}:\d{2})$/;
+// Status words meaning "confirmed" — only when employer has confirmed you ARE working
+const CONFIRMED_WORDS = /^(jobbar|confirmed|granted|booked|approved|beviljad|arbetar|schemalagd|inbokad)$/i;
+// Status words meaning "pending" — includes "I replied yes" which is NOT yet confirmed
+const PENDING_WORDS   = /^(pending|applied|waiting|ej|ledig|unconfirmed|tackat\s+ja|tackat\s+nej|avböjt|accepterat|ja|nej|tackat|svarade)$/i;
+// Garbage lines to discard entirely (UI phrases, action labels, etc.)
+const GARBAGE_LINE = /^(skicka\s+med\s+meddelande|send\s+message|tacka\s+ja|tacka\s+nej|visa\s+mer|se\s+mer|visa\s+alla|meddelande|message|details?|more\s+info|info|öppna|open|stäng|close|avboka|cancel|boka|book|ansök|apply|detaljer|bekräfta|confirm)$/i;
+
+function parseStructuredBlocks(raw) {
+  const lines = raw.split('\n').map(l => l.trim());
+  // Find all date lines
+  const dateIdxs = [];
+  for (let i = 0; i < lines.length; i++) {
+    if (STRUCTURED_DATE_RE.test(lines[i])) dateIdxs.push(i);
+  }
+  if (dateIdxs.length === 0) return null; // not structured format
+
+  const results = [];
+  for (let di = 0; di < dateIdxs.length; di++) {
+    const dateIdx   = dateIdxs[di];
+    const nextDate  = dateIdxs[di+1] ?? lines.length;
+    const dm        = lines[dateIdx].match(STRUCTURED_DATE_RE);
+
+    const shift = { id: uid(), event:'', venue:'', date:'', start: dm[2], end: dm[3], rate: 0, status: 'pending' };
+    shift.date = parseDateFromText(dm[1]);
+
+    // Event name = line immediately before the date line (skip blank)
+    for (let j = dateIdx-1; j >= 0; j--) {
+      if (lines[j]) {
+        const tagMatch = lines[j].match(/\[([^\]]+)\]/g);
+        shift.tag = tagMatch ? tagMatch.map(t=>t.replace(/[\[\]]/g,'')).find(t=>/premium/i.test(t)) || '' : '';
+        shift.event = lines[j].replace(/\s*\[.*?\]/g,'').trim();
+        break;
+      }
+    }
+
+    // Lines after date: venue, optional city, optional status/rate
+    const afterLines = lines.slice(dateIdx+1, nextDate).filter(l => l);
+    if (afterLines.length > 0) {
+      shift.venue = afterLines[0];
+    }
+    // Check remaining after-lines for status and rate; skip garbage and cities
+    for (let k = 1; k < afterLines.length; k++) {
+      const line = afterLines[k];
+      if (GARBAGE_LINE.test(line))    { continue; } // discard UI noise
+      if (CONFIRMED_WORDS.test(line)) { shift.status = 'confirmed'; continue; }
+      if (PENDING_WORDS.test(line))   { shift.status = 'pending';   continue; }
+      // Pay rate
+      const payM = line.match(/\$?(\d+(?:\.\d+)?)\s*(?:\/hr|per\s+hour|an\s+hour|hourly|\/hour|\s*ph\b)/i);
+      if (payM) { shift.rate = parseFloat(payM[1]); continue; }
+      // Everything else (cities, extra labels) is silently ignored — venue stays clean
+    }
+    results.push(shift);
+  }
+  return results;
+}
+
+function parseFreeformSingle(raw) {
+  const shift = { id: uid(), event:'', venue:'', date:'', start:'', end:'', rate:0, status:'confirmed' };
+
+  if (/\b(pending|applied|hoping|not yet|unconfirmed|waiting|haven'?t got|applied for|trying to get)\b/i.test(raw))
+    shift.status = 'pending';
+
+  const payM = raw.match(/\$?(\d+(?:\.\d+)?)\s*(?:\/hr\b|per\s+hour|an\s+hour|hourly|\/hour\b|\s*ph\b)/i);
+  if (payM) shift.rate = parseFloat(payM[1]);
+
+  const trM = raw.match(/(\d{1,2}(?::\d{2})?\s*(?:am|pm)?)\s*(?:to|until|till|-|–)\s*(\d{1,2}(?::\d{2})?\s*(?:am|pm))/i);
+  if (trM) { shift.start = parseTimeToken(trM[1]); shift.end = parseTimeToken(trM[2]); }
+  else {
+    const stM = raw.match(/\b(\d{1,2}(?::\d{2})?\s*(?:am|pm))\b/i);
+    if (stM) shift.start = parseTimeToken(stM[1]);
+  }
+
+  shift.date = parseDateFromText(raw);
+
+  const venuePatterns = [
+    /(?:^|\s)@\s*([A-Z][^,\n.@]+?)(?=\s+on\b|\s+for\b|\s+from\b|\s+\d|\s*[,\n.]|$)/i,
+    /\bvenue[:\s]+([^,\n.]+?)(?=\s+on\b|\s+for\b|\s+from\b|\s*[,\n.]|$)/i,
+    /\bat\s+([A-Z][^,\n.@]+?)(?=\s+on\b|\s+for\b|\s+from\b|\s+\d|\s*[,\n.]|$)/i,
+  ];
+  for (const re of venuePatterns) {
+    const vm = raw.match(re);
+    if (vm) {
+      const c = vm[1].trim();
+      if (!/\b(\d{1,2}(?:am|pm)|monday|tuesday|wednesday|thursday|friday|saturday|sunday)\b/i.test(c) && c.length>1) {
+        shift.venue = c; break;
+      }
+    }
+  }
+
+  let evM = raw.match(/\b(?:for(?:\s+the)?|event[:\s]+|show[:\s]+|concert[:\s]+)\s*([^,\n.@]+?)(?=\s+(?:at|@|on|from)\b|\s*[,\n.]|$)/i);
+  if (evM) { shift.event = evM[1].trim(); }
+  else {
+    const qM = raw.match(/["']([^"']{2,60})["']/);
+    if (qM) { shift.event = qM[1].trim(); }
+    else {
+      let first = raw.split(/[,\n]/)[0].replace(/\b(confirmed|pending|applied|waiting|shift|work|working)\b/gi,'').replace(/\s+/g,' ').trim();
+      if (first.length>1&&first.length<60) shift.event = first;
+    }
+  }
+  return [shift];
+}
+
+function parseShiftsFromText(raw) {
+  const structured = parseStructuredBlocks(raw);
+  if (structured && structured.length > 0) return structured;
+  return parseFreeformSingle(raw);
+}
+
+// ── Parsed card builder ───────────────────────────────────────────────
+let parsedDrafts = [];
+
+function buildParsedCard(shift, index) {
+  const card = document.createElement('div');
+  card.className = 'parsed-card';
+  card.dataset.index = index;
+  card.dataset.tag = shift.tag || '';
+
+  const missing = [];
+  if (!shift.event) missing.push('event name');
+  if (!shift.date)  missing.push('date');
+  if (!shift.venue) missing.push('venue');
+
+  const hours = parseHours(shift.date, shift.start, shift.end);
+  const payStr = (shift.rate > 0 && hours > 0)
+    ? `${fmtPay(hours * shift.rate)} (${hours.toFixed(1)} tim × ${fmtPay(shift.rate)}/tim)`
+    : '';
+
+  card.innerHTML = `
+    <div class="parsed-card-head">
+      <input type="text" class="pc-event" value="${escHtml(shift.event)}" placeholder="Event name" style="flex:1">
+      <select class="pc-status" style="width:110px;flex-shrink:0;background:#13131a;border:1px solid #222232;color:#e8e8f0;border-radius:6px;padding:4px 6px;font-size:.78rem;font-family:inherit">
+        <option value="confirmed" ${shift.status==='confirmed'?'selected':''}>✓ Bekräftad</option>
+        <option value="pending"   ${shift.status==='pending'  ?'selected':''}>⏳ Väntande</option>
+      </select>
+    </div>
+    <div class="parsed-card-fields">
+      <div class="pcf full"><label>Venue</label><input type="text" class="pc-venue" value="${escHtml(shift.venue)}" placeholder="Venue"></div>
+      <div class="pcf"><label>Date</label><input type="date" class="pc-date" value="${shift.date}"></div>
+      <div class="pcf"><label>Hourly Rate ($)</label><input type="number" class="pc-rate" value="${shift.rate||''}" placeholder="0.00" min="0" step="0.01"></div>
+      <div class="pcf"><label>Start</label><input type="time" class="pc-start" value="${shift.start}"></div>
+      <div class="pcf"><label>End</label><input type="time" class="pc-end" value="${shift.end}"></div>
+    </div>
+    <div class="card-pay-preview pc-pay">${payStr}</div>
+    ${missing.length ? `<div class="missing-warn">⚠ Please fill in: ${missing.join(', ')}</div>` : ''}
+  `;
+
+  // Live pay preview per card
+  function refreshPay() {
+    const d = card.querySelector('.pc-date').value;
+    const s = card.querySelector('.pc-start').value;
+    const e = card.querySelector('.pc-end').value;
+    const r = parseFloat(card.querySelector('.pc-rate').value)||0;
+    const h = parseHours(d,s,e);
+    card.querySelector('.pc-pay').textContent = (r>0&&h>0) ? `${fmtPay(h*r)} (${h.toFixed(1)} tim × ${fmtPay(r)}/tim)` : '';
+  }
+  ['pc-date','pc-start','pc-end'].forEach(cls => card.querySelector('.'+cls).addEventListener('change', refreshPay));
+  card.querySelector('.pc-rate').addEventListener('input', refreshPay);
+
+  return card;
+}
+
+function escHtml(s) { return (s||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;'); }
+
+function readCardData(card) {
+  return {
+    id:     card.dataset.shiftId || uid(),
+    event:  card.querySelector('.pc-event').value.trim(),
+    venue:  card.querySelector('.pc-venue').value.trim(),
+    date:   card.querySelector('.pc-date').value,
+    start:  card.querySelector('.pc-start').value,
+    end:    card.querySelector('.pc-end').value,
+    rate:   parseFloat(card.querySelector('.pc-rate').value)||0,
+    status: card.querySelector('.pc-status').value,
+    tag:    card.dataset.tag || '',
+  };
+}
+
+// ── Paste modal logic ─────────────────────────────────────────────────
+function showPasteStep(n) {
+  document.getElementById('pasteStep1').classList.toggle('hidden', n!==1);
+  document.getElementById('pasteStep2').classList.toggle('hidden', n!==2);
+}
+
+document.getElementById('openPasteBtn').addEventListener('click', () => {
+  document.getElementById('pasteInput').value = '';
+  showPasteStep(1);
+  document.getElementById('pasteOverlay').classList.add('open');
+  setTimeout(() => document.getElementById('pasteInput').focus(), 50);
+});
+
+document.getElementById('pasteCancelBtn').addEventListener('click', closeModals);
+document.getElementById('reviewBackBtn').addEventListener('click', () => showPasteStep(1));
+
+document.getElementById('parseBtn').addEventListener('click', () => {
+  const raw = document.getElementById('pasteInput').value.trim();
+  if (!raw) return;
+
+  parsedDrafts = parseShiftsFromText(raw);
+  const list = document.getElementById('parsedList');
+  list.innerHTML = '';
+  parsedDrafts.forEach((s, i) => list.appendChild(buildParsedCard(s, i)));
+
+  const n = parsedDrafts.length;
+  document.getElementById('parsedCount').innerHTML =
+    `Hittade <strong>${n}</strong> pass — granska och redigera nedan, spara sedan.`;
+  document.getElementById('saveAllBtn').textContent = `Spara ${n} pass`;
+  showPasteStep(2);
+});
+
+document.getElementById('saveAllBtn').addEventListener('click', () => {
+  const cards = document.getElementById('parsedList').querySelectorAll('.parsed-card');
+  cards.forEach(card => {
+    const data = readCardData(card);
+    if (!data.event && !data.date) return; // skip empty
+    shifts.push({ ...data, id: uid() });
+  });
+  save();
+  closeModals();
+  renderCalendar();
+  // Jump to first saved shift's month if needed
+  if (parsedDrafts.length && parsedDrafts[0].date) {
+    const d = new Date(parsedDrafts[0].date + 'T00:00:00');
+    currentYear = d.getFullYear(); currentMonth = d.getMonth();
+    renderCalendar();
+  }
+});
+
+document.getElementById('pasteOverlay').addEventListener('click', e => { if (e.target===e.currentTarget) closeModals(); });
+
+// ── ISO week number ───────────────────────────────────────────────────
+function getISOWeek(date) {
+  const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+  const day = d.getUTCDay() || 7; // Mon=1 … Sun=7
+  d.setUTCDate(d.getUTCDate() + 4 - day); // move to Thursday of the week
+  const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+  return Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
+}
+
+// ── OB-day check (Swedish collective agreement pattern) ───────────────
+// Odd ISO weeks:  Saturday (col 5) + Sunday (col 6) → OB
+// Even ISO weeks: Monday  (col 0)  + Sunday (col 6) → OB  (Mon follows odd-week Sunday)
+function isOBDay(weekNum, col) {
+  const odd = weekNum % 2 === 1;
+  return (odd  && (col === 5 || col === 6)) ||
+         (!odd && (col === 0 || col === 6));
+}
+
+// ── Calendar rendering ────────────────────────────────────────────────
+function renderCalendar() {
+  const grid = document.getElementById('calendarGrid');
+  grid.innerHTML = '';
+  // Swedish month label, capitalise first letter
+  const rawLabel = new Date(currentYear, currentMonth, 1).toLocaleDateString('sv-SE',{month:'long',year:'numeric'});
+  document.getElementById('monthLabel').textContent = rawLabel.charAt(0).toUpperCase() + rawLabel.slice(1);
+
+  // Week starts on Monday: shift Sunday (0) to end (6), Mon=0 … Sun=6
+  const rawFirstDay = new Date(currentYear, currentMonth, 1).getDay();
+  const firstDay    = (rawFirstDay + 6) % 7;
+  const daysInMonth = new Date(currentYear, currentMonth+1, 0).getDate();
+  const daysInPrev  = new Date(currentYear, currentMonth, 0).getDate();
+  const today       = new Date();
+  const todayStr    = `${today.getFullYear()}-${padZ(today.getMonth()+1)}-${padZ(today.getDate())}`;
+
+  const totalRows = Math.ceil((firstDay + daysInMonth) / 7);
+
+  for (let row = 0; row < totalRows; row++) {
+    // ── Week number cell ─────────────────────────────────────────────
+    // Use the Thursday of this row (col 3 = Thu in Mon-start grid) for ISO week
+    const thuOffset = row * 7 + 3 - firstDay; // 0-based index into month days
+    let tDay = thuOffset + 1, tMonth = currentMonth, tYear = currentYear;
+    if (tDay < 1) {
+      tMonth--; if (tMonth < 0) { tMonth = 11; tYear--; }
+      tDay += new Date(tYear, tMonth + 1, 0).getDate();
+    } else if (tDay > daysInMonth) {
+      tDay -= daysInMonth; tMonth++;
+      if (tMonth > 11) { tMonth = 0; tYear++; }
+    }
+    const weekNum = getISOWeek(new Date(tYear, tMonth, tDay));
+    const wCell = document.createElement('div');
+    wCell.className = 'week-num-cell';
+    wCell.textContent = weekNum;
+    grid.appendChild(wCell);
+
+    // ── 7 day cells ──────────────────────────────────────────────────
+    for (let col = 0; col < 7; col++) {
+      const i = row * 7 + col;
+      const cell = document.createElement('div'); cell.className = 'day-cell';
+      let day, month, year, isOther = false;
+
+      if (i < firstDay) {
+        day=daysInPrev-firstDay+i+1; month=currentMonth===0?11:currentMonth-1; year=currentMonth===0?currentYear-1:currentYear; isOther=true;
+      } else if (i >= firstDay+daysInMonth) {
+        day=i-firstDay-daysInMonth+1; month=currentMonth===11?0:currentMonth+1; year=currentMonth===11?currentYear+1:currentYear; isOther=true;
+      } else { day=i-firstDay+1; month=currentMonth; year=currentYear; }
+
+      const dateStr = `${year}-${padZ(month+1)}-${padZ(day)}`;
+      if (isOther) cell.classList.add('other-month');
+      if (dateStr === todayStr) cell.classList.add('today');
+      if (isOBDay(weekNum, col)) cell.classList.add('ob-day');
+
+      const numEl = document.createElement('div'); numEl.className='day-num'; numEl.textContent=day; cell.appendChild(numEl);
+
+      shifts.filter(s=>s.date===dateStr).forEach(shift => {
+        const chip = document.createElement('div');
+        chip.className=`shift-chip ${shift.status}`;
+        chip.title=`${shift.event}${shift.tag?' ['+shift.tag+']':''} @ ${shift.venue}`;
+        const isPremium = shift.tag && /premium/i.test(shift.tag);
+        const premBadge = isPremium ? `<span class="chip-premium">PREMIUM</span>` : '';
+        const timeStr = (shift.start && shift.end) ? `<div class="chip-time">${shift.start}–${shift.end}</div>` : '';
+        chip.innerHTML = `<div class="chip-name"><span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0">${escHtml(shift.event||'Pass')}</span>${premBadge}</div>${timeStr}`;
+        chip.addEventListener('click', e=>{e.stopPropagation(); openDetail(shift.id);});
+        cell.appendChild(chip);
+      });
+      cell.addEventListener('click', ()=>openAdd(dateStr));
+      grid.appendChild(cell);
+    }
+  }
+  updateStats();
+}
+
+function updateStats() {
+  const conf = shifts.filter(s => s.status === 'confirmed');
+  const pend = shifts.filter(s => s.status === 'pending');
+
+  // Current viewed month
+  const monthConf = conf.filter(s => {
+    if (!s.date) return false;
+    const d = new Date(s.date + 'T00:00:00');
+    return d.getFullYear() === currentYear && d.getMonth() === currentMonth;
+  });
+  const monthAll = shifts.filter(s => {
+    if (!s.date) return false;
+    const d = new Date(s.date + 'T00:00:00');
+    return d.getFullYear() === currentYear && d.getMonth() === currentMonth;
+  });
+  // Current viewed year
+  const yearConf = conf.filter(s => {
+    if (!s.date) return false;
+    return new Date(s.date + 'T00:00:00').getFullYear() === currentYear;
+  });
+  const yearAll = shifts.filter(s => {
+    if (!s.date) return false;
+    return new Date(s.date + 'T00:00:00').getFullYear() === currentYear;
+  });
+
+  // Hours calculations
+  const todayStr = toDateStr(new Date());
+  const workedHoursMonth = monthConf.filter(s => s.date <= todayStr).reduce((t, s) => t + parseHours(s.date, s.start, s.end), 0);
+  const confHoursMonth   = monthConf.reduce((t, s) => t + parseHours(s.date, s.start, s.end), 0);
+  const workedHoursYear  = yearConf.filter(s => s.date <= todayStr).reduce((t, s) => t + parseHours(s.date, s.start, s.end), 0);
+  const confHoursYear    = yearConf.reduce((t, s) => t + parseHours(s.date, s.start, s.end), 0);
+
+  // Swedish month name, capitalised
+  const monthName = new Date(currentYear, currentMonth, 1)
+    .toLocaleDateString('sv-SE', { month: 'long' });
+  const monthNameCap = monthName.charAt(0).toUpperCase() + monthName.slice(1);
+
+  const fmtH = h => Number.isInteger(h) ? String(h) : h.toFixed(1);
+
+  document.getElementById('statConfirmed').textContent = conf.length;
+  document.getElementById('statPending').textContent   = pend.length;
+  document.getElementById('statPayMonth').textContent  = fmtPay(monthConf.reduce((s, sh) => s + calcPay(sh), 0));
+  document.getElementById('statPayMonthLabel').textContent = `lön ${monthNameCap}`;
+  document.getElementById('statPayYear').textContent   = fmtPay(yearConf.reduce((s, sh) => s + calcPay(sh), 0));
+
+  document.getElementById('statHoursMonth').textContent =
+    confHoursMonth > 0 ? `(${fmtH(workedHoursMonth)} / ${fmtH(confHoursMonth)} tim)` : '';
+  document.getElementById('statHoursYear').textContent =
+    confHoursYear > 0 ? `(${fmtH(workedHoursYear)} / ${fmtH(confHoursYear)} tim)` : '';
+}
+
+// ── Add/Edit Modal ────────────────────────────────────────────────────
+function fillForm(d) {
+  document.getElementById('fieldEvent').value  = d.event  ||'';
+  document.getElementById('fieldVenue').value  = d.venue  ||'';
+  document.getElementById('fieldDate').value   = d.date   ||'';
+  document.getElementById('fieldStart').value  = d.start  ||'';
+  document.getElementById('fieldEnd').value    = d.end    ||'';
+  document.getElementById('fieldRate').value   = d.rate   ||'';
+  document.getElementById('fieldStatus').value = d.status ||'confirmed';
+  updatePayPreview();
+}
+function openAdd(dateStr) {
+  editingId=null;
+  document.getElementById('modalTitle').textContent='Lägg till pass';
+  fillForm({date:dateStr||'',status:'confirmed'});
+  document.getElementById('deleteBtn').style.display='none';
+  document.getElementById('shiftOverlay').classList.add('open');
+  document.getElementById('fieldEvent').focus();
+}
+function openEdit(id) {
+  const s=shifts.find(s=>s.id===id); if(!s)return;
+  editingId=id;
+  document.getElementById('modalTitle').textContent='Redigera pass';
+  fillForm(s);
+  document.getElementById('deleteBtn').style.display='inline-block';
+  document.getElementById('shiftOverlay').classList.add('open');
+  document.getElementById('fieldEvent').focus();
+}
+function updatePayPreview() {
+  const date=document.getElementById('fieldDate').value, start=document.getElementById('fieldStart').value,
+        end=document.getElementById('fieldEnd').value, rate=parseFloat(document.getElementById('fieldRate').value)||0;
+  const el=document.getElementById('payPreview');
+  if(date&&start&&end&&rate>0){
+    const h=parseHours(date,start,end);
+    document.getElementById('payPreviewAmt').textContent=`${fmtPay(h*rate)} (${h.toFixed(2)} tim × ${fmtPay(rate)}/tim)`;
+    el.style.display='block';
+  } else { el.style.display='none'; }
+}
+['fieldStart','fieldEnd','fieldDate'].forEach(id=>document.getElementById(id).addEventListener('change',updatePayPreview));
+document.getElementById('fieldRate').addEventListener('input',updatePayPreview);
+
+document.getElementById('saveBtn').addEventListener('click',()=>{
+  const event=document.getElementById('fieldEvent').value.trim(), date=document.getElementById('fieldDate').value;
+  if(!event||!date){document.getElementById('fieldEvent').focus();return;}
+  const data={event,venue:document.getElementById('fieldVenue').value.trim(),date,
+    start:document.getElementById('fieldStart').value,end:document.getElementById('fieldEnd').value,
+    rate:parseFloat(document.getElementById('fieldRate').value)||0,status:document.getElementById('fieldStatus').value};
+  if(editingId){const idx=shifts.findIndex(s=>s.id===editingId);shifts[idx]={...shifts[idx],...data};} // tag preserved via spread
+  else shifts.push({id:uid(),tag:'',...data});
+  save();closeModals();renderCalendar();
+});
+document.getElementById('deleteBtn').addEventListener('click',()=>{
+  if(!editingId)return;
+  const s=shifts.find(s=>s.id===editingId); if(s) addTombstone(s);
+  shifts=shifts.filter(s=>s.id!==editingId); save();closeModals();renderCalendar();
+});
+document.getElementById('cancelBtn').addEventListener('click',closeModals);
+
+// ── Detail Modal ──────────────────────────────────────────────────────
+function openDetail(id) {
+  const s=shifts.find(s=>s.id===id); if(!s)return; viewingId=id;
+  const isPrem = s.tag && /premium/i.test(s.tag);
+  document.getElementById('detailTitle').textContent=(s.event||'Pass')+(isPrem?' ★ PREMIUM':'');
+  document.getElementById('detailVenue').textContent=s.venue||'—';
+  document.getElementById('detailTime').textContent=
+    `${fmtDate(s.date)}${s.start?', '+fmtTime(s.start):''}${s.end?' – '+fmtTime(s.end):''}`;
+  document.getElementById('detailStatus').innerHTML=
+    `<span class="status-badge ${s.status}">${s.status==='confirmed'?'Bekräftad':'Väntande'}</span>`;
+  const h=parseHours(s.date,s.start,s.end), dp=document.getElementById('detailPay');
+  if(s.rate>0&&h>0){
+    document.getElementById('detailPayAmt').textContent=fmtPay(calcPay(s));
+    document.getElementById('detailPayHours').textContent=`${h.toFixed(2)} tim × ${fmtPay(s.rate)}/tim`;
+    dp.style.display='block';
+  } else dp.style.display='none';
+  document.getElementById('detailOverlay').classList.add('open');
+}
+document.getElementById('detailEditBtn').addEventListener('click',()=>{const id=viewingId;closeModals();openEdit(id);});
+document.getElementById('detailDeleteBtn').addEventListener('click',()=>{
+  if(!viewingId)return;
+  const s=shifts.find(s=>s.id===viewingId); if(s) addTombstone(s);
+  shifts=shifts.filter(s=>s.id!==viewingId); save();closeModals();renderCalendar();
+});
+document.getElementById('detailCloseBtn').addEventListener('click',closeModals);
+
+// ── Misc ──────────────────────────────────────────────────────────────
+function closeModals() {
+  ['shiftOverlay','detailOverlay','pasteOverlay'].forEach(id=>document.getElementById(id).classList.remove('open'));
+  editingId=null;viewingId=null;
+}
+['shiftOverlay','detailOverlay'].forEach(id=>
+  document.getElementById(id).addEventListener('click',e=>{if(e.target===e.currentTarget)closeModals();}));
+
+document.getElementById('prevMonth').addEventListener('click',()=>{currentMonth--;if(currentMonth<0){currentMonth=11;currentYear--;}renderCalendar();});
+document.getElementById('nextMonth').addEventListener('click',()=>{currentMonth++;if(currentMonth>11){currentMonth=0;currentYear++;}renderCalendar();});
+document.getElementById('openAddBtn').addEventListener('click',()=>openAdd(''));
+document.getElementById('forceRefreshBtn').addEventListener('click', async () => {
+  const btn = document.getElementById('forceRefreshBtn');
+  btn.textContent = '⏳ Hämtar…';
+  btn.disabled = true;
+  await loadShiftsJson();
+  btn.textContent = '🔄 Uppdatera';
+  btn.disabled = false;
+});
+
+// ── PDF Upload (Tarantsec anställningsavtal) ──────────────────────────
+async function extractPdfText(arrayBuffer) {
+  pdfjsLib.GlobalWorkerOptions.workerSrc =
+    'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+  const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+  let text = '';
+  for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+    const page = await pdf.getPage(pageNum);
+    const content = await page.getTextContent();
+    // Group text items by y-coordinate to reconstruct lines
+    const byY = {};
+    for (const item of content.items) {
+      const y = Math.round(item.transform[5]);
+      (byY[y] = byY[y] || []).push({ x: item.transform[4], str: item.str });
+    }
+    const ys = Object.keys(byY).map(Number).sort((a, b) => b - a);
+    for (const y of ys) {
+      const line = byY[y].sort((a, b) => a.x - b.x).map(i => i.str).join(' ');
+      if (line.trim()) text += line + '\n';
+    }
+    text += '\n';
+  }
+  return text;
+}
+
+function parseTarantsecPdf(text) {
+  const find = re => { const m = text.match(re); return m ? m[1].trim() : ''; };
+
+  const schedStartFull = find(/Anst.llningstid[^\n]*?start\s+(\d{4}-\d{2}-\d{2}[ T]\d{2}:\d{2})/i);
+  const schedEndFull   = find(/Anst.llningstid[^\n]*?slut\s+(\d{4}-\d{2}-\d{2}[ T]\d{2}:\d{2})/i);
+  const rate  = parseInt(find(/L.n[^\n]*?SEK.timme[^\n]*?brutto\s+(\d+)/i)) || 0;
+  const venue = find(/Arbetsplats\s+(\S[^\n]+)/);
+
+  // Steps 1-3 (offer/accept/confirm) happen days before the shift.
+  // Steps 4-5 (check-in/check-out) happen ON the shift day.
+  // Strategy: collect all unique timestamps on the shift date, exclude scheduled start/end — last = check-out.
+  const shiftDate = schedStartFull ? schedStartFull.replace('T',' ').split(' ')[0] : '';
+  // Match both "YYYY-MM-DD HH:MM" and "YYYY-MM-DDTHH:MM" formats
+  const allTimestamps = [...text.matchAll(/(\d{4}-\d{2}-\d{2})[ T](\d{2}:\d{2})/g)].map(m => m[1] + ' ' + m[2]);
+  const unique = [...new Set(allTimestamps)];
+  const onDay = shiftDate ? unique.filter(t => t.startsWith(shiftDate)) : [];
+  // Exclude the scheduled start/end so only actual clock-in/clock-out remain
+  const schedStartNorm = schedStartFull.replace('T', ' ').substring(0, 16);
+  const schedEndNorm   = schedEndFull.replace('T', ' ').substring(0, 16);
+  const stempelOnDay = onDay.filter(t => t !== schedStartNorm && t !== schedEndNorm);
+  stempelOnDay.sort();
+  const checkoutTime = stempelOnDay.length >= 1 ? stempelOnDay[stempelOnDay.length - 1].split(' ')[1] : '';
+  pdfDebugText = `shiftDate: ${shiftDate}\nschedStart: ${schedStartNorm} | schedEnd: ${schedEndNorm}\nalla tidsstämplar: ${unique.join(' | ')}\npå passets datum: ${onDay.join(' | ')}\nstämpelkort (exkl schemalagda): ${stempelOnDay.join(' | ')}\nutcheckad: ${checkoutTime || '(ej funnen)'}\n\n--- Sista 800 tecken av PDF-text ---\n${text.slice(-800)}`;
+  console.log('[PDF Debug]\n' + pdfDebugText);
+
+  // Event name: last "på X" between Arbetsuppgift and Arbetsplats
+  let event = '';
+  const block = text.match(/Arbetsuppgift([\s\S]+?)Arbetsplats/);
+  if (block) {
+    const ms = [...block[1].matchAll(/p[åa] (.+)/g)];
+    if (ms.length >= 2) event = ms[ms.length - 1][1].trim();
+    else if (ms.length === 1) event = ms[0][1].trim();
+  }
+  event = event.replace(/\s*\[(SERVICE|PREMIUM|STHLM LIVE|LIVE)\]\s*/gi, '').trim();
+
+  const toTime = s => s ? s.replace('T', ' ').split(' ')[1] : '';
+  const toDate = s => s ? s.replace('T', ' ').split(' ')[0] : '';
+
+  return {
+    date:         toDate(schedStartFull),
+    schedStart:   toTime(schedStartFull),   // fast starttid
+    schedEnd:     toTime(schedEndFull),
+    rate,
+    venue:        venue.trim(),
+    event,
+    checkoutTime,  // faktisk utcheckning
+  };
+}
+
+function matchShiftToPdf(parsed) {
+  const byDate = shifts.filter(s => s.date === parsed.date);
+  if (byDate.length === 0) return null;
+  if (byDate.length === 1) return byDate[0];
+  // Multiple shifts on same date — rank by event name similarity
+  const norm = s => s.toLowerCase().replace(/[–-]/g, '-').replace(/\s+/g, ' ').trim();
+  const pev = norm(parsed.event);
+  return byDate.sort((a, b) => {
+    const sa = norm(a.event), sb = norm(b.event);
+    const sc = s => (pev.includes(s) || s.includes(pev)) ? 10
+      : s.split(' ').filter(w => pev.includes(w) && w.length > 2).length;
+    return sc(sb) - sc(sa);
+  })[0];
+}
+
+let pdfParsed = null, pdfMatched = null, pdfDebugText = '';
+
+function showPdfModal(parsed, matched) {
+  pdfParsed = parsed; pdfMatched = matched;
+  const hasCheckout = !!parsed.checkoutTime;
+  // Start = scheduled (fast), End = actual checkout if available else scheduled end
+  const applyStart = parsed.schedStart;
+  const applyEnd   = hasCheckout ? parsed.checkoutTime : parsed.schedEnd;
+
+  const matchInfo = matched
+    ? `<span style="color:#34d399">✓ ${escHtml(matched.event)} (${matched.date})</span>`
+    : `<span style="color:#f87171">⚠ Inget matchande pass hittades för ${parsed.date}</span>`;
+
+  document.getElementById('pdfModalContent').innerHTML = `
+    <div style="display:flex;gap:16px;margin-bottom:16px;flex-wrap:wrap">
+      <div class="detail-field" style="flex:2;min-width:140px">
+        <div class="detail-label">Evenemang</div>
+        <div class="detail-value">${escHtml(parsed.event || '–')}</div>
+      </div>
+      <div class="detail-field" style="flex:1;min-width:90px">
+        <div class="detail-label">Datum</div>
+        <div class="detail-value">${parsed.date || '–'}</div>
+      </div>
+      <div class="detail-field" style="flex:1;min-width:90px">
+        <div class="detail-label">Arena</div>
+        <div class="detail-value">${escHtml(parsed.venue || '–')}</div>
+      </div>
+    </div>
+
+    <div style="background:#13131a;border:1px solid #1e1e2e;border-radius:10px;padding:14px;margin-bottom:14px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div>
+          <div class="detail-label">Schemalagd start <span style="color:#6c7086;font-weight:400">(fast)</span></div>
+          <div style="font-size:.95rem;color:#e8e8f0;margin-top:3px">${parsed.schedStart || '–'}</div>
+        </div>
+        <div>
+          <div class="detail-label">Faktisk utcheckning</div>
+          <div style="font-size:.95rem;margin-top:3px;color:${hasCheckout ? '#34d399' : '#555'}">
+            ${hasCheckout ? `${parsed.checkoutTime} ✓` : '– (ej utcheckad än)'}
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:10px;padding-top:10px;border-top:1px solid #1e1e2e">
+        <div class="detail-label">Timlön i avtalet</div>
+        <div style="font-size:.95rem;color:#e8e8f0;margin-top:3px">${parsed.rate} kr/tim</div>
+      </div>
+    </div>
+
+    <div style="background:#0d1f15;border:1px solid #1a3d2b;border-radius:8px;padding:10px 14px;margin-bottom:14px;font-size:.83rem;color:#34d399">
+      Uppdaterar med: <strong>${applyStart} – ${applyEnd}</strong>
+      ${hasCheckout ? '(schemalagd start + faktisk utcheckning)' : '(schemalagda tider — inget stämpelkort ännu)'}
+      &nbsp;·&nbsp; <strong>${parsed.rate} kr/tim</strong>
+    </div>
+
+    <div style="font-size:.82rem;margin-bottom:12px">
+      <span style="color:#555">Matchat pass:</span> ${matchInfo}
+    </div>
+    <details style="margin-top:10px;border:1px solid #3b3b5c;border-radius:8px;padding:8px;background:#0d0d18">
+      <summary style="cursor:pointer;color:#a78bfa;font-size:.8rem;font-weight:600">🔍 PDF-debuginfo</summary>
+      <pre style="margin-top:8px;background:#0f0f13;border-radius:6px;padding:10px;overflow:auto;max-height:260px;white-space:pre-wrap;font-size:.7rem;color:#cdd6f4;word-break:break-all">${escHtml(pdfDebugText || '(tom)')}</pre>
+    </details>
+  `;
+
+  document.getElementById('pdfApplyBtn').disabled = !matched;
+  document.getElementById('pdfOverlay').classList.add('open');
+}
+
+document.getElementById('uploadPdfBtn').addEventListener('click', () => {
+  document.getElementById('pdfInput').click();
+});
+
+document.getElementById('pdfInput').addEventListener('change', async function() {
+  const file = this.files[0];
+  if (!file) return;
+  this.value = '';
+  const btn = document.getElementById('uploadPdfBtn');
+  btn.textContent = '⏳ Läser…';
+  btn.disabled = true;
+  try {
+    const text = await extractPdfText(await file.arrayBuffer());
+    const parsed = parseTarantsecPdf(text);
+    if (!parsed.date) {
+      alert('Kunde inte läsa datum. Är det ett Tarantsec-anställningsavtal?');
+      return;
+    }
+    showPdfModal(parsed, matchShiftToPdf(parsed));
+  } catch (err) {
+    console.error(err);
+    alert('Kunde inte läsa PDF: ' + err.message);
+  } finally {
+    btn.textContent = '📄 Ladda upp avtal';
+    btn.disabled = false;
+  }
+});
+
+document.getElementById('pdfCancelBtn').addEventListener('click', () => {
+  document.getElementById('pdfOverlay').classList.remove('open');
+  pdfParsed = pdfMatched = null;
+});
+
+document.getElementById('pdfApplyBtn').addEventListener('click', () => {
+  if (!pdfParsed || !pdfMatched) return;
+  const idx = shifts.findIndex(s => s.id === pdfMatched.id);
+  if (idx !== -1) {
+    shifts[idx].start  = pdfParsed.schedStart;   // schemalagd start (fast)
+    shifts[idx].end    = pdfParsed.checkoutTime || pdfParsed.schedEnd;
+    shifts[idx].rate   = pdfParsed.rate;
+    shifts[idx].status = 'confirmed';
+    save();
+    renderCalendar();
+  }
+  document.getElementById('pdfOverlay').classList.remove('open');
+  pdfParsed = pdfMatched = null;
+  const b = document.createElement('div');
+  b.style.cssText = 'position:fixed;bottom:20px;right:20px;background:#1a2e1a;border:1px solid #2a6b2a;color:#4ade80;padding:12px 18px;border-radius:10px;font-size:.82rem;z-index:999';
+  b.textContent = '✅ Passet uppdaterat med avtalets tider!';
+  document.body.appendChild(b);
+  setTimeout(() => b.remove(), 3500);
+});
+
+document.getElementById('pdfOverlay').addEventListener('click', e => {
+  if (e.target === e.currentTarget) {
+    document.getElementById('pdfOverlay').classList.remove('open');
+    pdfParsed = pdfMatched = null;
+  }
+});
+
+const now=new Date(); currentYear=now.getFullYear(); currentMonth=now.getMonth();
+initDefaultRate();
+prunePastPending();
+renderCalendar();
+loadShiftsJson();
+</script>
+</body>
+</html>
