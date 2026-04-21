@@ -118,39 +118,99 @@
   .status-badge.confirmed { background: #4c1d95; color: #c4b5fd; }
   .status-badge.pending { background: #1c1a0e; color: #fbbf24; border: 1px solid #fbbf24; }
 
+  /* ── Mobile app container (hidden on desktop) ── */
+  .mobile-app { display: none; flex-direction: column; min-height: 100vh; }
+
+  /* ── Mobile components ── */
+  .m-header { display: flex; align-items: center; justify-content: space-between; padding: 18px 20px 12px; }
+  .m-header h1 { font-size: 1.2rem; font-weight: 700; }
+  .m-header h1 span { color: #a78bfa; }
+  .m-header-btns { display: flex; gap: 8px; }
+  .m-icon-btn { background: #1e1e2e; border: none; color: #e8e8f0; width: 42px; height: 42px; border-radius: 12px; cursor: pointer; font-size: 1rem; display: flex; align-items: center; justify-content: center; transition: background .15s; }
+  .m-icon-btn:active { background: #2a2a3e; }
+  .m-add-btn { background: #7c3aed !important; font-size: 1.5rem; font-weight: 300; line-height: 1; }
+
+  .m-stats { display: flex; padding: 8px 20px 10px; background: #13131a; border-bottom: 1px solid #1e1e2e; gap: 0; }
+  .m-stat { flex: 1; text-align: center; padding: 4px 0; }
+  .m-stat + .m-stat { border-left: 1px solid #1e1e2e; }
+  .m-stat-val { display: block; font-size: 1rem; font-weight: 700; }
+  .m-stat-val.purple { color: #a78bfa; }
+  .m-stat-val.yellow { color: #fbbf24; }
+  .m-stat-val.green { color: #34d399; }
+  .m-stat-label { font-size: .66rem; color: #555; }
+
+  .m-tabs { display: flex; margin: 14px 20px 0; background: #13131a; border-radius: 14px; padding: 4px; gap: 4px; }
+  .m-tab { flex: 1; padding: 10px; border-radius: 10px; border: none; font-size: .88rem; font-weight: 600; cursor: pointer; background: transparent; color: #666; transition: all .15s; font-family: inherit; }
+  .m-tab.active { background: #7c3aed; color: #fff; }
+
+  .m-content { flex: 1; padding: 16px 20px 40px; overflow-y: auto; }
+
+  .m-today-header { margin-bottom: 22px; }
+  .m-today-dayname { font-size: .75rem; color: #666; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+  .m-today-bigdate { font-size: 2.4rem; font-weight: 700; color: #e8e8f0; line-height: 1; }
+  .m-today-bigdate span { color: #a78bfa; }
+
+  .m-section-label { font-size: .7rem; font-weight: 700; color: #555; text-transform: uppercase; letter-spacing: 1.2px; margin: 22px 0 10px; }
+
+  .m-no-shifts { text-align: center; padding: 30px 0 10px; }
+  .m-no-shifts-emoji { font-size: 2.2rem; margin-bottom: 8px; }
+  .m-no-shifts-text { font-size: .9rem; color: #555; }
+
+  .m-shift-card { background: #16161f; border: 1px solid #2a2a3e; border-radius: 14px; padding: 16px; margin-bottom: 10px; cursor: pointer; transition: border-color .15s; active-color: #7c3aed; }
+  .m-shift-card:active { border-color: #7c3aed; }
+  .m-shift-card.confirmed { border-left: 4px solid #a78bfa; }
+  .m-shift-card.pending { border-left: 4px solid #fbbf24; }
+  .m-shift-card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; margin-bottom: 8px; }
+  .m-shift-name { font-size: .95rem; font-weight: 600; color: #e8e8f0; flex: 1; }
+  .m-shift-badge { font-size: .67rem; padding: 3px 9px; border-radius: 20px; font-weight: 600; flex-shrink: 0; }
+  .m-shift-badge.confirmed { background: #4c1d95; color: #c4b5fd; }
+  .m-shift-badge.pending { background: #1c1a0e; color: #fbbf24; border: 1px solid #fbbf24; }
+  .m-shift-time { font-size: .85rem; color: #a78bfa; font-weight: 600; margin-bottom: 3px; }
+  .m-shift-venue { font-size: .78rem; color: #555; }
+  .m-shift-pay { font-size: .82rem; color: #34d399; font-weight: 600; margin-top: 8px; padding-top: 8px; border-top: 1px solid #1e1e2e; }
+
+  .m-upcoming-row { display: flex; align-items: center; gap: 14px; padding: 11px 0; border-bottom: 1px solid #1a1a27; cursor: pointer; }
+  .m-upcoming-row:last-child { border-bottom: none; }
+  .m-upcoming-date { width: 46px; flex-shrink: 0; text-align: center; background: #13131a; border-radius: 10px; padding: 6px 4px; }
+  .m-upcoming-date-day { font-size: .58rem; color: #555; text-transform: uppercase; letter-spacing: .5px; }
+  .m-upcoming-date-num { font-size: 1.3rem; font-weight: 700; color: #e8e8f0; line-height: 1.1; }
+  .m-upcoming-date-mon { font-size: .58rem; color: #555; text-transform: uppercase; }
+  .m-upcoming-info { flex: 1; min-width: 0; }
+  .m-upcoming-name { font-size: .87rem; font-weight: 600; color: #e8e8f0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .m-upcoming-sub { font-size: .75rem; color: #666; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .m-upcoming-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .m-upcoming-dot.confirmed { background: #a78bfa; }
+  .m-upcoming-dot.pending { background: #fbbf24; }
+
+  .m-list-nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+  .m-list-nav-btn { background: #1e1e2e; border: none; color: #e8e8f0; width: 38px; height: 38px; border-radius: 10px; cursor: pointer; font-size: 1.3rem; display: flex; align-items: center; justify-content: center; }
+  .m-list-month { font-size: 1rem; font-weight: 600; color: #e8e8f0; }
+
+  .m-day-card { display: flex; gap: 14px; background: #13131a; border: 1px solid #1e1e2e; border-radius: 14px; padding: 14px 16px; margin-bottom: 10px; }
+  .m-day-card.today { border-color: #7c3aed; }
+  .m-day-left { width: 42px; flex-shrink: 0; text-align: center; }
+  .m-day-left-name { font-size: .58rem; color: #555; text-transform: uppercase; letter-spacing: .5px; }
+  .m-day-left-num { font-size: 1.7rem; font-weight: 700; line-height: 1.1; color: #e8e8f0; }
+  .m-day-card.today .m-day-left-num { color: #a78bfa; }
+  .m-day-left-mon { font-size: .56rem; color: #555; text-transform: uppercase; }
+  .m-day-divider { width: 1px; background: #1e1e2e; flex-shrink: 0; border-radius: 1px; }
+  .m-day-right { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 10px; justify-content: center; }
+  .m-list-shift { cursor: pointer; }
+  .m-list-shift-name { font-size: .88rem; font-weight: 600; color: #e8e8f0; margin-bottom: 2px; }
+  .m-list-shift-time { font-size: .78rem; color: #a78bfa; font-weight: 500; }
+  .m-list-shift-venue { font-size: .73rem; color: #555; margin-top: 1px; }
+  .m-empty-month { text-align: center; padding: 50px 20px; color: #555; font-size: .9rem; }
+
   @media (max-width: 700px) {
-    /* ── Header ── */
-    header { padding: 12px 14px; flex-wrap: wrap; gap: 8px; }
-    header h1 { font-size: 1.1rem; }
-    .nav-controls { width: 100%; justify-content: space-between; flex-wrap: wrap; gap: 6px; }
-    .nav-controls h2 { min-width: 130px; font-size: .92rem; }
-    /* Göm mindre viktiga knappar på mobil */
-    #exportBtn, #openPasteBtn { display: none; }
-    .hdr-btn { padding: 0 10px !important; font-size: .78rem !important; height: 36px; }
-    .hdr-btn.primary { flex: 1; justify-content: center; }
-
-    /* ── Stats ── */
-    .stats { padding: 10px 14px; flex-wrap: wrap; gap: 10px; }
-    .stat { font-size: .75rem; }
-
-    /* ── Kalender ── */
-    .calendar-wrap { padding: 10px 6px; }
-    /* Dölj veckonummerkolumnen */
-    .day-headers { grid-template-columns: repeat(7, 1fr); }
-    .calendar-grid { grid-template-columns: repeat(7, 1fr); gap: 3px; }
-    .week-num-cell { display: none; }
-    .day-header { font-size: .6rem; letter-spacing: .3px; padding: 3px 0; }
-    .day-cell { min-height: 62px; padding: 4px; border-radius: 7px; }
-    .day-num { font-size: .7rem; margin-bottom: 4px; }
-    .day-cell.today .day-num { width: 20px; height: 20px; font-size: .65rem; }
-    .shift-chip { font-size: .6rem; padding: 2px 4px; border-radius: 4px; border-left-width: 2px; margin-bottom: 2px; }
-    .chip-time { display: none; }
-
-    /* ── Modals ── */
-    .modal { padding: 20px 16px; border-radius: 12px; max-height: 95vh; }
+    /* Hide all desktop UI */
+    header, .stats, .calendar-wrap { display: none !important; }
+    /* Show mobile UI */
+    .mobile-app { display: flex; }
+    /* Modals */
+    .modal { padding: 20px 16px; border-radius: 14px; max-height: 95vh; width: 95vw !important; }
     .form-row { grid-template-columns: 1fr; }
     .modal-actions { flex-wrap: wrap; }
-    .modal-actions .btn { flex: 1; text-align: center; justify-content: center; }
+    .modal-actions .btn { flex: 1; justify-content: center; }
     .btn-danger { flex: none !important; width: 100%; margin-right: 0; margin-bottom: 8px; order: 99; }
   }
 </style>
@@ -199,6 +259,36 @@
     <div class="day-header">Sön</div>
   </div>
   <div class="calendar-grid" id="calendarGrid"></div>
+</div>
+
+<!-- ── Mobile App ─────────────────────────────────────────────────── -->
+<div class="mobile-app">
+  <header class="m-header">
+    <h1>Arena<span>jobben</span></h1>
+    <div class="m-header-btns">
+      <button class="m-icon-btn" id="mUploadPdfBtn" title="Ladda upp avtal">📄</button>
+      <button class="m-icon-btn m-add-btn" id="mAddBtn" title="Lägg till pass">+</button>
+    </div>
+  </header>
+  <div class="m-stats">
+    <div class="m-stat">
+      <span class="m-stat-val purple" id="mStatConf">0</span>
+      <span class="m-stat-label">bekräftade</span>
+    </div>
+    <div class="m-stat">
+      <span class="m-stat-val yellow" id="mStatPend">0</span>
+      <span class="m-stat-label">väntande</span>
+    </div>
+    <div class="m-stat">
+      <span class="m-stat-val green" id="mStatPay">0 kr</span>
+      <span class="m-stat-label">månadslön</span>
+    </div>
+  </div>
+  <div class="m-tabs">
+    <button class="m-tab active" id="mTabToday" onclick="switchMobileTab('today')">Idag</button>
+    <button class="m-tab" id="mTabCalendar" onclick="switchMobileTab('calendar')">Kalender</button>
+  </div>
+  <div class="m-content" id="mContent"></div>
 </div>
 
 <!-- Smart Paste Modal -->
@@ -783,6 +873,7 @@ function renderCalendar() {
     }
   }
   updateStats();
+  if (typeof renderMobile === 'function' && isMobile()) renderMobile();
 }
 
 function updateStats() {
@@ -1166,10 +1257,151 @@ document.getElementById('pdfOverlay').addEventListener('click', e => {
   }
 });
 
+// ── Mobile view ───────────────────────────────────────────────────────
+const DAYS_FULL  = ['Söndag','Måndag','Tisdag','Onsdag','Torsdag','Fredag','Lördag'];
+const DAYS_SHORT = ['Sön','Mån','Tis','Ons','Tor','Fre','Lör'];
+const MONS_FULL  = ['Januari','Februari','Mars','April','Maj','Juni','Juli','Augusti','September','Oktober','November','December'];
+const MONS_SHORT = ['Jan','Feb','Mar','Apr','Maj','Jun','Jul','Aug','Sep','Okt','Nov','Dec'];
+
+let mobileTab = 'today';
+
+function isMobile() { return window.innerWidth <= 700; }
+
+function switchMobileTab(tab) {
+  mobileTab = tab;
+  document.getElementById('mTabToday').classList.toggle('active', tab === 'today');
+  document.getElementById('mTabCalendar').classList.toggle('active', tab === 'calendar');
+  renderMobile();
+}
+
+function renderMobile() {
+  if (!isMobile()) return;
+  // Stats
+  const conf = shifts.filter(s => s.status === 'confirmed');
+  const pend = shifts.filter(s => s.status === 'pending');
+  const now2 = new Date(), todayStr2 = toDateStr(now2);
+  const monthConf = conf.filter(s => { const d = new Date(s.date+'T00:00:00'); return d.getFullYear()===currentYear && d.getMonth()===currentMonth; });
+  const monthPay  = monthConf.reduce((t,s) => t + calcPay(s), 0);
+  document.getElementById('mStatConf').textContent = conf.length;
+  document.getElementById('mStatPend').textContent = pend.length;
+  document.getElementById('mStatPay').textContent  = Math.round(monthPay).toLocaleString('sv') + ' kr';
+  if (mobileTab === 'today') renderMobileToday();
+  else renderMobileList();
+}
+
+function renderMobileToday() {
+  const now2 = new Date(), todayStr2 = toDateStr(now2);
+  const todayShifts = shifts.filter(s => s.date === todayStr2);
+  const upcoming    = shifts.filter(s => s.date > todayStr2)
+    .sort((a,b) => a.date.localeCompare(b.date) || (a.start||'').localeCompare(b.start||''));
+
+  let html = `<div class="m-today-header">
+    <div class="m-today-dayname">${DAYS_FULL[now2.getDay()]}</div>
+    <div class="m-today-bigdate">${now2.getDate()} <span>${MONS_FULL[now2.getMonth()].toUpperCase()}</span></div>
+  </div>`;
+
+  if (todayShifts.length) {
+    html += '<div class="m-section-label">Dagens pass</div>';
+    todayShifts.forEach(s => { html += mShiftCard(s); });
+  } else {
+    html += `<div class="m-no-shifts"><div class="m-no-shifts-emoji">🎪</div><div class="m-no-shifts-text">Inga pass idag</div></div>`;
+  }
+
+  if (upcoming.length) {
+    html += '<div class="m-section-label">Kommande pass</div>';
+    upcoming.slice(0, 10).forEach(s => {
+      const d = new Date(s.date+'T00:00:00');
+      const timeStr = s.start ? s.start + (s.end ? '–'+s.end : '') : 'Tid okänd';
+      html += `<div class="m-upcoming-row" onclick="openDetail('${s.id}')">
+        <div class="m-upcoming-date">
+          <div class="m-upcoming-date-day">${DAYS_SHORT[d.getDay()]}</div>
+          <div class="m-upcoming-date-num">${d.getDate()}</div>
+          <div class="m-upcoming-date-mon">${MONS_SHORT[d.getMonth()]}</div>
+        </div>
+        <div class="m-upcoming-info">
+          <div class="m-upcoming-name">${escHtml(s.event)}</div>
+          <div class="m-upcoming-sub">${timeStr} · ${escHtml(s.venue||'')}</div>
+        </div>
+        <div class="m-upcoming-dot ${s.status}"></div>
+      </div>`;
+    });
+  }
+  document.getElementById('mContent').innerHTML = html;
+}
+
+function mShiftCard(s) {
+  const pay = calcPay(s);
+  const payStr = pay > 0 ? `<div class="m-shift-pay">≈ ${Math.round(pay).toLocaleString('sv')} kr</div>` : '';
+  const timeStr = s.start ? s.start + (s.end ? ' – '+s.end : '') : 'Tid okänd';
+  return `<div class="m-shift-card ${s.status}" onclick="openDetail('${s.id}')">
+    <div class="m-shift-card-top">
+      <div class="m-shift-name">${escHtml(s.event)}</div>
+      <span class="m-shift-badge ${s.status}">${s.status==='confirmed'?'Bekräftad':'Väntande'}</span>
+    </div>
+    <div class="m-shift-time">${timeStr}</div>
+    <div class="m-shift-venue">${escHtml(s.venue||'')}</div>
+    ${payStr}
+  </div>`;
+}
+
+function renderMobileList() {
+  const todayStr2 = toDateStr(new Date());
+  const monthShifts = shifts.filter(s => {
+    if (!s.date) return false;
+    const d = new Date(s.date+'T00:00:00');
+    return d.getFullYear()===currentYear && d.getMonth()===currentMonth;
+  }).sort((a,b) => a.date.localeCompare(b.date) || (a.start||'').localeCompare(b.start||''));
+
+  const raw = new Date(currentYear, currentMonth, 1).toLocaleDateString('sv-SE',{month:'long',year:'numeric'});
+  const label = raw.charAt(0).toUpperCase() + raw.slice(1);
+
+  let html = `<div class="m-list-nav">
+    <button class="m-list-nav-btn" onclick="mPrevMonth()">‹</button>
+    <span class="m-list-month">${label}</span>
+    <button class="m-list-nav-btn" onclick="mNextMonth()">›</button>
+  </div>`;
+
+  if (!monthShifts.length) {
+    html += `<div class="m-empty-month">Inga pass den här månaden</div>`;
+  } else {
+    const byDate = {};
+    monthShifts.forEach(s => { (byDate[s.date] = byDate[s.date]||[]).push(s); });
+    Object.keys(byDate).sort().forEach(date => {
+      const d = new Date(date+'T00:00:00');
+      const isToday = date === todayStr2;
+      html += `<div class="m-day-card${isToday?' today':''}">
+        <div class="m-day-left">
+          <div class="m-day-left-name">${DAYS_SHORT[d.getDay()]}</div>
+          <div class="m-day-left-num">${d.getDate()}</div>
+          <div class="m-day-left-mon">${MONS_SHORT[d.getMonth()]}</div>
+        </div>
+        <div class="m-day-divider"></div>
+        <div class="m-day-right">
+          ${byDate[date].map(s=>`
+            <div class="m-list-shift" onclick="openDetail('${s.id}')">
+              <div class="m-list-shift-name">${escHtml(s.event)}</div>
+              <div class="m-list-shift-time">${s.start?(s.start+(s.end?' – '+s.end:'')):'Tid okänd'}</div>
+              <div class="m-list-shift-venue">${escHtml(s.venue||'')}</div>
+            </div>`).join('')}
+        </div>
+      </div>`;
+    });
+  }
+  document.getElementById('mContent').innerHTML = html;
+}
+
+function mPrevMonth() { currentMonth--; if(currentMonth<0){currentMonth=11;currentYear--;} renderMobileList(); }
+function mNextMonth() { currentMonth++; if(currentMonth>11){currentMonth=0;currentYear++;} renderMobileList(); }
+
+document.getElementById('mUploadPdfBtn').addEventListener('click', () => document.getElementById('pdfInput').click());
+document.getElementById('mAddBtn').addEventListener('click', () => openAdd(''));
+window.addEventListener('resize', () => { if(isMobile()) renderMobile(); else renderCalendar(); });
+
 const now=new Date(); currentYear=now.getFullYear(); currentMonth=now.getMonth();
 initDefaultRate();
 prunePastPending();
 renderCalendar();
+if (isMobile()) renderMobile();
 loadShiftsJson();
 </script>
 </body>
