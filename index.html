@@ -191,9 +191,12 @@
   .m-day-left-mon { font-size: .56rem; color: #555; text-transform: uppercase; }
   .m-day-divider { width: 1px; background: #1e1e2e; flex-shrink: 0; border-radius: 1px; }
   .m-day-right { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 10px; justify-content: center; }
-  .m-list-shift { cursor: pointer; }
+  .m-list-shift { cursor: pointer; padding-left: 10px; border-left: 3px solid #2a2a3e; border-radius: 2px; }
+  .m-list-shift.confirmed { border-left-color: #a78bfa; }
+  .m-list-shift.pending   { border-left-color: #fbbf24; }
   .m-list-shift-name { font-size: .88rem; font-weight: 600; color: #e8e8f0; margin-bottom: 2px; }
   .m-list-shift-time { font-size: .78rem; color: #a78bfa; font-weight: 500; }
+  .m-list-shift.pending .m-list-shift-time { color: #fbbf24; }
   .m-list-shift-venue { font-size: .73rem; color: #555; margin-top: 1px; }
   .m-empty-month { text-align: center; padding: 50px 20px; color: #555; font-size: .9rem; }
 
@@ -1300,7 +1303,7 @@ function renderMobile() {
         <div class="m-day-divider"></div>
         <div class="m-day-right">
           ${byDate[date].map(s=>`
-            <div class="m-list-shift" onclick="openDetail('${s.id}')">
+            <div class="m-list-shift ${s.status}" onclick="openDetail('${s.id}')">
               <div class="m-list-shift-name">${escHtml(s.event)}</div>
               <div class="m-list-shift-time">${s.start?(s.start+(s.end?' – '+s.end:'')):'Tid okänd'}</div>
               <div class="m-list-shift-venue">${escHtml(s.venue||'')}</div>
