@@ -119,11 +119,39 @@
   .status-badge.pending { background: #1c1a0e; color: #fbbf24; border: 1px solid #fbbf24; }
 
   @media (max-width: 700px) {
-    header { padding: 14px 16px; flex-wrap: wrap; gap: 10px; }
-    .stats { padding: 10px 16px; flex-wrap: wrap; gap: 12px; }
-    .calendar-wrap { padding: 12px 8px; }
-    .day-cell { min-height: 70px; padding: 5px; }
-    .shift-chip { font-size: .62rem; padding: 3px 5px; }
+    /* ── Header ── */
+    header { padding: 12px 14px; flex-wrap: wrap; gap: 8px; }
+    header h1 { font-size: 1.1rem; }
+    .nav-controls { width: 100%; justify-content: space-between; flex-wrap: wrap; gap: 6px; }
+    .nav-controls h2 { min-width: 130px; font-size: .92rem; }
+    /* Göm mindre viktiga knappar på mobil */
+    #exportBtn, #openPasteBtn { display: none; }
+    .hdr-btn { padding: 0 10px !important; font-size: .78rem !important; height: 36px; }
+    .hdr-btn.primary { flex: 1; justify-content: center; }
+
+    /* ── Stats ── */
+    .stats { padding: 10px 14px; flex-wrap: wrap; gap: 10px; }
+    .stat { font-size: .75rem; }
+
+    /* ── Kalender ── */
+    .calendar-wrap { padding: 10px 6px; }
+    /* Dölj veckonummerkolumnen */
+    .day-headers { grid-template-columns: repeat(7, 1fr); }
+    .calendar-grid { grid-template-columns: repeat(7, 1fr); gap: 3px; }
+    .week-num-cell { display: none; }
+    .day-header { font-size: .6rem; letter-spacing: .3px; padding: 3px 0; }
+    .day-cell { min-height: 62px; padding: 4px; border-radius: 7px; }
+    .day-num { font-size: .7rem; margin-bottom: 4px; }
+    .day-cell.today .day-num { width: 20px; height: 20px; font-size: .65rem; }
+    .shift-chip { font-size: .6rem; padding: 2px 4px; border-radius: 4px; border-left-width: 2px; margin-bottom: 2px; }
+    .chip-time { display: none; }
+
+    /* ── Modals ── */
+    .modal { padding: 20px 16px; border-radius: 12px; max-height: 95vh; }
+    .form-row { grid-template-columns: 1fr; }
+    .modal-actions { flex-wrap: wrap; }
+    .modal-actions .btn { flex: 1; text-align: center; justify-content: center; }
+    .btn-danger { flex: none !important; width: 100%; margin-right: 0; margin-bottom: 8px; order: 99; }
   }
 </style>
 </head>
