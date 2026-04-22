@@ -4,6 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Arenajobben</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#7c3aed">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Arenajobben">
+<link rel="apple-touch-icon" href="icon.svg">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -1337,6 +1344,16 @@ prunePastPending();
 renderCalendar();
 if (isMobile()) renderMobile();
 loadShiftsJson();
+
+// ── PWA: registrera service worker ───────────────────────────────────
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js').catch(() => {});
+}
+
+// ── Auto-refresh: hämta nya pass när appen öppnas/förgrundas ─────────
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible') loadShiftsJson();
+});
 </script>
 </body>
 </html>
