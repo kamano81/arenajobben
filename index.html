@@ -194,10 +194,12 @@
   .m-list-shift { cursor: pointer; display: flex; align-items: center; gap: 8px; padding-left: 10px; border-left: 3px solid #2a2a3e; border-radius: 2px; }
   .m-list-shift.confirmed { border-left-color: #a78bfa; }
   .m-list-shift.pending   { border-left-color: #fbbf24; }
-  .m-list-check { font-size: .95rem; font-weight: 700; color: #34d399; flex-shrink: 0; width: 16px; text-align: center; }
+  .m-list-shift.worked    { border-left-color: #34d399; }
+  .m-list-check { font-size: 1.2rem; font-weight: 700; color: #34d399; flex-shrink: 0; width: 20px; text-align: center; }
   .m-list-shift-body { flex: 1; min-width: 0; }
   .m-list-shift-name { font-size: .88rem; font-weight: 600; color: #e8e8f0; margin-bottom: 2px; }
   .m-list-shift-time { font-size: .78rem; color: #a78bfa; font-weight: 500; }
+  .m-list-shift.worked .m-list-shift-time { color: #34d399; }
   .m-list-shift.pending .m-list-shift-time { color: #fbbf24; }
   .m-list-shift-venue { font-size: .73rem; color: #555; margin-top: 1px; }
   .m-empty-month { text-align: center; padding: 50px 20px; color: #555; font-size: .9rem; }
@@ -1306,13 +1308,13 @@ function renderMobile() {
         <div class="m-day-right">
           ${byDate[date].map(s=>{
               const worked = s.status==='confirmed' && date < todayStr2;
-              return `<div class="m-list-shift ${s.status}" onclick="openDetail('${s.id}')">
-                <div class="m-list-check">${worked?'✓':''}</div>
+              return `<div class="m-list-shift ${worked?'worked':s.status}" onclick="openDetail('${s.id}')">
                 <div class="m-list-shift-body">
                   <div class="m-list-shift-name">${escHtml(s.event)}</div>
                   <div class="m-list-shift-time">${s.start?(s.start+(s.end?' – '+s.end:'')):'Tid okänd'}</div>
                   <div class="m-list-shift-venue">${escHtml(s.venue||'')}</div>
                 </div>
+                <div class="m-list-check">${worked?'✓':''}</div>
               </div>`;
             }).join('')}
         </div>
