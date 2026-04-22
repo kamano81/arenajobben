@@ -1,0 +1,14 @@
+{
+  "name": "Arenajobben",
+  "short_name": "Arenajobben",
+  "description": "Mina arenajobb – kalenderapp",
+  "start_url": "/arenajobben/",
+  "scope": "/arenajobben/",
+  "display": "standalone",
+  "background_color": "#0f0f13",
+  "theme_color": "#7c3aed",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
