@@ -516,18 +516,6 @@
     "source": "email"
   },
   {
-    "id": "g7zi8pecdbbd",
-    "event": "Zach Top",
-    "venue": "Annexet",
-    "date": "2026-02-28",
-    "start": "15:45",
-    "end": "22:45",
-    "rate": 0,
-    "status": "confirmed",
-    "tag": "",
-    "source": "email"
-  },
-  {
     "id": "truorv3bnhnr",
     "event": "HIF - BK Häcken",
     "venue": "3Arena",
