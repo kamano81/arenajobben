@@ -540,18 +540,6 @@
     "source": "email"
   },
   {
-    "id": "8b1mmbjlrxly",
-    "event": "AIK - Västerås SK FK",
-    "venue": "Strawberry Arena",
-    "date": "2026-02-22",
-    "start": "09:30",
-    "end": "15:45",
-    "rate": 0,
-    "status": "confirmed",
-    "tag": "PREMIUM",
-    "source": "email"
-  },
-  {
     "id": "truorv3bnhnr",
     "event": "HIF - BK Häcken",
     "venue": "3Arena",
