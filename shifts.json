@@ -610,17 +610,5 @@
     "status": "reserve",
     "tag": "",
     "source": "email"
-  },
-  {
-    "id": "k1ksk2wir5m0",
-    "event": "Sverige - Polen/Albanien",
-    "venue": "",
-    "date": "2026-03-31",
-    "start": "16:30",
-    "end": "23:45",
-    "rate": 0,
-    "status": "confirmed",
-    "tag": "",
-    "source": "email"
   }
 ]
