@@ -242,7 +242,8 @@
     <button class="btn hdr-btn" id="uploadPdfBtn">📄 Ladda upp avtal</button>
     <button class="btn hdr-btn" id="openPasteBtn">📋 Klistra in</button>
     <button class="btn hdr-btn" id="exportBtn" title="Exportera alla pass som JSON">💾 Exportera</button>
-    <button class="btn hdr-btn" id="forceRefreshBtn" title="Rensa och hämta om alla pass från shifts.json">🔄 Uppdatera</button>
+    <button class="btn hdr-btn" id="forceRefreshBtn" title="Hämta om alla pass från shifts.json">🔄 Uppdatera</button>
+    <button class="btn hdr-btn" id="desktopSettingsBtn" title="Inställningar">⚙️</button>
     <button class="btn hdr-btn primary" id="openAddBtn">+ Lägg till pass</button>
   </div>
 </header>
@@ -1398,13 +1399,15 @@ function mNextMonth() { currentMonth++; if(currentMonth>11){currentMonth=0;curre
 
 document.getElementById('mUploadPdfBtn').addEventListener('click', () => document.getElementById('pdfInput').click());
 document.getElementById('mAddBtn').addEventListener('click', () => openAdd(''));
-document.getElementById('mSettingsBtn').addEventListener('click', () => {
+function openSettings() {
   const stored = localStorage.getItem('arenajobbenGithubToken') || '';
   document.getElementById('githubTokenInput').value = stored ? '••••••••••••••••' : '';
-  document.getElementById('syncStatus').textContent = stored ? '✅ Token inlagd' : '⚠️ Ingen token — ändringar synkas inte';
+  document.getElementById('syncStatus').textContent = stored ? '✅ Token inlagd — synk aktiv' : '⚠️ Ingen token — ändringar synkas inte';
   document.getElementById('syncStatus').style.color = stored ? '#34d399' : '#fbbf24';
   document.getElementById('settingsOverlay').classList.add('open');
-});
+}
+document.getElementById('desktopSettingsBtn').addEventListener('click', openSettings);
+document.getElementById('mSettingsBtn').addEventListener('click', openSettings);
 document.getElementById('settingsCancelBtn').addEventListener('click', () => document.getElementById('settingsOverlay').classList.remove('open'));
 document.getElementById('settingsSaveBtn').addEventListener('click', () => {
   const val = document.getElementById('githubTokenInput').value.trim();
