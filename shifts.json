@@ -492,18 +492,6 @@
     "source": "email"
   },
   {
-    "id": "eyk5m8fspaeg",
-    "event": "Kickoff Servicevärdar Avicii Arena",
-    "venue": "Avicii Arena",
-    "date": "2026-01-26",
-    "start": "18:00",
-    "end": "20:00",
-    "rate": 0,
-    "status": "confirmed",
-    "tag": "",
-    "source": "email"
-  },
-  {
     "id": "truorv3bnhnr",
     "event": "HIF - BK Häcken",
     "venue": "3Arena",
