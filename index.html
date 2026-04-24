@@ -136,6 +136,11 @@
   .m-icon-btn { background: #1e1e2e; border: none; color: #e8e8f0; width: 42px; height: 42px; border-radius: 12px; cursor: pointer; font-size: 1rem; display: flex; align-items: center; justify-content: center; transition: background .15s; }
   .m-icon-btn:active { background: #2a2a3e; }
   .m-add-btn { background: #7c3aed !important; font-size: 1.5rem; font-weight: 300; line-height: 1; }
+  .m-sync-dot { width: 8px; height: 8px; border-radius: 50%; background: #555; flex-shrink: 0; transition: background .3s; }
+  .m-sync-dot.syncing { background: #fbbf24; animation: pulse .8s infinite; }
+  .m-sync-dot.ok  { background: #34d399; }
+  .m-sync-dot.err { background: #f87171; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
 
   .m-stats { display: flex; padding: 8px 20px 10px; background: #13131a; border-bottom: 1px solid #1e1e2e; gap: 0; }
   .m-stat { flex: 1; text-align: center; padding: 4px 0; }
@@ -274,9 +279,13 @@
 <!-- ── Mobile App ─────────────────────────────────────────────────── -->
 <div class="mobile-app">
   <header class="m-header">
-    <h1>Arena<span>jobben</span></h1>
+    <div style="display:flex;align-items:center;gap:10px">
+      <h1>Arena<span>jobben</span></h1>
+      <div class="m-sync-dot" id="mSyncDot" title="Synkstatus"></div>
+    </div>
     <div class="m-header-btns">
       <button class="m-icon-btn" id="mUploadPdfBtn" title="Ladda upp avtal">📄</button>
+      <button class="m-icon-btn" id="mSettingsBtn" title="Inställningar">⚙️</button>
       <button class="m-icon-btn m-add-btn" id="mAddBtn" title="Lägg till pass">+</button>
     </div>
   </header>
@@ -295,6 +304,25 @@
     </div>
   </div>
   <div class="m-content" id="mContent"></div>
+</div>
+
+<!-- ── Inställningar Modal ─────────────────────────────────────────── -->
+<div class="overlay" id="settingsOverlay">
+  <div class="modal" style="width:420px">
+    <h3>⚙️ Inställningar</h3>
+    <div class="form-group" style="margin-top:16px">
+      <label>GitHub Token (för synkronisering)</label>
+      <input type="password" id="githubTokenInput" placeholder="ghp_xxxxxxxxxxxx" autocomplete="off">
+      <div style="font-size:.75rem;color:#555;margin-top:6px">
+        Ange ditt GitHub Personal Access Token. Sparas lokalt på enheten — skickas aldrig någonstans annat än till GitHub.
+      </div>
+    </div>
+    <div id="syncStatus" style="font-size:.8rem;margin-bottom:12px;min-height:20px"></div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" id="settingsCancelBtn">Avbryt</button>
+      <button class="btn btn-primary" id="settingsSaveBtn">Spara token</button>
+    </div>
+  </div>
 </div>
 
 <!-- Smart Paste Modal -->
@@ -393,7 +421,41 @@
 let shifts = JSON.parse(localStorage.getItem('concertShifts') || '[]');
 let currentYear, currentMonth, editingId = null, viewingId = null;
 
-function save() { localStorage.setItem('concertShifts', JSON.stringify(shifts)); }
+function save() {
+  localStorage.setItem('concertShifts', JSON.stringify(shifts));
+  pushToGithub();
+}
+
+// ── GitHub-synk ───────────────────────────────────────────────────────
+const GH_REPO = 'kamano81/arenajobben';
+const GH_FILE = 'shifts.json';
+
+function setSyncDot(state) {
+  const dot = document.getElementById('mSyncDot');
+  if (!dot) return;
+  dot.className = 'm-sync-dot' + (state ? ' ' + state : '');
+}
+
+async function pushToGithub() {
+  const token = localStorage.getItem('arenajobbenGithubToken');
+  if (!token) return;
+  setSyncDot('syncing');
+  try {
+    const api = `https://api.github.com/repos/${GH_REPO}/contents/${GH_FILE}`;
+    const headers = { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' };
+    const sha = await fetch(api, { headers }).then(r => r.json()).then(d => d.sha || '');
+    const content = btoa(unescape(encodeURIComponent(JSON.stringify(shifts, null, 2))));
+    const res = await fetch(api, {
+      method: 'PUT', headers,
+      body: JSON.stringify({ message: `Synk ${new Date().toLocaleString('sv')}`, content, sha })
+    });
+    setSyncDot(res.ok ? 'ok' : 'err');
+    setTimeout(() => setSyncDot(''), 3000);
+  } catch {
+    setSyncDot('err');
+    setTimeout(() => setSyncDot(''), 5000);
+  }
+}
 
 // ── Deleted-shift tombstones (survives force-refresh) ─────────────────
 // Stored as Set of "YYYY-MM-DD|event_lowercase" keys
@@ -1336,6 +1398,25 @@ function mNextMonth() { currentMonth++; if(currentMonth>11){currentMonth=0;curre
 
 document.getElementById('mUploadPdfBtn').addEventListener('click', () => document.getElementById('pdfInput').click());
 document.getElementById('mAddBtn').addEventListener('click', () => openAdd(''));
+document.getElementById('mSettingsBtn').addEventListener('click', () => {
+  const stored = localStorage.getItem('arenajobbenGithubToken') || '';
+  document.getElementById('githubTokenInput').value = stored ? '••••••••••••••••' : '';
+  document.getElementById('syncStatus').textContent = stored ? '✅ Token inlagd' : '⚠️ Ingen token — ändringar synkas inte';
+  document.getElementById('syncStatus').style.color = stored ? '#34d399' : '#fbbf24';
+  document.getElementById('settingsOverlay').classList.add('open');
+});
+document.getElementById('settingsCancelBtn').addEventListener('click', () => document.getElementById('settingsOverlay').classList.remove('open'));
+document.getElementById('settingsSaveBtn').addEventListener('click', () => {
+  const val = document.getElementById('githubTokenInput').value.trim();
+  if (val && !val.startsWith('•')) {
+    localStorage.setItem('arenajobbenGithubToken', val);
+    document.getElementById('syncStatus').textContent = '✅ Token sparad!';
+    document.getElementById('syncStatus').style.color = '#34d399';
+    setTimeout(() => document.getElementById('settingsOverlay').classList.remove('open'), 1000);
+  } else {
+    document.getElementById('settingsOverlay').classList.remove('open');
+  }
+});
 window.addEventListener('resize', () => { if(isMobile()) renderMobile(); else renderCalendar(); });
 
 const now=new Date(); currentYear=now.getFullYear(); currentMonth=now.getMonth();
