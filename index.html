@@ -445,8 +445,10 @@ function save() {
 }
 
 // ── GitHub-synk ───────────────────────────────────────────────────────
-const GH_REPO = 'kamano81/arenajobben';
-const GH_FILE = 'shifts.json';
+const GH_REPO   = 'kamano81/arenajobben';
+const GH_FILE   = 'shifts.json';
+const GH_BRANCH = 'main';
+const GH_TOKEN  = ['ghp_AzX2aHhDCMKL','SUUSvhUmaR786XjCev2wbYaY'].join('');
 
 function setSyncDot(state) {
   const dot = document.getElementById('mSyncDot');
@@ -474,11 +476,6 @@ async function pushToGithub() {
     setTimeout(() => setSyncDot(''), 5000);
   }
 }
-
-// ── GitHub config (for cross-device tombstone sync) ──────────────────
-const GH_REPO   = 'kamano81/arenajobben';
-const GH_BRANCH = 'main';
-const GH_TOKEN  = ['ghp_AzX2aHhDCMKL','SUUSvhUmaR786XjCev2wbYaY'].join('');
 
 // ── Deleted-shift tombstones (survives force-refresh, syncs via GitHub) ─
 // Stored as Set of "YYYY-MM-DD|event_lowercase" keys
