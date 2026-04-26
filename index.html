@@ -207,6 +207,9 @@
 
   .m-day-card { display: flex; gap: 14px; background: #13131a; border: 1px solid #1e1e2e; border-radius: 14px; padding: 14px 16px; margin-bottom: 10px; }
   .m-day-card.today { border-color: #7c3aed; }
+  .m-day-card.ob-day { background: #0a1f0f; border-color: #1a5c2a; }
+  .m-day-card.today.ob-day { border-color: #7c3aed; }
+  .m-day-card.ob-day .m-day-left-num { color: #4ade80; }
   .m-day-left { width: 42px; flex-shrink: 0; text-align: center; }
   .m-day-left-name { font-size: .58rem; color: #555; text-transform: uppercase; letter-spacing: .5px; }
   .m-day-left-num { font-size: 1.7rem; font-weight: 700; line-height: 1.1; color: #e8e8f0; }
@@ -1410,7 +1413,10 @@ function renderMobile() {
     Object.keys(byDate).sort().forEach(date => {
       const d = new Date(date+'T00:00:00');
       const isToday = date === todayStr2;
-      html += `<div class="m-day-card${isToday?' today':''}">
+      const mCol = (d.getDay() + 6) % 7; // Mon=0 … Sun=6
+      const mWkn = getISOWeek(d);
+      const isOB = isOBDay(mWkn, mCol);
+      html += `<div class="m-day-card${isToday?' today':''}${isOB?' ob-day':''}">
         <div class="m-day-left">
           <div class="m-day-left-name">${DAYS_SHORT[d.getDay()]}</div>
           <div class="m-day-left-num">${d.getDate()}</div>
