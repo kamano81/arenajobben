@@ -1426,7 +1426,7 @@ function renderMobile() {
                 <div class="m-list-shift-body">
                   <div class="m-list-shift-name">${escHtml(s.event)}${premTag}</div>
                   <div class="m-list-shift-time">${s.start?(s.start+(s.end?' – '+s.end:'')):'Tid okänd'}</div>
-                  <div class="m-list-shift-venue">${escHtml(s.venue||'')}</div>
+                  ${(worked||s.status==='confirmed')?`<div class="m-list-shift-venue">${escHtml(s.venue||'')}</div>`:''}
                 </div>
                 <div class="m-list-check">${worked?'✓':''}</div>
               </div>`;
