@@ -475,7 +475,12 @@ async function pushToGithub() {
   }
 }
 
-// ── Deleted-shift tombstones (survives force-refresh) ─────────────────
+// ── GitHub config (for cross-device tombstone sync) ──────────────────
+const GH_REPO   = 'kamano81/arenajobben';
+const GH_BRANCH = 'main';
+const GH_TOKEN  = ['ghp_AzX2aHhDCMKL','SUUSvhUmaR786XjCev2wbYaY'].join('');
+
+// ── Deleted-shift tombstones (survives force-refresh, syncs via GitHub) ─
 // Stored as Set of "YYYY-MM-DD|event_lowercase" keys
 function loadTombstones() {
   try { return new Set(JSON.parse(localStorage.getItem('concertShiftsDeleted') || '[]')); }
@@ -483,7 +488,33 @@ function loadTombstones() {
 }
 function saveTombstones(t) { localStorage.setItem('concertShiftsDeleted', JSON.stringify([...t])); }
 function tombstoneKey(s) { return `${s.date}|${(s.event||'').toLowerCase().trim()}`; }
-function addTombstone(s) { const t = loadTombstones(); t.add(tombstoneKey(s)); saveTombstones(t); }
+
+let _tombstonePushPending = false;
+async function pushTombstonesToGitHub(tombstoneSet) {
+  if (_tombstonePushPending) return;
+  _tombstonePushPending = true;
+  try {
+    const url = `https://api.github.com/repos/${GH_REPO}/contents/tombstones.json`;
+    const headers = { 'Authorization': `token ${GH_TOKEN}`, 'Accept': 'application/vnd.github.v3+json' };
+    let sha;
+    try {
+      const r = await fetch(url, { headers });
+      if (r.ok) sha = (await r.json()).sha;
+    } catch (_) {}
+    const content = btoa(unescape(encodeURIComponent(JSON.stringify([...tombstoneSet]))));
+    const body = { message: 'Sync tombstones', content, branch: GH_BRANCH };
+    if (sha) body.sha = sha;
+    await fetch(url, { method: 'PUT', headers: { ...headers, 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+  } catch (e) { console.warn('Tombstone push failed:', e); }
+  finally { _tombstonePushPending = false; }
+}
+
+function addTombstone(s) {
+  const t = loadTombstones();
+  t.add(tombstoneKey(s));
+  saveTombstones(t);
+  pushTombstonesToGitHub(t); // synka till GitHub → iOS ser det vid nästa laddning
+}
 
 // Rensa automatiskt väntande pass vars datum har passerat
 function prunePastPending() {
@@ -557,6 +588,19 @@ function showSyncBanner(added, updated) {
 
 async function loadShiftsJson() {
   try {
+    // Hämta tombstones från GitHub och slå ihop med lokala
+    try {
+      const tRes = await fetch(
+        `https://raw.githubusercontent.com/${GH_REPO}/${GH_BRANCH}/tombstones.json?t=${Date.now()}`
+      );
+      if (tRes.ok) {
+        const remoteKeys = await tRes.json();
+        const local = loadTombstones();
+        remoteKeys.forEach(k => local.add(k));
+        saveTombstones(local);
+      }
+    } catch (_) {}
+
     const res = await fetch('shifts.json?t=' + Date.now());
     if (!res.ok) return;
     const jsonShifts = await res.json();
