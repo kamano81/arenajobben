@@ -828,18 +828,6 @@
     "source": "email"
   },
   {
-    "id": "057n16p5d9vj",
-    "event": "DIF - Brommapojkarna",
-    "venue": "3Arena",
-    "date": "2026-05-22",
-    "start": "16:15",
-    "end": "21:45",
-    "rate": 0,
-    "status": "pending",
-    "tag": "PREMIUM",
-    "source": "email"
-  },
-  {
     "id": "54yqc0cw5ibp",
     "event": "HIF - AIK",
     "venue": "3Arena",
@@ -1008,18 +996,6 @@
     "source": "email"
   },
   {
-    "id": "2ns1eo3htnh9",
-    "event": "AIK – Halmstads BK",
-    "venue": "Strawberry Arena",
-    "date": "2026-04-05",
-    "start": "10:30",
-    "end": "16:45",
-    "rate": 0,
-    "status": "pending",
-    "tag": "PREMIUM",
-    "source": "email"
-  },
-  {
     "id": "jqwgv3rityev",
     "event": "AIK Hockey - IK Oskarshamn",
     "venue": "Hovet",
@@ -1122,18 +1098,6 @@
     "date": "2026-04-18",
     "start": "",
     "end": "",
-    "rate": 0,
-    "status": "reserve",
-    "tag": "PREMIUM",
-    "source": "email"
-  },
-  {
-    "id": "xmz6d12qisjy",
-    "event": "DIF - Kalmar",
-    "venue": "3Arena",
-    "date": "2026-04-12",
-    "start": "10:30",
-    "end": "17:00",
     "rate": 0,
     "status": "reserve",
     "tag": "PREMIUM",
@@ -1629,18 +1593,6 @@
     "rate": 0,
     "status": "confirmed",
     "tag": "",
-    "source": "email"
-  },
-  {
-    "id": "5tx1m00raq8l",
-    "event": "DIF - Göteborg",
-    "venue": "DIF - Göteborg [PREMIUM] den 2026-05-04",
-    "date": "2026-05-04",
-    "start": "",
-    "end": "",
-    "rate": 0,
-    "status": "reserve",
-    "tag": "PREMIUM",
     "source": "email"
   },
   {
