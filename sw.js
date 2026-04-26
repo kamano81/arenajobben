@@ -1,5 +1,5 @@
-const CACHE = 'arenajobben-v16';
-const PRECACHE = ['index.html', 'manifest.json', 'icon.svg'];
+const CACHE = 'arenajobben-v17';
+const PRECACHE = ['index.html', 'manifest.json', 'icon.svg', 'favicon.svg'];
 
 // Installera: cacha app-skal
 self.addEventListener('install', e => {
