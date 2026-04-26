@@ -233,6 +233,18 @@
   .m-list-shift-venue { font-size: .73rem; color: #555; margin-top: 1px; }
   .m-empty-month { text-align: center; padding: 50px 20px; color: #555; font-size: .9rem; }
 
+  /* ── Mobile filter bar ── */
+  .m-filter-bar { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+  .m-filter-seg { display: flex; background: #13131a; border: 1px solid #1e1e2e; border-radius: 10px; padding: 3px; gap: 3px; }
+  .m-seg-btn { flex: 1; font-size: .75rem; font-weight: 600; padding: 6px 0; border: none; border-radius: 8px; cursor: pointer; background: transparent; color: #555; transition: all .15s; }
+  .m-seg-btn.active { background: #2a2a3e; color: #e8e8f0; }
+  .m-filter-chips { display: flex; gap: 7px; }
+  .m-fchip { font-size: .73rem; font-weight: 600; padding: 5px 12px; border-radius: 20px; border: 1px solid; cursor: pointer; transition: all .15s; user-select: none; }
+  .m-fchip.confirmed { border-color: #16a34a; color: #4ade80; background: #052e16; }
+  .m-fchip.reserve   { border-color: #9333ea; color: #d8b4fe; background: #2e1065; }
+  .m-fchip.pending   { border-color: #b45309; color: #d97706; background: #1c1000; }
+  .m-fchip.off { background: transparent !important; color: #444 !important; border-color: #2a2a3e !important; }
+
   @media (max-width: 700px) {
     /* Hide all desktop UI */
     header, .stats, .calendar-wrap { display: none !important; }
@@ -438,6 +450,8 @@
 // ── Data ──────────────────────────────────────────────────────────────
 let shifts = JSON.parse(localStorage.getItem('concertShifts') || '[]');
 let currentYear, currentMonth, editingId = null, viewingId = null;
+let mFilterAllDates = false;
+let mFilterStatus = new Set(['confirmed', 'reserve', 'pending']);
 
 function save() {
   localStorage.setItem('concertShifts', JSON.stringify(shifts));
@@ -1417,34 +1431,70 @@ function renderMobile() {
   document.getElementById('mStatPay').textContent  = Math.round(monthPay).toLocaleString('sv') + ' kr';
 
   const todayStr2 = toDateStr(new Date());
-  const monthShifts = shifts.filter(s => {
+
+  // Alla pass för månaden (ofiltrerade) — för byDate-mappning
+  const monthShiftsAll = shifts.filter(s => {
     if (!s.date) return false;
     if (s.status === 'reserve' && s.date < todayStr2) return false;
     const d = new Date(s.date+'T00:00:00');
     return d.getFullYear()===currentYear && d.getMonth()===currentMonth;
   }).sort((a,b) => a.date.localeCompare(b.date) || (a.start||'').localeCompare(b.start||''));
 
+  // Statusfilter: worked visas alltid, övriga filtreras
+  const monthShifts = monthShiftsAll.filter(s => {
+    const worked = s.status === 'confirmed' && s.date < todayStr2;
+    if (worked) return true;
+    return mFilterStatus.has(s.status);
+  });
+
   const raw = new Date(currentYear, currentMonth, 1).toLocaleDateString('sv-SE',{month:'long',year:'numeric'});
   const label = raw.charAt(0).toUpperCase() + raw.slice(1);
+
+  // Filterrad-HTML
+  const filterBar = `<div class="m-filter-bar">
+    <div class="m-filter-seg">
+      <button class="m-seg-btn${!mFilterAllDates?' active':''}" onclick="mSetDateFilter(false)">Bara pass</button>
+      <button class="m-seg-btn${mFilterAllDates?' active':''}" onclick="mSetDateFilter(true)">Alla datum</button>
+    </div>
+    <div class="m-filter-chips">
+      <span class="m-fchip confirmed${mFilterStatus.has('confirmed')?'':' off'}" onclick="mToggleStatus('confirmed')">Bokade</span>
+      <span class="m-fchip reserve${mFilterStatus.has('reserve')?'':' off'}" onclick="mToggleStatus('reserve')">Reserv</span>
+      <span class="m-fchip pending${mFilterStatus.has('pending')?'':' off'}" onclick="mToggleStatus('pending')">Vet ej</span>
+    </div>
+  </div>`;
 
   let html = `<div class="m-list-nav">
     <button class="m-list-nav-btn" onclick="mPrevMonth()">‹</button>
     <span class="m-list-month">${label}</span>
     <button class="m-list-nav-btn" onclick="mNextMonth()">›</button>
-  </div>`;
+  </div>${filterBar}`;
 
-  if (!monthShifts.length) {
+  // Bygg datumuppsättning
+  const byDate = {};
+  monthShifts.forEach(s => { (byDate[s.date] = byDate[s.date]||[]).push(s); });
+
+  // Bestäm vilka datum som ska visas
+  let datesToShow = [];
+  if (mFilterAllDates) {
+    const daysInMonth = new Date(currentYear, currentMonth+1, 0).getDate();
+    for (let day = 1; day <= daysInMonth; day++) {
+      datesToShow.push(`${currentYear}-${padZ(currentMonth+1)}-${padZ(day)}`);
+    }
+  } else {
+    datesToShow = Object.keys(byDate).sort();
+  }
+
+  if (!datesToShow.length || (!mFilterAllDates && !monthShifts.length)) {
     html += `<div class="m-empty-month">Inga pass den här månaden</div>`;
   } else {
-    const byDate = {};
-    monthShifts.forEach(s => { (byDate[s.date] = byDate[s.date]||[]).push(s); });
-    Object.keys(byDate).sort().forEach(date => {
+    datesToShow.forEach(date => {
       const d = new Date(date+'T00:00:00');
       const isToday = date === todayStr2;
-      const mCol = (d.getDay() + 6) % 7; // Mon=0 … Sun=6
+      const mCol = (d.getDay() + 6) % 7;
       const mWkn = getISOWeek(d);
       const isOB = isOBDay(mWkn, mCol);
-      html += `<div class="m-day-card${isToday?' today':''}${isOB?' ob-day':''}">
+      const dayShifts = byDate[date] || [];
+      html += `<div class="m-day-card${isToday?' today':''}${isOB?' ob-day':''}" onclick="${dayShifts.length?'':'openAdd(\''+date+'\')'}">
         <div class="m-day-left">
           <div class="m-day-left-name">${DAYS_SHORT[d.getDay()]}</div>
           <div class="m-day-left-num">${d.getDate()}</div>
@@ -1452,11 +1502,11 @@ function renderMobile() {
         </div>
         <div class="m-day-divider"></div>
         <div class="m-day-right">
-          ${byDate[date].map(s=>{
+          ${dayShifts.length ? dayShifts.map(s=>{
               const worked = s.status==='confirmed' && date < todayStr2;
               const isPrem = s.tag && /premium/i.test(s.tag);
               const premTag = isPrem ? `<span class="m-prem-tag">P</span>` : '';
-              return `<div class="m-list-shift ${worked?'worked':s.status}" onclick="openDetail('${s.id}')">
+              return `<div class="m-list-shift ${worked?'worked':s.status}" onclick="event.stopPropagation();openDetail('${s.id}')">
                 <div class="m-list-shift-body">
                   <div class="m-list-shift-name">${escHtml(s.event)}${premTag}</div>
                   <div class="m-list-shift-time">${s.start?(s.start+(s.end?' – '+s.end:'')):'Tid okänd'}</div>
@@ -1464,12 +1514,22 @@ function renderMobile() {
                 </div>
                 <div class="m-list-check">${worked?'✓':''}</div>
               </div>`;
-            }).join('')}
+            }).join('') : `<div style="color:#333;font-size:.8rem;padding:4px 0">Inga pass</div>`}
         </div>
       </div>`;
     });
   }
   document.getElementById('mContent').innerHTML = html;
+}
+
+function mSetDateFilter(all) { mFilterAllDates = all; renderMobile(); }
+function mToggleStatus(status) {
+  if (mFilterStatus.has(status)) {
+    if (mFilterStatus.size > 1) mFilterStatus.delete(status); // håll minst ett aktivt
+  } else {
+    mFilterStatus.add(status);
+  }
+  renderMobile();
 }
 
 function mPrevMonth() { currentMonth--; if(currentMonth<0){currentMonth=11;currentYear--;} renderMobile(); }
