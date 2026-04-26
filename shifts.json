@@ -952,9 +952,9 @@
     "event": "SM-Final Innebandy Efterfest",
     "venue": "Annexet",
     "date": "2026-04-25",
-    "start": "20:30",
-    "end": "03:30",
-    "rate": 0,
+    "start": "21:15",
+    "end": "03:18",
+    "rate": 150,
     "status": "confirmed",
     "tag": "",
     "source": "email"
