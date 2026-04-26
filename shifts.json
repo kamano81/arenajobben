@@ -280,9 +280,9 @@
     "event": "DIF – Kalmar",
     "venue": "3Arena",
     "date": "2026-04-12",
-    "start": "10:30",
-    "end": "17:00",
-    "rate": 0,
+    "start": "09:00",
+    "end": "17:21",
+    "rate": 150,
     "status": "confirmed",
     "tag": "",
     "source": "email"
