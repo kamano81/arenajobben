@@ -33,9 +33,9 @@
   .stats { display: flex; gap: 24px; padding: 14px 32px; background: #13131a; border-bottom: 1px solid #1e1e2e; }
   .stat { font-size: .8rem; color: #888; }
   .stat strong { color: #e8e8f0; font-weight: 600; margin-right: 4px; }
-  .stat.confirmed strong { color: #a78bfa; }
-  .stat.pending strong   { color: #fbbf24; }
-  .stat.reserve strong   { color: #60a5fa; }
+  .stat.confirmed strong { color: #4ade80; }
+  .stat.pending strong   { color: #d97706; }
+  .stat.reserve strong   { color: #c4b5fd; }
   .stat.pay strong       { color: #34d399; }
 
   /* ── Calendar ── */
@@ -56,9 +56,10 @@
   .day-cell.today .day-num { background: #7c3aed; color: #fff; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: .7rem; }
   .shift-chip { border-radius: 6px; padding: 4px 7px; margin-bottom: 3px; font-size: .7rem; font-weight: 500; cursor: pointer; transition: opacity .15s; line-height: 1.35; overflow: hidden; }
   .shift-chip:hover { opacity: .8; }
-  .shift-chip.confirmed { background: #4c1d95; color: #c4b5fd; border-left: 3px solid #a78bfa; }
-  .shift-chip.pending   { background: #1c1a0e; color: #fbbf24; border-left: 3px solid #fbbf24; }
-  .shift-chip.reserve   { background: #0c1a2e; color: #60a5fa; border-left: 3px solid #3b82f6; }
+  .shift-chip.confirmed { background: #052e16; color: #4ade80; border-left: 3px solid #16a34a; }
+  .shift-chip.worked    { background: #0c1a2e; color: #60a5fa; border-left: 3px solid #3b82f6; }
+  .shift-chip.pending   { background: #1c1000; color: #d97706; border-left: 3px solid #b45309; }
+  .shift-chip.reserve   { background: #2e1065; color: #d8b4fe; border-left: 3px solid #9333ea; }
   .chip-name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: flex; align-items: center; gap: 4px; }
   .chip-premium { font-size: .6rem; background: #92400e; color: #fcd34d; border-radius: 3px; padding: 0 3px; flex-shrink: 0; font-weight: 700; letter-spacing: .3px; }
   .chip-time { font-size: .65rem; opacity: .8; white-space: nowrap; }
@@ -124,8 +125,10 @@
   .detail-pay .pay-amount { font-size: 1.6rem; font-weight: 700; color: #34d399; margin-top: 2px; }
   .detail-pay .pay-hours { font-size: .8rem; color: #666; margin-top: 2px; }
   .status-badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: .75rem; font-weight: 600; }
-  .status-badge.confirmed { background: #4c1d95; color: #c4b5fd; }
-  .status-badge.pending { background: #1c1a0e; color: #fbbf24; border: 1px solid #fbbf24; }
+  .status-badge.confirmed { background: #052e16; color: #4ade80; }
+  .status-badge.worked    { background: #0c1a2e; color: #60a5fa; }
+  .status-badge.pending   { background: #1c1000; color: #d97706; border: 1px solid #b45309; }
+  .status-badge.reserve   { background: #2e1065; color: #d8b4fe; border: 1px solid #9333ea; }
 
   /* ── Mobile app container (hidden on desktop) ── */
   .mobile-app { display: none; flex-direction: column; min-height: 100vh; }
@@ -148,9 +151,9 @@
   .m-stat { flex: 1; text-align: center; padding: 4px 0; }
   .m-stat + .m-stat { border-left: 1px solid #1e1e2e; }
   .m-stat-val { display: block; font-size: 1rem; font-weight: 700; }
-  .m-stat-val.purple { color: #a78bfa; }
-  .m-stat-val.yellow { color: #fbbf24; }
-  .m-stat-val.green { color: #34d399; }
+  .m-stat-val.purple { color: #4ade80; }
+  .m-stat-val.yellow { color: #d97706; }
+  .m-stat-val.green  { color: #34d399; }
   .m-stat-label { font-size: .66rem; color: #555; }
 
   .m-content { flex: 1; padding: 16px 20px 40px; overflow-y: auto; }
@@ -168,14 +171,18 @@
 
   .m-shift-card { background: #16161f; border: 1px solid #2a2a3e; border-radius: 14px; padding: 16px; margin-bottom: 10px; cursor: pointer; transition: border-color .15s; active-color: #7c3aed; }
   .m-shift-card:active { border-color: #7c3aed; }
-  .m-shift-card.confirmed { border-left: 4px solid #a78bfa; }
-  .m-shift-card.pending { border-left: 4px solid #fbbf24; }
+  .m-shift-card.confirmed { border-left: 4px solid #16a34a; }
+  .m-shift-card.pending   { border-left: 4px solid #b45309; }
+  .m-shift-card.reserve   { border-left: 4px solid #9333ea; }
+  .m-shift-card.worked    { border-left: 4px solid #3b82f6; }
   .m-shift-card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; margin-bottom: 8px; }
   .m-shift-name { font-size: .95rem; font-weight: 600; color: #e8e8f0; flex: 1; }
   .m-shift-badge { font-size: .67rem; padding: 3px 9px; border-radius: 20px; font-weight: 600; flex-shrink: 0; }
-  .m-shift-badge.confirmed { background: #4c1d95; color: #c4b5fd; }
-  .m-shift-badge.pending { background: #1c1a0e; color: #fbbf24; border: 1px solid #fbbf24; }
-  .m-shift-time { font-size: .85rem; color: #a78bfa; font-weight: 600; margin-bottom: 3px; }
+  .m-shift-badge.confirmed { background: #052e16; color: #4ade80; }
+  .m-shift-badge.worked    { background: #0c1a2e; color: #60a5fa; }
+  .m-shift-badge.pending   { background: #1c1000; color: #d97706; border: 1px solid #b45309; }
+  .m-shift-badge.reserve   { background: #2e1065; color: #d8b4fe; border: 1px solid #9333ea; }
+  .m-shift-time { font-size: .85rem; color: #4ade80; font-weight: 600; margin-bottom: 3px; }
   .m-shift-venue { font-size: .78rem; color: #555; }
   .m-shift-pay { font-size: .82rem; color: #34d399; font-weight: 600; margin-top: 8px; padding-top: 8px; border-top: 1px solid #1e1e2e; }
 
@@ -189,8 +196,10 @@
   .m-upcoming-name { font-size: .87rem; font-weight: 600; color: #e8e8f0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .m-upcoming-sub { font-size: .75rem; color: #666; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .m-upcoming-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-  .m-upcoming-dot.confirmed { background: #a78bfa; }
-  .m-upcoming-dot.pending { background: #fbbf24; }
+  .m-upcoming-dot.confirmed { background: #16a34a; }
+  .m-upcoming-dot.worked    { background: #3b82f6; }
+  .m-upcoming-dot.pending   { background: #d97706; }
+  .m-upcoming-dot.reserve   { background: #9333ea; }
 
   .m-list-nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
   .m-list-nav-btn { background: #1e1e2e; border: none; color: #e8e8f0; width: 38px; height: 38px; border-radius: 10px; cursor: pointer; font-size: 1.3rem; display: flex; align-items: center; justify-content: center; }
@@ -206,17 +215,18 @@
   .m-day-divider { width: 1px; background: #1e1e2e; flex-shrink: 0; border-radius: 1px; }
   .m-day-right { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 10px; justify-content: center; }
   .m-list-shift { cursor: pointer; display: flex; align-items: center; gap: 8px; padding-left: 10px; border-left: 3px solid #2a2a3e; border-radius: 2px; }
-  .m-list-shift.confirmed { border-left-color: #a78bfa; }
-  .m-list-shift.pending   { border-left-color: #fbbf24; }
-  .m-list-shift.reserve   { border-left-color: #3b82f6; }
-  .m-list-shift.worked    { border-left-color: #34d399; }
-  .m-list-check { font-size: 1.2rem; font-weight: 700; color: #34d399; flex-shrink: 0; width: 20px; text-align: center; }
+  .m-list-shift.confirmed { border-left-color: #16a34a; }
+  .m-list-shift.pending   { border-left-color: #b45309; }
+  .m-list-shift.reserve   { border-left-color: #9333ea; }
+  .m-list-shift.worked    { border-left-color: #3b82f6; }
+  .m-list-check { font-size: 1.2rem; font-weight: 700; color: #3b82f6; flex-shrink: 0; width: 20px; text-align: center; }
   .m-list-shift-body { flex: 1; min-width: 0; }
   .m-list-shift-name { font-size: .88rem; font-weight: 600; color: #e8e8f0; margin-bottom: 2px; }
-  .m-list-shift-time { font-size: .78rem; color: #a78bfa; font-weight: 500; }
-  .m-list-shift.worked .m-list-shift-time  { color: #34d399; }
-  .m-list-shift.pending .m-list-shift-time { color: #fbbf24; }
-  .m-list-shift.reserve .m-list-shift-time { color: #60a5fa; }
+  .m-list-shift-time { font-size: .78rem; color: #4ade80; font-weight: 500; }
+  .m-list-shift.worked .m-list-shift-time  { color: #60a5fa; }
+  .m-list-shift.pending .m-list-shift-time { color: #d97706; }
+  .m-list-shift.reserve .m-list-shift-time { color: #d8b4fe; }
+  .m-prem-tag { font-size: .58rem; background: #78350f; color: #fcd34d; border-radius: 3px; padding: 1px 4px; font-weight: 700; letter-spacing: .3px; margin-left: 5px; vertical-align: middle; flex-shrink: 0; }
   .m-list-shift-venue { font-size: .73rem; color: #555; margin-top: 1px; }
   .m-empty-month { text-align: center; padding: 50px 20px; color: #555; font-size: .9rem; }
 
@@ -954,7 +964,8 @@ function renderCalendar() {
 
       shifts.filter(s=>s.date===dateStr && !(s.status==='reserve' && dateStr < todayStr)).forEach(shift => {
         const chip = document.createElement('div');
-        chip.className=`shift-chip ${shift.status}`;
+        const isWorked = shift.status === 'confirmed' && dateStr < todayStr;
+        chip.className=`shift-chip ${isWorked ? 'worked' : shift.status}`;
         chip.title=`${shift.event}${shift.tag?' ['+shift.tag+']':''} @ ${shift.venue}`;
         const isPremium = shift.tag && /premium/i.test(shift.tag);
         const premBadge = isPremium ? `<span class="chip-premium">PREMIUM</span>` : '';
@@ -1088,8 +1099,9 @@ function openDetail(id) {
   document.getElementById('detailVenue').textContent=s.venue||'—';
   document.getElementById('detailTime').textContent=
     `${fmtDate(s.date)}${s.start?', '+fmtTime(s.start):''}${s.end?' – '+fmtTime(s.end):''}`;
+  const statusLabel = {confirmed:'Bekräftad',pending:'Väntande',reserve:'Reservlistan',worked:'Avklarad'}[s.status] || s.status;
   document.getElementById('detailStatus').innerHTML=
-    `<span class="status-badge ${s.status}">${s.status==='confirmed'?'Bekräftad':'Väntande'}</span>`;
+    `<span class="status-badge ${s.status}">${statusLabel}</span>`;
   const h=parseHours(s.date,s.start,s.end), dp=document.getElementById('detailPay');
   if(s.rate>0&&h>0){
     document.getElementById('detailPayAmt').textContent=fmtPay(calcPay(s));
@@ -1408,9 +1420,11 @@ function renderMobile() {
         <div class="m-day-right">
           ${byDate[date].map(s=>{
               const worked = s.status==='confirmed' && date < todayStr2;
+              const isPrem = s.tag && /premium/i.test(s.tag);
+              const premTag = isPrem ? `<span class="m-prem-tag">P</span>` : '';
               return `<div class="m-list-shift ${worked?'worked':s.status}" onclick="openDetail('${s.id}')">
                 <div class="m-list-shift-body">
-                  <div class="m-list-shift-name">${escHtml(s.event)}</div>
+                  <div class="m-list-shift-name">${escHtml(s.event)}${premTag}</div>
                   <div class="m-list-shift-time">${s.start?(s.start+(s.end?' – '+s.end:'')):'Tid okänd'}</div>
                   <div class="m-list-shift-venue">${escHtml(s.venue||'')}</div>
                 </div>
