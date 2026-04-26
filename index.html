@@ -503,19 +503,31 @@ function mergeFromJson(jsonShifts) {
   jsonShifts.forEach(incoming => {
     // Skip shifts the user has manually deleted
     if (tombstones.has(tombstoneKey(incoming))) return;
-    const idx = shifts.findIndex(s =>
-      s.date === incoming.date &&
-      s.event.toLowerCase().trim() === (incoming.event||'').toLowerCase().trim()
-    );
+    // PREMIUM and non-PREMIUM are separate shifts (same match, different role)
+    const incomingPremium = !!(incoming.tag && /premium/i.test(incoming.tag));
+    const idx = shifts.findIndex(s => {
+      if (s.date !== incoming.date) return false;
+      if (s.event.toLowerCase().trim() !== (incoming.event||'').toLowerCase().trim()) return false;
+      return !!(s.tag && /premium/i.test(s.tag)) === incomingPremium;
+    });
     if (idx === -1) {
       shifts.push({ ...incoming, id: incoming.id || uid() });
       added++;
-    } else if (incoming.status === 'confirmed' && shifts[idx].status === 'pending') {
-      shifts[idx].status = 'confirmed';
-      if (incoming.start) shifts[idx].start = incoming.start;
-      if (incoming.end)   shifts[idx].end   = incoming.end;
-      if (incoming.tag)   shifts[idx].tag   = incoming.tag;
-      updated++;
+    } else {
+      let changed = false;
+      // Upgrade pending/reserve → confirmed
+      if (incoming.status === 'confirmed' && shifts[idx].status !== 'confirmed') {
+        shifts[idx].status = 'confirmed'; changed = true;
+      }
+      // Downgrade pending → reserve (email sync found a reserve-list email)
+      if (incoming.status === 'reserve' && shifts[idx].status === 'pending') {
+        shifts[idx].status = 'reserve'; changed = true;
+      }
+      if (incoming.start && !shifts[idx].start) { shifts[idx].start = incoming.start; changed = true; }
+      if (incoming.end   && !shifts[idx].end)   { shifts[idx].end   = incoming.end;   changed = true; }
+      if (incoming.tag   && !shifts[idx].tag)   { shifts[idx].tag   = incoming.tag;   changed = true; }
+      if (incoming.rate  && !shifts[idx].rate)  { shifts[idx].rate  = incoming.rate;  changed = true; }
+      if (changed) updated++;
     }
   });
   return { added, updated };
