@@ -1154,10 +1154,13 @@ function parseTarantsecPdf(text) {
   // Match both "YYYY-MM-DD HH:MM" and "YYYY-MM-DDTHH:MM" formats
   const allTimestamps = [...text.matchAll(/(\d{4}-\d{2}-\d{2})[ T](\d{2}:\d{2})/g)].map(m => m[1] + ' ' + m[2]);
   const unique = [...new Set(allTimestamps)];
-  const onDay = shiftDate ? unique.filter(t => t.startsWith(shiftDate)) : [];
   // Exclude the scheduled start/end so only actual clock-in/clock-out remain
   const schedStartNorm = schedStartFull.replace('T', ' ').substring(0, 16);
   const schedEndNorm   = schedEndFull.replace('T', ' ').substring(0, 16);
+  // For overnight shifts: if schedEnd is on the next day, include that day's stamps too
+  const schedEndDate = schedEndNorm.split(' ')[0];
+  const extraDay = (schedEndDate && shiftDate && schedEndDate !== shiftDate) ? schedEndDate : '';
+  const onDay = shiftDate ? unique.filter(t => t.startsWith(shiftDate) || (extraDay && t.startsWith(extraDay))) : [];
   const stempelOnDay = onDay.filter(t => t !== schedStartNorm && t !== schedEndNorm);
   stempelOnDay.sort();
   const checkoutTime = stempelOnDay.length >= 1 ? stempelOnDay[stempelOnDay.length - 1].split(' ')[1] : '';
