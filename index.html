@@ -588,19 +588,6 @@ function showSyncBanner(added, updated) {
 
 async function loadShiftsJson() {
   try {
-    // Hämta tombstones från GitHub och slå ihop med lokala
-    try {
-      const tRes = await fetch(
-        `https://raw.githubusercontent.com/${GH_REPO}/${GH_BRANCH}/tombstones.json?t=${Date.now()}`
-      );
-      if (tRes.ok) {
-        const remoteKeys = await tRes.json();
-        const local = loadTombstones();
-        remoteKeys.forEach(k => local.add(k));
-        saveTombstones(local);
-      }
-    } catch (_) {}
-
     const res = await fetch('shifts.json?t=' + Date.now());
     if (!res.ok) return;
     const jsonShifts = await res.json();
