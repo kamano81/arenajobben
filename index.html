@@ -547,14 +547,24 @@ async function loadShiftsJson() {
     const res = await fetch('shifts.json?t=' + Date.now());
     if (!res.ok) return;
     const jsonShifts = await res.json();
-    const { added, updated } = mergeFromJson(jsonShifts);
-    prunePastPending();   // rensa utgångna väntande direkt efter import
-    if (added > 0 || updated > 0) {
-      save();
+    const tombstones = loadTombstones();
+    const before = JSON.stringify(shifts);
+
+    // GitHub är master för email-importerade pass.
+    // Behåll manuellt tillagda pass (source !== 'email') som bara finns lokalt.
+    const localOnly = shifts.filter(s =>
+      s.source !== 'email' && !tombstones.has(tombstoneKey(s))
+    );
+    shifts = [
+      ...jsonShifts.filter(s => !tombstones.has(tombstoneKey(s))),
+      ...localOnly
+    ];
+
+    prunePastPending();
+    if (JSON.stringify(shifts) !== before) {
+      localStorage.setItem('concertShifts', JSON.stringify(shifts));
       renderCalendar();
-      showSyncBanner(added, updated);
-    } else {
-      renderCalendar();   // rendera ändå om prune tog bort något
+      if (typeof renderMobile === 'function' && isMobile()) renderMobile();
     }
   } catch (_) {
     // shifts.json finns inte än — ingen fara
