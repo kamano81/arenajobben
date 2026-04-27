@@ -1,4 +1,4 @@
-const CACHE = 'arenajobben-v17';
+const CACHE = 'arenajobben-v18';
 const PRECACHE = ['index.html', 'manifest.json', 'icon.svg', 'favicon.svg'];
 
 // Installera: cacha app-skal
