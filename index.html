@@ -132,7 +132,7 @@
   .status-badge.reserve   { background: #2e1065; color: #d8b4fe; border: 1px solid #9333ea; }
 
   /* ── Mobile app container (hidden on desktop) ── */
-  .mobile-app { display: none; flex-direction: column; min-height: 100vh; }
+  .mobile-app { display: none; flex-direction: column; height: 100dvh; overflow: hidden; }
 
   /* ── Mobile components ── */
   .m-header { display: flex; align-items: center; justify-content: space-between; padding: 18px 20px 12px; }
@@ -148,7 +148,19 @@
   .m-sync-dot.err { background: #f87171; }
   @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
 
-  .m-stats { display: flex; padding: 8px 20px 10px; background: #13131a; border-bottom: 1px solid #1e1e2e; gap: 0; }
+  /* Nästa pass-kort */
+  .m-next-card { margin: 0 16px 12px; background: #052e16; border: 1px solid #16a34a; border-radius: 16px; padding: 13px 16px; cursor: pointer; transition: border-color .15s; }
+  .m-next-card:active { border-color: #4ade80; }
+  .m-next-card.empty { background: #13131a; border-color: #1e1e2e; cursor: default; }
+  .m-next-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 7px; }
+  .m-next-label { font-size: .6rem; font-weight: 700; color: #16a34a; text-transform: uppercase; letter-spacing: 1px; }
+  .m-next-countdown { font-size: .72rem; font-weight: 600; color: #4ade80; background: #0a3d20; padding: 2px 8px; border-radius: 20px; }
+  .m-next-event { font-size: 1rem; font-weight: 700; color: #e8e8f0; margin-bottom: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .m-next-meta { font-size: .78rem; color: #4ade80; font-weight: 500; }
+  .m-next-venue { font-size: .72rem; color: #3a6a4a; margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .m-next-empty-txt { font-size: .85rem; color: #444; text-align: center; padding: 4px 0; }
+
+  .m-stats { display: flex; padding: 10px 20px 12px; background: #13131a; border-top: 1px solid #1e1e2e; gap: 0; flex-shrink: 0; }
   .m-stat { flex: 1; text-align: center; padding: 4px 0; }
   .m-stat + .m-stat { border-left: 1px solid #1e1e2e; }
   .m-stat-val { display: block; font-size: 1rem; font-weight: 700; }
@@ -157,7 +169,7 @@
   .m-stat-val.green  { color: #34d399; }
   .m-stat-label { font-size: .66rem; color: #555; }
 
-  .m-content { flex: 1; padding: 16px 20px 40px; overflow-y: auto; }
+  .m-content { flex: 1; padding: 16px 20px 12px; overflow-y: auto; }
 
   .m-today-header { margin-bottom: 22px; }
   .m-today-dayname { font-size: .75rem; color: #666; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
@@ -320,6 +332,8 @@
       <button class="m-icon-btn m-add-btn" id="mAddBtn" title="Lägg till pass">+</button>
     </div>
   </header>
+  <div id="mNextCard"></div>
+  <div class="m-content" id="mContent"></div>
   <div class="m-stats">
     <div class="m-stat">
       <span class="m-stat-val purple" id="mStatConf">0</span>
@@ -334,7 +348,6 @@
       <span class="m-stat-label">månadslön</span>
     </div>
   </div>
-  <div class="m-content" id="mContent"></div>
 </div>
 
 <!-- ── Inställningar Modal ─────────────────────────────────────────── -->
@@ -1432,6 +1445,35 @@ function renderMobile() {
   document.getElementById('mStatPay').textContent  = Math.round(monthPay).toLocaleString('sv') + ' kr';
 
   const todayStr2 = toDateStr(new Date());
+
+  // ── Nästa bekräftade pass-kort ──────────────────────────────────────
+  const nextShift = shifts
+    .filter(s => s.status === 'confirmed' && s.date >= todayStr2)
+    .sort((a,b) => a.date.localeCompare(b.date) || (a.start||'').localeCompare(b.start||''))[0];
+  const nextCardEl = document.getElementById('mNextCard');
+  if (nextShift) {
+    const nd = new Date(nextShift.date + 'T00:00:00');
+    const today0 = new Date(); today0.setHours(0,0,0,0);
+    const diffDays = Math.round((nd - today0) / 86400000);
+    const countdown = diffDays === 0 ? 'Idag!' : diffDays === 1 ? 'Imorgon' : `om ${diffDays} dagar`;
+    const dateStr = nd.toLocaleDateString('sv-SE', { weekday:'long', day:'numeric', month:'long' });
+    const capDate = dateStr.charAt(0).toUpperCase() + dateStr.slice(1);
+    const timeStr = nextShift.start ? (nextShift.start + (nextShift.end ? ' – ' + nextShift.end : '')) : '';
+    const isPrem = nextShift.tag && /premium/i.test(nextShift.tag);
+    nextCardEl.innerHTML = `<div class="m-next-card" onclick="openDetail('${nextShift.id}')">
+      <div class="m-next-header">
+        <span class="m-next-label">Nästa pass</span>
+        <span class="m-next-countdown">${countdown}</span>
+      </div>
+      <div class="m-next-event">${escHtml(nextShift.event)}${isPrem ? ' <span style="font-size:.65rem;background:#78350f;color:#fcd34d;border-radius:3px;padding:1px 5px;font-weight:700;vertical-align:middle">P</span>' : ''}</div>
+      <div class="m-next-meta">${capDate}${timeStr ? '  ·  ' + timeStr : ''}</div>
+      ${nextShift.venue ? `<div class="m-next-venue">${escHtml(nextShift.venue)}</div>` : ''}
+    </div>`;
+  } else {
+    nextCardEl.innerHTML = `<div class="m-next-card empty">
+      <div class="m-next-empty-txt">Inga kommande bekräftade pass</div>
+    </div>`;
+  }
 
   // Alla pass för månaden (ofiltrerade) — för byDate-mappning
   const monthShiftsAll = shifts.filter(s => {
