@@ -214,7 +214,7 @@
   .m-upcoming-dot.pending   { background: #d97706; }
   .m-upcoming-dot.reserve   { background: #9333ea; }
 
-  .m-list-nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+  .m-month-nav { display: flex; align-items: center; justify-content: space-between; padding: 10px 20px; background: #13131a; border-top: 1px solid #1e1e2e; flex-shrink: 0; }
   .m-list-nav-btn { background: #1e1e2e; border: none; color: #e8e8f0; width: 38px; height: 38px; border-radius: 10px; cursor: pointer; font-size: 1.3rem; display: flex; align-items: center; justify-content: center; }
   .m-list-month { font-size: 1rem; font-weight: 600; color: #e8e8f0; }
 
@@ -334,6 +334,7 @@
   </header>
   <div id="mNextCard"></div>
   <div class="m-content" id="mContent"></div>
+  <div class="m-month-nav" id="mMonthNav"></div>
   <div class="m-stats">
     <div class="m-stat">
       <span class="m-stat-val purple" id="mStatConf">0</span>
@@ -1506,11 +1507,13 @@ function renderMobile() {
     </div>
   </div>`;
 
-  let html = `<div class="m-list-nav">
-    <button class="m-list-nav-btn" onclick="mPrevMonth()">‹</button>
-    <span class="m-list-month">${label}</span>
-    <button class="m-list-nav-btn" onclick="mNextMonth()">›</button>
-  </div>${filterBar}`;
+  // Månadsväljare i eget element (utanför scroll-området)
+  document.getElementById('mMonthNav').innerHTML =
+    `<button class="m-list-nav-btn" onclick="mPrevMonth()">‹</button>
+     <span class="m-list-month">${label}</span>
+     <button class="m-list-nav-btn" onclick="mNextMonth()">›</button>`;
+
+  let html = filterBar;
 
   // Bygg datumuppsättning
   const byDate = {};
