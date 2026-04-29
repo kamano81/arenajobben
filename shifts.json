@@ -1,5 +1,41 @@
 [
   {
+    "id": "i2973bb95i9d",
+    "event": "Google Kväll 3/6",
+    "venue": "Avicii Arena",
+    "date": "2026-06-03",
+    "start": "13:30",
+    "end": "20:30",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "hatxjdldnbd7",
+    "event": "Google",
+    "venue": "Avicii Arena",
+    "date": "2026-06-02",
+    "start": "11:30",
+    "end": "20:15",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "mxnc8uq938wg",
+    "event": "Marcus & Martinus",
+    "venue": "Avicii Arena",
+    "date": "2026-05-09",
+    "start": "16:30",
+    "end": "23:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "PREMIUM",
+    "source": "email"
+  },
+  {
     "id": "98ot4jf7k0u4",
     "event": "AIK – Kalmar FF",
     "venue": "Strawberry Arena",
@@ -36,6 +72,18 @@
     "source": "email"
   },
   {
+    "id": "n64hfu5504dn",
+    "event": "Google DAG 3/6",
+    "venue": "Avicii Arena",
+    "date": "2026-06-03",
+    "start": "06:30",
+    "end": "14:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
     "id": "qj7o33ip1xlu",
     "event": "HIF - Örgryte",
     "venue": "3Arena",
@@ -48,6 +96,18 @@
     "source": "email"
   },
   {
+    "id": "zxt1ffphfh3f",
+    "event": "HIF - BK Häcken",
+    "venue": "3Arena",
+    "date": "2026-04-25",
+    "start": "12:45",
+    "end": "18:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
     "id": "s5wp2cm7f445",
     "event": "Pentatonix",
     "venue": "Avicii Arena",
@@ -55,7 +115,7 @@
     "start": "16:00",
     "end": "23:00",
     "rate": 0,
-    "status": "reserve",
+    "status": "confirmed",
     "tag": "",
     "source": "email"
   },
@@ -102,7 +162,19 @@
     "date": "2026-01-29",
     "start": "13:30",
     "end": "22:30",
-    "rate": 150,
+    "rate": 150.0,
+    "status": "confirmed",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "eyk5m8fspaeg",
+    "event": "Kickoff Servicevärdar Avicii Arena",
+    "venue": "Avicii Arena",
+    "date": "2026-01-26",
+    "start": "18:00",
+    "end": "20:00",
+    "rate": 0,
     "status": "confirmed",
     "tag": "",
     "source": "email"
@@ -156,6 +228,18 @@
     "source": "email"
   },
   {
+    "id": "xplxhabeyikd",
+    "event": "Conan Gray",
+    "venue": "Avicii Arena",
+    "date": "2026-05-25",
+    "start": "16:00",
+    "end": "23:30",
+    "rate": 0,
+    "status": "pending",
+    "tag": "PREMIUM",
+    "source": "email"
+  },
+  {
     "id": "2zu33nky9nns",
     "event": "Dave",
     "venue": "Avicii Arena",
@@ -204,6 +288,30 @@
     "source": "email"
   },
   {
+    "id": "vjqt4fdiwwqy",
+    "event": "BMW",
+    "venue": "Avicii Arena",
+    "date": "2026-04-22",
+    "start": "09:00",
+    "end": "17:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "yds65oc9d5s7",
+    "event": "Kickoff Servicevärdar",
+    "venue": "Avicii Arena",
+    "date": "2026-01-26",
+    "start": "18:00",
+    "end": "20:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
     "id": "7vobridrvmh9",
     "event": "Disney On Ice",
     "venue": "Avicii Arena",
@@ -216,6 +324,18 @@
     "source": "email"
   },
   {
+    "id": "v9ejyenos7vt",
+    "event": "DIF Hockey - Örebro Hockey",
+    "venue": "Hovet",
+    "date": "2026-01-08",
+    "start": "15:45",
+    "end": "22:15",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
     "id": "7h0cvueipe7l",
     "event": "HIF – Halmstads BK",
     "venue": "3Arena",
@@ -224,6 +344,18 @@
     "end": "22:00",
     "rate": 0,
     "status": "confirmed",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "gxh9h0jydiue",
+    "event": "Cancergalan",
+    "venue": "Annexet",
+    "date": "2026-01-10",
+    "start": "16:45",
+    "end": "22:15",
+    "rate": 0,
+    "status": "pending",
     "tag": "",
     "source": "email"
   },
@@ -246,6 +378,42 @@
     "date": "2026-04-13",
     "start": "18:30",
     "end": "23:15",
+    "rate": 0,
+    "status": "confirmed",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "j3ku6w0rcpyu",
+    "event": "Biljettkassa",
+    "venue": "Stockholm stad",
+    "date": "2025-12-31",
+    "start": "",
+    "end": "",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "8a1xj72rw98m",
+    "event": "DIF Hockey - Rögle BK",
+    "venue": "Hovet",
+    "date": "2026-01-06",
+    "start": "15:30",
+    "end": "21:15",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "082uq7lf2g0b",
+    "event": "Arenagenomgång",
+    "venue": "Avicii",
+    "date": "2025-12-17",
+    "start": "18:00",
+    "end": "21:00",
     "rate": 0,
     "status": "confirmed",
     "tag": "",
@@ -288,6 +456,66 @@
     "source": "email"
   },
   {
+    "id": "te5wi5ypuryh",
+    "event": "Arenagenomgång",
+    "venue": "Strawberry Arena",
+    "date": "2025-12-16",
+    "start": "18:00",
+    "end": "21:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "mgo5ve6oow55",
+    "event": "Arenagenomgång",
+    "venue": "Strawberry Arena",
+    "date": "2025-12-22",
+    "start": "18:00",
+    "end": "21:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "9omlshm38k26",
+    "event": "Arenagenomgång",
+    "venue": "Avicii Arena",
+    "date": "2025-12-08",
+    "start": "18:00",
+    "end": "21:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "53t9zyzvd6v0",
+    "event": "Arenagenomgång",
+    "venue": "Strawberry Arena",
+    "date": "2025-12-10",
+    "start": "18:00",
+    "end": "21:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "0pu4woui1uor",
+    "event": "SM-Final Innebandy 25 april",
+    "venue": "Avicii Arena",
+    "date": "2026-04-25",
+    "start": "09:00",
+    "end": "18:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "PREMIUM",
+    "source": "email"
+  },
+  {
     "id": "5oh414g6wvpt",
     "event": "Linkin Park",
     "venue": "3Arena",
@@ -312,6 +540,30 @@
     "source": "email"
   },
   {
+    "id": "4lkn3tibivli",
+    "event": "Matt Rife",
+    "venue": "Avicii Arena",
+    "date": "2026-04-20",
+    "start": "17:30",
+    "end": "23:15",
+    "rate": 0,
+    "status": "pending",
+    "tag": "PREMIUM",
+    "source": "email"
+  },
+  {
+    "id": "n2t9zbgt3n0h",
+    "event": "Tame Impala",
+    "venue": "Avicii Arena",
+    "date": "2026-04-26",
+    "start": "17:00",
+    "end": "00:15",
+    "rate": 0,
+    "status": "pending",
+    "tag": "PREMIUM",
+    "source": "email"
+  },
+  {
     "id": "i3su2cn3dyvi",
     "event": "Disney On Ice",
     "venue": "Avicii Arena",
@@ -332,6 +584,42 @@
     "end": "23:15",
     "rate": 0,
     "status": "reserve",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "sna1k2tsj8x5",
+    "event": "DIF – HIF",
+    "venue": "3Arena",
+    "date": "2026-04-26",
+    "start": "11:00",
+    "end": "16:30",
+    "rate": 0,
+    "status": "confirmed",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "qs9ontd4wppr",
+    "event": "Grammis",
+    "venue": "Annexet",
+    "date": "2026-04-29",
+    "start": "14:15",
+    "end": "23:30",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "s06xp4zd6eg9",
+    "event": "Team Putte 20år",
+    "venue": "Hovet",
+    "date": "2026-05-09",
+    "start": "15:45",
+    "end": "22:00",
+    "rate": 0,
+    "status": "pending",
     "tag": "",
     "source": "email"
   },
@@ -372,6 +660,30 @@
     "source": "email"
   },
   {
+    "id": "mnx1o0mdfhnz",
+    "event": "DIF – Brommapojkarna",
+    "venue": "3Arena",
+    "date": "2026-05-22",
+    "start": "15:30",
+    "end": "21:45",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "33ee8chrykrr",
+    "event": "Schackfyran 15/4",
+    "venue": "Annexet",
+    "date": "2026-04-15",
+    "start": "07:30",
+    "end": "16:15",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
     "id": "lmeyr853rqw1",
     "event": "Sverige - Polen",
     "venue": "Strawberry Arena",
@@ -396,6 +708,30 @@
     "source": "email"
   },
   {
+    "id": "sl86brdgu6di",
+    "event": "Schackfyran 16/4",
+    "venue": "Annexet",
+    "date": "2026-04-16",
+    "start": "07:30",
+    "end": "16:15",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "7aqt1c09tgkq",
+    "event": "Schackfyran 17/4",
+    "venue": "Annexet",
+    "date": "2026-04-17",
+    "start": "09:30",
+    "end": "22:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
     "id": "ks9yvj11gb9s",
     "event": "Måns Möller",
     "venue": "Avicii Arena",
@@ -405,6 +741,42 @@
     "rate": 150,
     "status": "confirmed",
     "tag": "PREMIUM",
+    "source": "email"
+  },
+  {
+    "id": "z291lf0hbthf",
+    "event": "Chessparty 18/4",
+    "venue": "Avicii Arena",
+    "date": "2026-04-18",
+    "start": "09:15",
+    "end": "22:15",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "aiz0vf4gfcyi",
+    "event": "Chessparty 17/4",
+    "venue": "Avicii Arena",
+    "date": "2026-04-17",
+    "start": "11:15",
+    "end": "22:15",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "mp5gjapg6g6n",
+    "event": "MAX - DAG",
+    "venue": "Annexet",
+    "date": "2026-04-13",
+    "start": "09:30",
+    "end": "17:15",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
     "source": "email"
   },
   {
@@ -428,6 +800,30 @@
     "end": "16:00",
     "rate": 150,
     "status": "confirmed",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "9q5s3d17kx04",
+    "event": "er ett arbetserbjudande för DIF Hockey Kvartsfinal 27/3 PRELIMINÄRT",
+    "venue": "Hovet",
+    "date": "2026-03-27",
+    "start": "",
+    "end": "",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "gytk1m5t5m2w",
+    "event": "er ett arbetserbjudande för DIF Hockey Kvartsfinal 29/3 PRELIMINÄRT",
+    "venue": "Hovet",
+    "date": "2026-03-29",
+    "start": "",
+    "end": "",
+    "rate": 0,
+    "status": "pending",
     "tag": "",
     "source": "email"
   },
@@ -456,6 +852,42 @@
     "source": "email"
   },
   {
+    "id": "5etu33cx58xp",
+    "event": "Förfest 20/3",
+    "venue": "Annexet",
+    "date": "2026-03-20",
+    "start": "15:30",
+    "end": "19:30",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "d623y66mlyqa",
+    "event": "Förfest 22/3",
+    "venue": "Annexet",
+    "date": "2026-03-22",
+    "start": "11:30",
+    "end": "15:30",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "abywislpvr8c",
+    "event": "AIK - Halmstads BK",
+    "venue": "Strawberry Arena",
+    "date": "2026-04-05",
+    "start": "14:00",
+    "end": "00:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
     "id": "7evpd3j72rsh",
     "event": "Louis Tomlinson",
     "venue": "Avicii Arena",
@@ -465,6 +897,18 @@
     "rate": 0,
     "status": "reserve",
     "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "kuo35fkgduak",
+    "event": "HIF - DIF",
+    "venue": "3Arena",
+    "date": "2026-03-15",
+    "start": "11:30",
+    "end": "18:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "PREMIUM",
     "source": "email"
   },
   {
@@ -516,6 +960,30 @@
     "source": "email"
   },
   {
+    "id": "ongkumd73s81",
+    "event": "AIK Hockey - MoDo 3:7",
+    "venue": "Hovet",
+    "date": "2026-03-20",
+    "start": "17:30",
+    "end": "21:30",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "wby53mpe6p4i",
+    "event": "Håkan Hellström",
+    "venue": "Avicii Arena",
+    "date": "2026-03-14",
+    "start": "16:30",
+    "end": "23:30",
+    "rate": 0,
+    "status": "pending",
+    "tag": "PREMIUM",
+    "source": "email"
+  },
+  {
     "id": "psn1zu2m7ueq",
     "event": "Melodifestivalen Finalen",
     "venue": "Strawberry Arena",
@@ -540,6 +1008,42 @@
     "source": "email"
   },
   {
+    "id": "h21rl7ddlq1a",
+    "event": "ESL Pro League",
+    "venue": "Annexet",
+    "date": "2026-03-13",
+    "start": "07:30",
+    "end": "16:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "fewxuserqdfb",
+    "event": "ESL Pro League",
+    "venue": "Annexet",
+    "date": "2026-03-14",
+    "start": "12:45",
+    "end": "22:45",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "p8agqyyom2h6",
+    "event": "ESL Pro League",
+    "venue": "Annexet",
+    "date": "2026-03-15",
+    "start": "10:30",
+    "end": "22:50",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
     "id": "3wajcdivs5j8",
     "event": "DIF - Brommapojkarna",
     "venue": "3Arena",
@@ -548,6 +1052,30 @@
     "end": "16:00",
     "rate": 150,
     "status": "confirmed",
+    "tag": "PREMIUM",
+    "source": "email"
+  },
+  {
+    "id": "hkemxumj8xjn",
+    "event": "SM-Final Innebandy",
+    "venue": "Avicii Arena",
+    "date": "2026-04-25",
+    "start": "09:00",
+    "end": "18:00",
+    "rate": 0,
+    "status": "reserve",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "elo5o3d5o2ar",
+    "event": "HIF – Sparta Prag",
+    "venue": "3Arena",
+    "date": "2026-04-02",
+    "start": "",
+    "end": "",
+    "rate": 0,
+    "status": "pending",
     "tag": "PREMIUM",
     "source": "email"
   },
@@ -576,6 +1104,18 @@
     "source": "email"
   },
   {
+    "id": "lcrn4qi08o64",
+    "event": "HIF - Mjällby AIF",
+    "venue": "3Arena",
+    "date": "2026-04-04",
+    "start": "11:30",
+    "end": "18:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "PREMIUM",
+    "source": "email"
+  },
+  {
     "id": "0ycyu9zl70ro",
     "event": "Hans Zimmer",
     "venue": "Avicii Arena",
@@ -588,6 +1128,30 @@
     "source": "email"
   },
   {
+    "id": "ykw34n0214qq",
+    "event": "HIF DAM - Sporting FC",
+    "venue": "3Arena",
+    "date": "2026-02-18",
+    "start": "16:00",
+    "end": "21:45",
+    "rate": 0,
+    "status": "reserve",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "kmapkcrj7spz",
+    "event": "DIF Hockey - Skellefteå AIK",
+    "venue": "Hovet",
+    "date": "2026-03-14",
+    "start": "12:15",
+    "end": "18:15",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
     "id": "uqrzqs85ujv3",
     "event": "Givéon",
     "venue": "Annexet",
@@ -596,6 +1160,18 @@
     "end": "23:15",
     "rate": 0,
     "status": "reserve",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "roylg81pno93",
+    "event": "DIF Vinterdagen",
+    "venue": "3Arena",
+    "date": "2026-02-14",
+    "start": "09:45",
+    "end": "17:45",
+    "rate": 0,
+    "status": "confirmed",
     "tag": "",
     "source": "email"
   },
@@ -630,7 +1206,19 @@
     "date": "2026-02-27",
     "start": "16:30",
     "end": "20:30",
-    "rate": 150,
+    "rate": 150.0,
+    "status": "confirmed",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "g7zi8pecdbbd",
+    "event": "Zach Top",
+    "venue": "Annexet",
+    "date": "2026-02-28",
+    "start": "15:45",
+    "end": "22:45",
+    "rate": 0,
     "status": "confirmed",
     "tag": "",
     "source": "email"
@@ -648,6 +1236,18 @@
     "source": "email"
   },
   {
+    "id": "tuk3sjoxunve",
+    "event": "Microsoft",
+    "venue": "Avicii Arena",
+    "date": "2026-03-18",
+    "start": "06:15",
+    "end": "20:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
     "id": "b0thk9cywpel",
     "event": "DIF - Falkenberg",
     "venue": "3Arena",
@@ -656,6 +1256,30 @@
     "end": "17:30",
     "rate": 157.14,
     "status": "reserve",
+    "tag": "PREMIUM",
+    "source": "email"
+  },
+  {
+    "id": "8b1mmbjlrxly",
+    "event": "AIK - Västerås SK FK",
+    "venue": "Strawberry Arena",
+    "date": "2026-02-22",
+    "start": "09:30",
+    "end": "15:45",
+    "rate": 0,
+    "status": "confirmed",
+    "tag": "PREMIUM",
+    "source": "email"
+  },
+  {
+    "id": "tzyfz71z9ikj",
+    "event": "HIF - IFK Kristianstad",
+    "venue": "Avicii Arena",
+    "date": "2026-03-07",
+    "start": "13:00",
+    "end": "19:00",
+    "rate": 0,
+    "status": "pending",
     "tag": "PREMIUM",
     "source": "email"
   },
@@ -708,6 +1332,30 @@
     "source": "email"
   },
   {
+    "id": "lbisyl06tenz",
+    "event": "Visa match på storbild",
+    "venue": "storbild [STHLM",
+    "date": "2026-03-26",
+    "start": "17:00",
+    "end": "00:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "nvihe5g7s11x",
+    "event": "DIF Hockey - Leksands IF",
+    "venue": "Avicii Arena",
+    "date": "2026-02-28",
+    "start": "12:45",
+    "end": "18:45",
+    "rate": 0,
+    "status": "pending",
+    "tag": "PREMIUM",
+    "source": "email"
+  },
+  {
     "id": "pjlwh8cevpzr",
     "event": "Basketlandskamp: Sverige-Estland",
     "venue": "Avicii Arena",
@@ -716,6 +1364,18 @@
     "end": "22:30",
     "rate": 0,
     "status": "reserve",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "cx1adtejrkrv",
+    "event": "HIF-Brage",
+    "venue": "3Arena",
+    "date": "2026-02-20",
+    "start": "16:00",
+    "end": "21:45",
+    "rate": 0,
+    "status": "pending",
     "tag": "",
     "source": "email"
   },
@@ -744,6 +1404,18 @@
     "source": "email"
   },
   {
+    "id": "ifcs850zfh28",
+    "event": "Techarenan",
+    "venue": "Strawberry Arena",
+    "date": "2026-02-12",
+    "start": "",
+    "end": "",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
     "id": "j9kmvy1pjzhm",
     "event": "Sombr",
     "venue": "Annexet",
@@ -756,6 +1428,18 @@
     "source": "email"
   },
   {
+    "id": "4azufs4mr4dq",
+    "event": "Techarenan",
+    "venue": "Strawberry Arena",
+    "date": "2026-02-11",
+    "start": "",
+    "end": "",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
     "id": "arjaksvg01z0",
     "event": "DIF Hockey - HV71",
     "venue": "Hovet",
@@ -764,6 +1448,30 @@
     "end": "22:00",
     "rate": 0,
     "status": "reserve",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "cbvzeaq0lyqv",
+    "event": "Vinterkonferensen",
+    "venue": "Strawberry Arena",
+    "date": "2026-01-11",
+    "start": "17:00",
+    "end": "04:15",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "ssou1f1a6zj3",
+    "event": "Vinterkonferensen",
+    "venue": "Strawberry Arena",
+    "date": "2026-01-10",
+    "start": "18:00",
+    "end": "02:30",
+    "rate": 0,
+    "status": "pending",
     "tag": "",
     "source": "email"
   },
@@ -848,6 +1556,42 @@
     "end": "",
     "rate": 0,
     "status": "reserve",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "k1ksk2wir5m0",
+    "event": "Sverige - Polen/Albanien",
+    "venue": "",
+    "date": "2026-03-31",
+    "start": "16:30",
+    "end": "23:45",
+    "rate": 0,
+    "status": "confirmed",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "15i646mk471q",
+    "event": "HIF - Östers",
+    "venue": "3Arena",
+    "date": "2026-03-07",
+    "start": "09:30",
+    "end": "16:00",
+    "rate": 0,
+    "status": "confirmed",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "0g7wr3itudnk",
+    "event": "Handboll HIF - IFK Kristianstad",
+    "venue": "mejl att du fått arbetspasset.",
+    "date": "2026-03-07",
+    "start": "13:00",
+    "end": "19:00",
+    "rate": 0,
+    "status": "confirmed",
     "tag": "",
     "source": "email"
   },
