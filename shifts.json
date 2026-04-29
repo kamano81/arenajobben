@@ -871,7 +871,7 @@
     "start": "",
     "end": "",
     "rate": 0,
-    "status": "pending",
+    "status": "reserve",
     "tag": "PREMIUM",
     "source": "email"
   },
@@ -933,6 +933,18 @@
     "rate": 0,
     "status": "pending",
     "tag": "PREMIUM",
+    "source": "email"
+  },
+  {
+    "id": "aj9jp831xcvv",
+    "event": "DIF – Sirius",
+    "venue": "3Arena",
+    "date": "2026-05-18",
+    "start": "15:30",
+    "end": "21:45",
+    "rate": 0,
+    "status": "confirmed",
+    "tag": "",
     "source": "email"
   }
 ]
