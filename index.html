@@ -1044,7 +1044,7 @@ function renderCalendar() {
 }
 
 function updateStats() {
-  const conf = shifts.filter(s => s.status === 'confirmed');
+  const conf = shifts.filter(s => s.status === 'confirmed' || s.status === 'worked');
   const pend = shifts.filter(s => s.status === 'pending');
 
   // Current viewed month
@@ -1438,7 +1438,7 @@ function isMobile() { return window.innerWidth <= 700; }
 
 function renderMobile() {
   if (!isMobile()) return;
-  const conf = shifts.filter(s => s.status === 'confirmed');
+  const conf = shifts.filter(s => s.status === 'confirmed' || s.status === 'worked');
   const pend = shifts.filter(s => s.status === 'pending');
   const monthConf = conf.filter(s => { const d = new Date(s.date+'T00:00:00'); return d.getFullYear()===currentYear && d.getMonth()===currentMonth; });
   const monthPay  = monthConf.reduce((t,s) => t + calcPay(s), 0);
