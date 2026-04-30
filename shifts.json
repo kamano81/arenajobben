@@ -876,30 +876,6 @@
     "source": "email"
   },
   {
-    "id": "opheoaf24xae",
-    "event": "Next M 5/5",
-    "venue": "Annexet",
-    "date": "2026-05-05",
-    "start": "07:30",
-    "end": "19:15",
-    "rate": 0,
-    "status": "pending",
-    "tag": "",
-    "source": "email"
-  },
-  {
-    "id": "2zwdafj4o2we",
-    "event": "Next M 6/5",
-    "venue": "Annexet",
-    "date": "2026-05-06",
-    "start": "",
-    "end": "",
-    "rate": 0,
-    "status": "pending",
-    "tag": "",
-    "source": "email"
-  },
-  {
     "id": "9q9j0d9qh834",
     "event": "Pitbull",
     "venue": "3Arena",
