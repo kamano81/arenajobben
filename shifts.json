@@ -56,7 +56,7 @@
     "end": "23:00",
     "rate": 0,
     "status": "confirmed",
-    "tag": "",
+    "tag": "PREMIUM",
     "source": "email"
   },
   {
@@ -992,7 +992,7 @@
     "end": "",
     "rate": 150,
     "status": "reserve",
-    "tag": "PREMIUM",
+    "tag": "",
     "source": "email"
   }
 ]
