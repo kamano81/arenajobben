@@ -620,10 +620,11 @@ async function loadShiftsJson() {
     const tombstones = loadTombstones();
     const before = JSON.stringify(shifts);
 
-    // GitHub är master för email-importerade pass.
-    // Behåll manuellt tillagda pass (source !== 'email') som bara finns lokalt.
+    // GitHub är master för email- och pdf-importerade pass.
+    // Behåll bara manuellt tillagda pass (inget source-fält) som saknas i GitHub-datan.
+    const ghKeys = new Set(jsonShifts.map(s => tombstoneKey(s)));
     const localOnly = shifts.filter(s =>
-      s.source !== 'email' && !tombstones.has(tombstoneKey(s))
+      !s.source && !tombstones.has(tombstoneKey(s)) && !ghKeys.has(tombstoneKey(s))
     );
     shifts = [
       ...jsonShifts.filter(s => !tombstones.has(tombstoneKey(s))),
@@ -1486,7 +1487,7 @@ function renderMobile() {
 
   // Statusfilter: worked visas alltid, övriga filtreras
   const monthShifts = monthShiftsAll.filter(s => {
-    const worked = s.status === 'confirmed' && s.date < todayStr2;
+    const worked = s.status === 'worked' || (s.status === 'confirmed' && s.date < todayStr2);
     if (worked) return true;
     return mFilterStatus.has(s.status);
   });
@@ -1549,7 +1550,7 @@ function renderMobile() {
         <div class="m-day-divider"></div>
         <div class="m-day-right">
           ${dayShifts.length ? dayShifts.map(s=>{
-              const worked = s.status==='confirmed' && date < todayStr2;
+              const worked = s.status==='worked' || (s.status==='confirmed' && date < todayStr2);
               const isPrem = s.tag && /premium/i.test(s.tag);
               const premTag = isPrem ? `<span class="m-prem-tag">P</span>` : '';
               return `<div class="m-list-shift ${worked?'worked':s.status}" onclick="event.stopPropagation();openDetail('${s.id}')">
