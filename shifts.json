@@ -876,18 +876,6 @@
     "source": "email"
   },
   {
-    "id": "iuz3abo8yqp1",
-    "event": "Next M 4/5",
-    "venue": "Annexet",
-    "date": "2026-05-04",
-    "start": "09:00",
-    "end": "17:00",
-    "rate": 0,
-    "status": "pending",
-    "tag": "",
-    "source": "email"
-  },
-  {
     "id": "opheoaf24xae",
     "event": "Next M 5/5",
     "venue": "Annexet",
