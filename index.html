@@ -1023,7 +1023,7 @@ function renderCalendar() {
 
       const numEl = document.createElement('div'); numEl.className='day-num'; numEl.textContent=day; cell.appendChild(numEl);
 
-      shifts.filter(s=>s.date===dateStr && !(s.status==='reserve' && dateStr < todayStr)).forEach(shift => {
+      shifts.filter(s=>s.date===dateStr).forEach(shift => {
         const chip = document.createElement('div');
         const isWorked = shift.status === 'confirmed' && dateStr < todayStr;
         chip.className=`shift-chip ${isWorked ? 'worked' : shift.status}`;
@@ -1480,7 +1480,6 @@ function renderMobile() {
   // Alla pass för månaden (ofiltrerade) — för byDate-mappning
   const monthShiftsAll = shifts.filter(s => {
     if (!s.date) return false;
-    if (s.status === 'reserve' && s.date < todayStr2) return false;
     const d = new Date(s.date+'T00:00:00');
     return d.getFullYear()===currentYear && d.getMonth()===currentMonth;
   }).sort((a,b) => a.date.localeCompare(b.date) || (a.start||'').localeCompare(b.start||''));
