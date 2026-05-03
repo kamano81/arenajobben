@@ -948,42 +948,6 @@
     "source": "email"
   },
   {
-    "id": "5edycslzynwx",
-    "event": "HIF - AIK",
-    "venue": "3Arena",
-    "date": "2026-05-24",
-    "start": "11:45",
-    "end": "17:00",
-    "rate": 0,
-    "status": "confirmed",
-    "tag": "",
-    "source": "email"
-  },
-  {
-    "id": "rqupcsqwv2tn",
-    "event": "Jireel",
-    "venue": "Jireel [PREMUM] den 2026-05-16",
-    "date": "2026-05-16",
-    "start": "",
-    "end": "",
-    "rate": 0,
-    "status": "reserve",
-    "tag": "",
-    "source": "email"
-  },
-  {
-    "id": "qf494xcbdpmg",
-    "event": "Olivia Dean",
-    "venue": "Olivia Dean [SERVICE] den 2026-05-17",
-    "date": "2026-05-17",
-    "start": "",
-    "end": "",
-    "rate": 0,
-    "status": "reserve",
-    "tag": "",
-    "source": "email"
-  },
-  {
     "id": "1rd3sgo63upw",
     "event": "DIF - IFK Göteborg",
     "venue": "3Arena",
@@ -993,30 +957,6 @@
     "rate": 0,
     "status": "confirmed",
     "tag": "PREMIUM",
-    "source": "email"
-  },
-  {
-    "id": "wkbhde6i9axm",
-    "event": "DIF - Sirius",
-    "venue": "DIF - Sirius [PREMIUM] den 2026-05-18",
-    "date": "2026-05-18",
-    "start": "",
-    "end": "",
-    "rate": 0,
-    "status": "reserve",
-    "tag": "PREMIUM",
-    "source": "email"
-  },
-  {
-    "id": "peergsjnpxc7",
-    "event": "Together in tune",
-    "venue": "Avicii Arena",
-    "date": "2026-05-19",
-    "start": "16:45",
-    "end": "20:45",
-    "rate": 0,
-    "status": "pending",
-    "tag": "",
     "source": "email"
   }
 ]
