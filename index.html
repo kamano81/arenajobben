@@ -614,10 +614,26 @@ function showSyncBanner(added, updated) {
 
 async function loadShiftsJson() {
   try {
-    const res = await fetch('shifts.json?t=' + Date.now());
+    // Hämta shifts + tombstones parallellt (tombstones.json = GitHub är master)
+    const [res, tombRes] = await Promise.all([
+      fetch('shifts.json?t=' + Date.now()),
+      fetch('tombstones.json?t=' + Date.now()),
+    ]);
     if (!res.ok) return;
     const jsonShifts = await res.json();
-    const tombstones = loadTombstones();
+
+    // Synka tombstones från GitHub → localStorage.
+    // GitHub är master: om ett pass återaktiverats på server-sidan reflekteras det direkt.
+    let tombstones = loadTombstones();
+    if (tombRes.ok) {
+      try {
+        const ghList = await tombRes.json();
+        // Använd GitHub som auktoritativ källa (ersätter localStorage)
+        tombstones = new Set(ghList);
+        saveTombstones(tombstones);
+      } catch (_) { /* tombstones.json saknas eller ogiltigt — behåll localStorage */ }
+    }
+
     const before = JSON.stringify(shifts);
 
     // GitHub är master för email- och pdf-importerade pass.
