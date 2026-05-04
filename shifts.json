@@ -934,29 +934,5 @@
     "status": "pending",
     "tag": "",
     "source": "email"
-  },
-  {
-    "id": "x4jungatlqyc",
-    "event": "Next M 6/5",
-    "venue": "Annexet",
-    "date": "2026-05-06",
-    "start": "",
-    "end": "",
-    "rate": 0,
-    "status": "pending",
-    "tag": "",
-    "source": "email"
-  },
-  {
-    "id": "1rd3sgo63upw",
-    "event": "DIF - IFK Göteborg",
-    "venue": "3Arena",
-    "date": "2026-05-04",
-    "start": "16:15",
-    "end": "20:15",
-    "rate": 0,
-    "status": "confirmed",
-    "tag": "PREMIUM",
-    "source": "email"
   }
 ]
