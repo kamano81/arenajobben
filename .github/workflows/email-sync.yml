@@ -1,0 +1,25 @@
+name: Synka e-post
+
+on:
+  schedule:
+    - cron: '0 5,11,17 * * *'
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checka ut repo
+        uses: actions/checkout@v4
+
+      - name: Skapa konfigfil från secrets
+        env:
+          YAHOO_EMAIL:        ${{ secrets.YAHOO_EMAIL }}
+          YAHOO_APP_PASSWORD: ${{ secrets.YAHOO_APP_PASSWORD }}
+          GH_TOKEN:           ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          printf '{"email":"%s","app_password":"%s","github_token":"%s","github_user":"kamano81"}\n' \
+            "$YAHOO_EMAIL" "$YAHOO_APP_PASSWORD" "$GH_TOKEN" > email_config.json
+
+      - name: Kör e-postsynk
+        run: python3 email_sync.py
