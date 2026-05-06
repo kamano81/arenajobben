@@ -919,7 +919,7 @@
     "start": "17:00",
     "end": "23:30",
     "rate": 0,
-    "status": "pending",
+    "status": "reserve",
     "tag": "PREMIUM",
     "source": "email"
   },
@@ -956,6 +956,54 @@
     "end": "00:30",
     "rate": 0,
     "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "sii68hwsxo15",
+    "event": "Together in tune",
+    "venue": "Avicii Arena",
+    "date": "2026-05-19",
+    "start": "16:45",
+    "end": "20:45",
+    "rate": 0,
+    "status": "confirmed",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "lviyq212lpjd",
+    "event": "Pitbull",
+    "venue": "3Arena",
+    "date": "2026-06-23",
+    "start": "17:00",
+    "end": "23:30",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "d8kcn2ca3ipr",
+    "event": "kommer Manchester United - Atletico de Madrid",
+    "venue": "Strawberry Arena",
+    "date": "2026-08-01",
+    "start": "12:00",
+    "end": "17:45",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "em0bnojzk848",
+    "event": "NEYO & AKON",
+    "venue": "",
+    "date": "2026-05-23",
+    "start": "",
+    "end": "",
+    "rate": 0,
+    "status": "reserve",
     "tag": "",
     "source": "email"
   }
