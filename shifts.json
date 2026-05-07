@@ -1030,5 +1030,17 @@
     "status": "pending",
     "tag": "",
     "source": "email"
+  },
+  {
+    "id": "vioosciuosfn",
+    "event": "AIK - Sirius SK FK",
+    "venue": "Strawberry Arena",
+    "date": "2026-05-30",
+    "start": "12:00",
+    "end": "17:30",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
   }
 ]
