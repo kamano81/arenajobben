@@ -1006,5 +1006,17 @@
     "status": "reserve",
     "tag": "",
     "source": "email"
+  },
+  {
+    "id": "umgam765apwe",
+    "event": "Sverige - Grekland",
+    "venue": "Strawberry Arena",
+    "date": "2026-06-04",
+    "start": "16:00",
+    "end": "22:15",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
   }
 ]
