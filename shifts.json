@@ -1018,5 +1018,17 @@
     "status": "pending",
     "tag": "",
     "source": "email"
+  },
+  {
+    "id": "zd3cm1ksfckw",
+    "event": "Basketlandskamp: Sverige-Tjeckien",
+    "venue": "Hovet",
+    "date": "2026-07-03",
+    "start": "",
+    "end": "",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
   }
 ]
