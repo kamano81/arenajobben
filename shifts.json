@@ -16,8 +16,8 @@
     "event": "AIK – DIF",
     "venue": "Strawberry Arena",
     "date": "2026-05-10",
-    "start": "10:30",
-    "end": "16:45",
+    "start": "11:00",
+    "end": "15:00",
     "rate": 0,
     "status": "confirmed",
     "tag": "PREMIUM",
@@ -271,7 +271,7 @@
     "start": "16:00",
     "end": "00:00",
     "rate": 0,
-    "status": "pending",
+    "status": "reserve",
     "tag": "PREMIUM",
     "source": "email"
   },
@@ -931,7 +931,7 @@
     "start": "16:15",
     "end": "23:00",
     "rate": 0,
-    "status": "pending",
+    "status": "confirmed",
     "tag": "",
     "source": "email"
   },
