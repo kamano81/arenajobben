@@ -1039,7 +1039,7 @@
     "start": "12:00",
     "end": "17:30",
     "rate": 0,
-    "status": "pending",
+    "status": "confirmed",
     "tag": "",
     "source": "email"
   },
@@ -1052,6 +1052,18 @@
     "end": "",
     "rate": 0,
     "status": "reserve",
+    "tag": "PREMIUM",
+    "source": "email"
+  },
+  {
+    "id": "799b5zrm03jl",
+    "event": "Fabege event",
+    "venue": "Strawberry Arena",
+    "date": "2026-05-22",
+    "start": "14:30",
+    "end": "18:30",
+    "rate": 0,
+    "status": "pending",
     "tag": "PREMIUM",
     "source": "email"
   }
