@@ -912,18 +912,6 @@
     "source": "email"
   },
   {
-    "id": "2mtesyi4nou3",
-    "event": "NEYO & AKON",
-    "venue": "Avicii Arena",
-    "date": "2026-05-23",
-    "start": "17:00",
-    "end": "23:30",
-    "rate": 0,
-    "status": "reserve",
-    "tag": "PREMIUM",
-    "source": "email"
-  },
-  {
     "id": "siup96to159e",
     "event": "Linkin Park",
     "venue": "3Arena",
@@ -996,18 +984,6 @@
     "source": "email"
   },
   {
-    "id": "em0bnojzk848",
-    "event": "NEYO & AKON",
-    "venue": "",
-    "date": "2026-05-23",
-    "start": "",
-    "end": "",
-    "rate": 0,
-    "status": "reserve",
-    "tag": "",
-    "source": "email"
-  },
-  {
     "id": "umgam765apwe",
     "event": "Sverige - Grekland",
     "venue": "Strawberry Arena",
@@ -1065,6 +1041,18 @@
     "rate": 0,
     "status": "confirmed",
     "tag": "PREMIUM",
+    "source": "email"
+  },
+  {
+    "id": "9x8uic2ng5gg",
+    "event": "Together in tune REPDAG 18/5",
+    "venue": "Avicii Arena",
+    "date": "2026-05-18",
+    "start": "07:30",
+    "end": "19:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
     "source": "email"
   }
 ]
