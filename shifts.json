@@ -1063,7 +1063,7 @@
     "start": "14:30",
     "end": "18:30",
     "rate": 0,
-    "status": "pending",
+    "status": "confirmed",
     "tag": "PREMIUM",
     "source": "email"
   }
