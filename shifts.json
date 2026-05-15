@@ -1054,5 +1054,29 @@
     "status": "pending",
     "tag": "",
     "source": "email"
+  },
+  {
+    "id": "1zb9qskr45l3",
+    "event": "HIF - Malmö",
+    "venue": "",
+    "date": "2026-05-17",
+    "start": "",
+    "end": "",
+    "rate": 0,
+    "status": "reserve",
+    "tag": "PREMIUM",
+    "source": "email"
+  },
+  {
+    "id": "apudiao7s9ba",
+    "event": "Together in tune REPDAG",
+    "venue": "",
+    "date": "2026-05-18",
+    "start": "",
+    "end": "",
+    "rate": 0,
+    "status": "reserve",
+    "tag": "",
+    "source": "email"
   }
 ]
