@@ -242,7 +242,7 @@ SKIP_SUBJECT_PATTERNS = re.compile(
     r'mer information om|uppdaterade tider|dubbelpass|byta pass|byte av pass|'
     r'avbokat pass|avbokning|tyvärr sjuk|vinterkonferensen|arenagenomgång|'
     r'varmt välkommen till tarantsec|tarantsec registrering|tarantsec\.se registrering|'
-    r'inget arbetstilfälle)',
+    r'inget arbetstilfälle|tidigare start)',
     re.IGNORECASE
 )
 
@@ -272,7 +272,8 @@ def extract_shift(body, subject):
     # ── Status ──
     is_confirmed = bool(
         re.search(r'du jobbar!', body, re.IGNORECASE) or
-        re.search(r'arbetsbekräftelse', subject, re.IGNORECASE)
+        re.search(r'arbetsbekräftelse', subject, re.IGNORECASE) or
+        re.match(r'^du jobbar på\b', subject.strip(), re.IGNORECASE)
     )
     is_reserve = bool(
         re.match(r'^reservlistan\b', subject.strip(), re.IGNORECASE) or
@@ -338,6 +339,7 @@ def extract_shift(body, subject):
             r'(?:Arbetserbjudande från Tarantsec:\s*|'
             r'Arbetsbekräftelse\s+|'
             r'Reservlistan\s+|'
+            r'Du jobbar på\s+|'
             r'Du har blivit flyttad till reservlistan på\s+)'
             r'(.+)',
             subject, re.IGNORECASE
