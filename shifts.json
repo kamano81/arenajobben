@@ -775,7 +775,7 @@
     "start": "10:30",
     "end": "17:45",
     "rate": 0,
-    "status": "reserve",
+    "status": "confirmed",
     "tag": "",
     "source": "email"
   },
@@ -895,7 +895,7 @@
     "start": "13:15",
     "end": "17:15",
     "rate": 150,
-    "status": "confirmed",
+    "status": "reserve",
     "tag": "PREMIUM",
     "source": "email"
   },
