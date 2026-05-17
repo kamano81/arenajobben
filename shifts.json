@@ -175,7 +175,7 @@
     "start": "08:15",
     "end": "19:30",
     "rate": 150,
-    "status": "",
+    "status": "confirmed",
     "tag": "PREMIUM",
     "source": "email"
   },
