@@ -1032,18 +1032,6 @@
     "source": "email"
   },
   {
-    "id": "799b5zrm03jl",
-    "event": "Fabege event",
-    "venue": "Strawberry Arena",
-    "date": "2026-05-22",
-    "start": "14:30",
-    "end": "18:30",
-    "rate": 0,
-    "status": "confirmed",
-    "tag": "PREMIUM",
-    "source": "email"
-  },
-  {
     "id": "9x8uic2ng5gg",
     "event": "Together in tune REPDAG 18/5",
     "venue": "Avicii Arena",
