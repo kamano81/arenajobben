@@ -124,8 +124,8 @@
     "event": "Disney On Ice",
     "venue": "Avicii Arena",
     "date": "2026-01-09",
-    "start": "12:00",
-    "end": "21:30",
+    "start": "08:15",
+    "end": "19:30",
     "rate": 0,
     "status": "confirmed",
     "tag": "PREMIUM",
@@ -885,18 +885,6 @@
     "rate": 150,
     "status": "reserve",
     "tag": "PREMIUM",
-    "source": "email"
-  },
-  {
-    "id": "rafir54xsd1y",
-    "event": "AIK – Malmö FF",
-    "venue": "Strawberry Arena",
-    "date": "2026-04-27",
-    "start": "15:15",
-    "end": "22:30",
-    "rate": 0,
-    "status": "confirmed",
-    "tag": "",
     "source": "email"
   },
   {
