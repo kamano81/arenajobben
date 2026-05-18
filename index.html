@@ -477,7 +477,6 @@ function save() {
 const GH_REPO   = 'kamano81/arenajobben';
 const GH_FILE   = 'shifts.json';
 const GH_BRANCH = 'main';
-const GH_TOKEN  = ['ghp_AzX2aHhDCMKL','SUUSvhUmaR786XjCev2wbYaY'].join('');
 
 function setSyncDot(state) {
   const dot = document.getElementById('mSyncDot');
@@ -517,11 +516,13 @@ function tombstoneKey(s) { return `${s.date}|${(s.event||'').toLowerCase().trim(
 
 let _tombstonePushPending = false;
 async function pushTombstonesToGitHub(tombstoneSet) {
+  const token = localStorage.getItem('arenajobbenGithubToken');
+  if (!token) return;
   if (_tombstonePushPending) return;
   _tombstonePushPending = true;
   try {
     const url = `https://api.github.com/repos/${GH_REPO}/contents/tombstones.json`;
-    const headers = { 'Authorization': `token ${GH_TOKEN}`, 'Accept': 'application/vnd.github.v3+json' };
+    const headers = { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github.v3+json' };
     let sha;
     try {
       const r = await fetch(url, { headers });
