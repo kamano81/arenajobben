@@ -1030,5 +1030,41 @@
     "status": "pending",
     "tag": "",
     "source": "email"
+  },
+  {
+    "id": "ro17im0luk81",
+    "event": "Foo Fighters",
+    "venue": "Strawberry Arena",
+    "date": "2026-06-12",
+    "start": "16:30",
+    "end": "00:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "PREMIUM",
+    "source": "email"
+  },
+  {
+    "id": "bg6ddu6thgy8",
+    "event": "Foo Fighters",
+    "venue": "Strawberry Arena",
+    "date": "2026-06-12",
+    "start": "16:00",
+    "end": "23:30",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "9iwq420jzqqv",
+    "event": "System of a Down",
+    "venue": "Strawberry Arena",
+    "date": "2026-06-29",
+    "start": "",
+    "end": "",
+    "rate": 0,
+    "status": "pending",
+    "tag": "PREMIUM",
+    "source": "email"
   }
 ]
