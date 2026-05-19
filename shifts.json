@@ -1018,5 +1018,17 @@
     "status": "reserve",
     "tag": "",
     "source": "email"
+  },
+  {
+    "id": "79pg9ue54f9e",
+    "event": "Mapfre Gala dinner",
+    "venue": "3Arena",
+    "date": "2026-06-11",
+    "start": "16:30",
+    "end": "03:30",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
   }
 ]
