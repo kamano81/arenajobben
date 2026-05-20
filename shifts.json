@@ -907,7 +907,7 @@
     "start": "15:00",
     "end": "00:30",
     "rate": 0,
-    "status": "pending",
+    "status": "confirmed",
     "tag": "",
     "source": "email"
   },
