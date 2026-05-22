@@ -1044,18 +1044,6 @@
     "source": "email"
   },
   {
-    "id": "9iwq420jzqqv",
-    "event": "System of a Down",
-    "venue": "Strawberry Arena",
-    "date": "2026-06-29",
-    "start": "",
-    "end": "",
-    "rate": 0,
-    "status": "pending",
-    "tag": "PREMIUM",
-    "source": "email"
-  },
-  {
     "id": "ns0p41emv36k",
     "event": "AIK-Medlemsträff",
     "venue": "Strawberry Arena",
@@ -1116,18 +1104,6 @@
     "source": "email"
   },
   {
-    "id": "yfbmrfpvcveh",
-    "event": "kommer HYROX World Championships 2026 21 juni",
-    "venue": "Strawberry Arena",
-    "date": "2026-06-21",
-    "start": "04:00",
-    "end": "23:30",
-    "rate": 0,
-    "status": "pending",
-    "tag": "",
-    "source": "email"
-  },
-  {
     "id": "pbqru0ltacg1",
     "event": "kommer HYROX World Championships 2026 18 juni",
     "venue": "Strawberry Arena",
@@ -1146,30 +1122,6 @@
     "date": "2026-06-19",
     "start": "05:30",
     "end": "23:00",
-    "rate": 0,
-    "status": "pending",
-    "tag": "PREMIUM",
-    "source": "email"
-  },
-  {
-    "id": "v90xm3v3ry7b",
-    "event": "kommer HYROX World Championships 2026 20 juni",
-    "venue": "Strawberry Arena",
-    "date": "2026-06-20",
-    "start": "05:30",
-    "end": "23:00",
-    "rate": 0,
-    "status": "pending",
-    "tag": "PREMIUM",
-    "source": "email"
-  },
-  {
-    "id": "3s78qwbspz9j",
-    "event": "kommer HYROX World Championships 2026 21 juni",
-    "venue": "Strawberry Arena",
-    "date": "2026-06-21",
-    "start": "05:30",
-    "end": "19:00",
     "rate": 0,
     "status": "pending",
     "tag": "PREMIUM",
