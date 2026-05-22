@@ -1068,66 +1068,6 @@
     "source": "email"
   },
   {
-    "id": "l72uzngzllqs",
-    "event": "kommer HYROX World Championships 2026 18 juni",
-    "venue": "Strawberry Arena",
-    "date": "2026-06-18",
-    "start": "09:00",
-    "end": "23:30",
-    "rate": 0,
-    "status": "pending",
-    "tag": "",
-    "source": "email"
-  },
-  {
-    "id": "efwnf6pz1mf5",
-    "event": "kommer HYROX World Championships 2026 19 juni",
-    "venue": "Strawberry Arena",
-    "date": "2026-06-19",
-    "start": "04:00",
-    "end": "23:30",
-    "rate": 0,
-    "status": "pending",
-    "tag": "",
-    "source": "email"
-  },
-  {
-    "id": "0y9bbtsuc0od",
-    "event": "kommer HYROX World Championships 2026 20 juni",
-    "venue": "Strawberry Arena",
-    "date": "2026-06-20",
-    "start": "04:00",
-    "end": "23:30",
-    "rate": 0,
-    "status": "pending",
-    "tag": "",
-    "source": "email"
-  },
-  {
-    "id": "pbqru0ltacg1",
-    "event": "kommer HYROX World Championships 2026 18 juni",
-    "venue": "Strawberry Arena",
-    "date": "2026-06-18",
-    "start": "08:00",
-    "end": "23:00",
-    "rate": 0,
-    "status": "pending",
-    "tag": "PREMIUM",
-    "source": "email"
-  },
-  {
-    "id": "4bckl8ar6sl7",
-    "event": "kommer HYROX World Championships 2026 19 juni",
-    "venue": "Strawberry Arena",
-    "date": "2026-06-19",
-    "start": "05:30",
-    "end": "23:00",
-    "rate": 0,
-    "status": "pending",
-    "tag": "PREMIUM",
-    "source": "email"
-  },
-  {
     "id": "hgalfzfte2t5",
     "event": "HIF - AIK",
     "venue": "3Arena",
