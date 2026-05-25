@@ -1066,5 +1066,65 @@
     "status": "pending",
     "tag": "PREMIUM",
     "source": "email"
+  },
+  {
+    "id": "673rmqwl001m",
+    "event": "Bad Bunny 10 Juli",
+    "venue": "Strawberry Arena",
+    "date": "2026-07-10",
+    "start": "16:30",
+    "end": "23:30",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "hdh7z6tikzuy",
+    "event": "Bad Bunny 11 Juli",
+    "venue": "Strawberry Arena",
+    "date": "2026-07-11",
+    "start": "16:30",
+    "end": "23:30",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "dqp86abbk3i5",
+    "event": "The Weeknd 8 Aug",
+    "venue": "Strawberry Arena",
+    "date": "2026-08-08",
+    "start": "16:00",
+    "end": "23:30",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "7md03tgvdovm",
+    "event": "The Weeknd 9 Aug",
+    "venue": "Strawberry Arena",
+    "date": "2026-08-09",
+    "start": "16:00",
+    "end": "23:30",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "9jcvct7ly76s",
+    "event": "The Weeknd 10 Aug",
+    "venue": "Strawberry Arena",
+    "date": "2026-08-10",
+    "start": "16:00",
+    "end": "23:30",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
   }
 ]
