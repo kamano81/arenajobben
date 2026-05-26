@@ -823,7 +823,7 @@
     "start": "16:00",
     "end": "00:00",
     "rate": 0,
-    "status": "pending",
+    "status": "confirmed",
     "tag": "PREMIUM",
     "source": "email"
   },
@@ -931,7 +931,7 @@
     "start": "17:00",
     "end": "23:30",
     "rate": 0,
-    "status": "pending",
+    "status": "reserve",
     "tag": "",
     "source": "email"
   },
