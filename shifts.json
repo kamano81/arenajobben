@@ -156,18 +156,6 @@
     "source": "email"
   },
   {
-    "id": "17py7hzzbhks",
-    "event": "AIK - Sirius SK FK",
-    "venue": "Strawberry Arena",
-    "date": "2026-05-30",
-    "start": "11:30",
-    "end": "17:45",
-    "rate": 0,
-    "status": "reserve",
-    "tag": "PREMIUM",
-    "source": "email"
-  },
-  {
     "id": "7vobridrvmh9",
     "event": "Disney On Ice",
     "venue": "Avicii Arena",
@@ -234,18 +222,6 @@
     "date": "2026-05-17",
     "start": "16:00",
     "end": "23:30",
-    "rate": 0,
-    "status": "reserve",
-    "tag": "PREMIUM",
-    "source": "email"
-  },
-  {
-    "id": "5oh414g6wvpt",
-    "event": "Linkin Park",
-    "venue": "3Arena",
-    "date": "2026-05-29",
-    "start": "16:00",
-    "end": "00:00",
     "rate": 0,
     "status": "reserve",
     "tag": "PREMIUM",
@@ -1185,18 +1161,6 @@
     "rate": 0,
     "status": "pending",
     "tag": "PREMIUM",
-    "source": "email"
-  },
-  {
-    "id": "qrbyhd522w1k",
-    "event": "Öppen träning",
-    "venue": "Strawberry Arena",
-    "date": "2026-05-28",
-    "start": "10:00",
-    "end": "14:00",
-    "rate": 0,
-    "status": "pending",
-    "tag": "",
     "source": "email"
   },
   {
