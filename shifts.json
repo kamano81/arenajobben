@@ -852,30 +852,6 @@
     "source": "email"
   },
   {
-    "id": "uzegb4ta4uml",
-    "event": "Sverige - Grekland",
-    "venue": "Strawberry Arena",
-    "date": "2026-06-04",
-    "start": "16:00",
-    "end": "22:00",
-    "rate": 0,
-    "status": "reserve",
-    "tag": "PREMIUM",
-    "source": "email"
-  },
-  {
-    "id": "pubw9qyar2n8",
-    "event": "Projekt X (KVÄLL) 4/6",
-    "venue": "3Arena",
-    "date": "2026-06-04",
-    "start": "15:00",
-    "end": "00:30",
-    "rate": 0,
-    "status": "confirmed",
-    "tag": "",
-    "source": "email"
-  },
-  {
     "id": "sii68hwsxo15",
     "event": "Together in tune",
     "venue": "Avicii Arena",
@@ -908,18 +884,6 @@
     "end": "17:45",
     "rate": 0,
     "status": "pending",
-    "tag": "",
-    "source": "email"
-  },
-  {
-    "id": "umgam765apwe",
-    "event": "Sverige - Grekland",
-    "venue": "Strawberry Arena",
-    "date": "2026-06-04",
-    "start": "16:00",
-    "end": "22:15",
-    "rate": 0,
-    "status": "reserve",
     "tag": "",
     "source": "email"
   },
