@@ -1416,18 +1416,6 @@
     "source": "email"
   },
   {
-    "id": "yegll0x248dy",
-    "event": "Klädleverans",
-    "venue": "Annexet",
-    "date": "2026-06-10",
-    "start": "10:00",
-    "end": "16:00",
-    "rate": 0,
-    "status": "pending",
-    "tag": "",
-    "source": "email"
-  },
-  {
     "id": "tk45vw3imu38",
     "event": "JW 3/7",
     "venue": "3Arena",
