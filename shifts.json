@@ -1252,10 +1252,10 @@
     "event": "Lenny Kravitz",
     "venue": "Avicii Arena",
     "date": "2026-07-24",
-    "start": "",
-    "end": "",
+    "start": "16:00",
+    "end": "00:00",
     "rate": 0,
-    "status": "pending",
+    "status": "confirmed",
     "tag": "PREMIUM",
     "source": "email"
   },
