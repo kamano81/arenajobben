@@ -1200,18 +1200,6 @@
     "source": "email"
   },
   {
-    "id": "dl2esgwlgivt",
-    "event": "Robyn 18 Juli",
-    "venue": "Avicii Arena",
-    "date": "2026-07-18",
-    "start": "16:30",
-    "end": "00:00",
-    "rate": 0,
-    "status": "pending",
-    "tag": "PREMIUM",
-    "source": "email"
-  },
-  {
     "id": "fe7gf43rqfuc",
     "event": "Robyn 16 Juli",
     "venue": "Avicii Arena",
@@ -1228,18 +1216,6 @@
     "event": "Robyn 17 Juli",
     "venue": "Avicii Arena",
     "date": "2026-07-17",
-    "start": "17:00",
-    "end": "00:00",
-    "rate": 0,
-    "status": "pending",
-    "tag": "",
-    "source": "email"
-  },
-  {
-    "id": "u56gotw16s9k",
-    "event": "Robyn 18 Juli",
-    "venue": "Avicii Arena",
-    "date": "2026-07-18",
     "start": "17:00",
     "end": "00:00",
     "rate": 0,
