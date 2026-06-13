@@ -1450,5 +1450,16 @@
     "status": "confirmed",
     "tag": "",
     "source": "email"
+  },
+  {
+    "id": "mqbw7fgpymewbp6tjin",
+    "tag": "",
+    "event": "System of a Dawn",
+    "venue": "Strawberry Arena",
+    "date": "2026-06-29",
+    "start": "16:00",
+    "end": "00:00",
+    "rate": 157,
+    "status": "confirmed"
   }
 ]
