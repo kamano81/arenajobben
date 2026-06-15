@@ -991,7 +991,7 @@
     "start": "11:30",
     "end": "17:45",
     "rate": 0,
-    "status": "pending",
+    "status": "reserve",
     "tag": "PREMIUM",
     "source": "email"
   },
