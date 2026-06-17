@@ -1303,7 +1303,7 @@
     "start": "12:45",
     "end": "20:00",
     "rate": 0,
-    "status": "pending",
+    "status": "confirmed",
     "tag": "",
     "source": "email"
   },
