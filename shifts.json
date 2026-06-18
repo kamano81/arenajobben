@@ -1289,9 +1289,9 @@
     "venue": "3Arena",
     "date": "2026-07-19",
     "start": "14:15",
-    "end": "18:15",
+    "end": "19:00",
     "rate": 0,
-    "status": "pending",
+    "status": "confirmed",
     "tag": "",
     "source": "email"
   },
@@ -1339,7 +1339,7 @@
     "start": "16:15",
     "end": "21:45",
     "rate": 0,
-    "status": "pending",
+    "status": "reserve",
     "tag": "PREMIUM",
     "source": "email"
   },
@@ -1461,5 +1461,17 @@
     "end": "00:00",
     "rate": 157,
     "status": "confirmed"
+  },
+  {
+    "id": "2ciu8wu8tu9w",
+    "event": "Way KVÄLL 24/8",
+    "venue": "Annexet",
+    "date": "2026-08-24",
+    "start": "15:00",
+    "end": "23:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
   }
 ]
