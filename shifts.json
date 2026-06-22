@@ -1473,5 +1473,41 @@
     "status": "pending",
     "tag": "",
     "source": "email"
+  },
+  {
+    "id": "4d07nlm8a09s",
+    "event": "Way DAG 24/8",
+    "venue": "Annexet",
+    "date": "2026-08-24",
+    "start": "08:15",
+    "end": "15:30",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "32lgtg4tclut",
+    "event": "Way DAG 25/8",
+    "venue": "Avicii Arena",
+    "date": "2026-08-25",
+    "start": "07:15",
+    "end": "16:30",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "m2a6dxv80kvq",
+    "event": "Way Kväll 25/8",
+    "venue": "Annexet",
+    "date": "2026-08-25",
+    "start": "16:00",
+    "end": "01:30",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
   }
 ]
