@@ -1279,7 +1279,7 @@
     "start": "13:45",
     "end": "19:15",
     "rate": 0,
-    "status": "pending",
+    "status": "reserve",
     "tag": "PREMIUM",
     "source": "email"
   },
