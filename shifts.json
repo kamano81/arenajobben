@@ -1534,5 +1534,29 @@
     "status": "reserve",
     "tag": "",
     "source": "email"
+  },
+  {
+    "id": "cv7gzu2rpbqv",
+    "event": "HIF - Anderlecht",
+    "venue": "3Arena",
+    "date": "2026-07-23",
+    "start": "",
+    "end": "",
+    "rate": 0,
+    "status": "pending",
+    "tag": "PREMIUM",
+    "source": "email"
+  },
+  {
+    "id": "c1v3yd9zfesd",
+    "event": "HIF - Anderlecht",
+    "venue": "3Arena",
+    "date": "2026-07-23",
+    "start": "17:15",
+    "end": "21:15",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
   }
 ]
