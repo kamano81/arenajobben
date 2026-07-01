@@ -1008,18 +1008,6 @@
     "source": "email"
   },
   {
-    "id": "hdh7z6tikzuy",
-    "event": "Bad Bunny 11 Juli",
-    "venue": "Strawberry Arena",
-    "date": "2026-07-11",
-    "start": "16:30",
-    "end": "23:30",
-    "rate": 0,
-    "status": "pending",
-    "tag": "",
-    "source": "email"
-  },
-  {
     "id": "dqp86abbk3i5",
     "event": "The Weeknd 8 Aug",
     "venue": "Strawberry Arena",
@@ -1064,18 +1052,6 @@
     "end": "00:00",
     "rate": 0,
     "status": "pending",
-    "tag": "PREMIUM",
-    "source": "email"
-  },
-  {
-    "id": "j5zwi0r5feci",
-    "event": "Bad Bunny 11 Juli",
-    "venue": "Strawberry Arena",
-    "date": "2026-07-11",
-    "start": "15:00",
-    "end": "00:00",
-    "rate": 0,
-    "status": "confirmed",
     "tag": "PREMIUM",
     "source": "email"
   },
@@ -1424,18 +1400,6 @@
     "end": "17:30",
     "rate": 0,
     "status": "pending",
-    "tag": "",
-    "source": "email"
-  },
-  {
-    "id": "qtw69z4cyxpm",
-    "event": "Bad Bunny",
-    "venue": "",
-    "date": "2026-07-11",
-    "start": "",
-    "end": "",
-    "rate": 0,
-    "status": "reserve",
     "tag": "",
     "source": "email"
   },
