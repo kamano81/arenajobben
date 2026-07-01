@@ -1558,5 +1558,17 @@
     "status": "pending",
     "tag": "",
     "source": "email"
+  },
+  {
+    "id": "g855ch2rkg7s",
+    "event": "HIF - GAIS",
+    "venue": "3Arena",
+    "date": "2026-08-23",
+    "start": "14:45",
+    "end": "18:45",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
   }
 ]
