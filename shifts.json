@@ -1546,5 +1546,101 @@
     "status": "pending",
     "tag": "PREMIUM",
     "source": "email"
+  },
+  {
+    "id": "9c7en8lt6n3c",
+    "event": "DIF - Mjällby",
+    "venue": "3Arena",
+    "date": "2026-08-31",
+    "start": "16:15",
+    "end": "21:45",
+    "rate": 0,
+    "status": "pending",
+    "tag": "PREMIUM",
+    "source": "email"
+  },
+  {
+    "id": "4qrig5sbif40",
+    "event": "Aspia 18/9",
+    "venue": "Annexet",
+    "date": "2026-09-18",
+    "start": "10:45",
+    "end": "18:30",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "ssw61pgvhaeg",
+    "event": "HIF - Brommapojkarna",
+    "venue": "3Arena",
+    "date": "2026-09-13",
+    "start": "11:15",
+    "end": "16:45",
+    "rate": 0,
+    "status": "pending",
+    "tag": "PREMIUM",
+    "source": "email"
+  },
+  {
+    "id": "q4b4y16p4f7c",
+    "event": "Aspia 19/9",
+    "venue": "Annexet",
+    "date": "2026-09-19",
+    "start": "07:15",
+    "end": "14:40",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "ttgwnlxg8cez",
+    "event": "DIF - GAIS",
+    "venue": "3Arena",
+    "date": "2026-09-14",
+    "start": "16:15",
+    "end": "21:45",
+    "rate": 0,
+    "status": "pending",
+    "tag": "PREMIUM",
+    "source": "email"
+  },
+  {
+    "id": "0izpznlh8cmt",
+    "event": "DIF - Elfsborg",
+    "venue": "3Arena",
+    "date": "2026-09-20",
+    "start": "11:15",
+    "end": "16:45",
+    "rate": 0,
+    "status": "pending",
+    "tag": "PREMIUM",
+    "source": "email"
+  },
+  {
+    "id": "gtvyzvfg1stw",
+    "event": "HIF - DIF",
+    "venue": "3Arena",
+    "date": "2026-10-12",
+    "start": "11:15",
+    "end": "16:45",
+    "rate": 0,
+    "status": "pending",
+    "tag": "PREMIUM",
+    "source": "email"
+  },
+  {
+    "id": "zwlhe8enkumu",
+    "event": "AIK - Hammarby (Service)",
+    "venue": "Strawberry Arena",
+    "date": "2026-08-30",
+    "start": "11:30",
+    "end": "16:45",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
   }
 ]
