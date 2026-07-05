@@ -1152,54 +1152,6 @@
     "source": "email"
   },
   {
-    "id": "lb73apm5v55h",
-    "event": "Robyn 16 Juli",
-    "venue": "Avicii Arena",
-    "date": "2026-07-16",
-    "start": "16:30",
-    "end": "00:00",
-    "rate": 0,
-    "status": "pending",
-    "tag": "PREMIUM",
-    "source": "email"
-  },
-  {
-    "id": "8kqbtq82vfan",
-    "event": "Robyn 17 Juli",
-    "venue": "Avicii Arena",
-    "date": "2026-07-17",
-    "start": "16:30",
-    "end": "00:00",
-    "rate": 0,
-    "status": "pending",
-    "tag": "PREMIUM",
-    "source": "email"
-  },
-  {
-    "id": "fe7gf43rqfuc",
-    "event": "Robyn 16 Juli",
-    "venue": "Avicii Arena",
-    "date": "2026-07-16",
-    "start": "17:00",
-    "end": "00:00",
-    "rate": 0,
-    "status": "pending",
-    "tag": "",
-    "source": "email"
-  },
-  {
-    "id": "ukroa6qgkc1i",
-    "event": "Robyn 17 Juli",
-    "venue": "Avicii Arena",
-    "date": "2026-07-17",
-    "start": "17:00",
-    "end": "00:00",
-    "rate": 0,
-    "status": "pending",
-    "tag": "",
-    "source": "email"
-  },
-  {
     "id": "d9m2s2a3tvg5",
     "event": "Lenny Kravitz",
     "venue": "Avicii Arena",
