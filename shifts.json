@@ -1171,7 +1171,7 @@
     "start": "17:00",
     "end": "00:00",
     "rate": 0,
-    "status": "pending",
+    "status": "reserve",
     "tag": "",
     "source": "email"
   },
