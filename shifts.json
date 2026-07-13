@@ -1080,30 +1080,6 @@
     "source": "email"
   },
   {
-    "id": "56d39344u9x4",
-    "event": "HIF-Kalmar FF",
-    "venue": "3Arena",
-    "date": "2026-07-12",
-    "start": "11:45",
-    "end": "17:00",
-    "rate": 0,
-    "status": "pending",
-    "tag": "",
-    "source": "email"
-  },
-  {
-    "id": "g7awf2tuv1r1",
-    "event": "HIF-Kalmar FF",
-    "venue": "3Arena",
-    "date": "2026-07-12",
-    "start": "11:15",
-    "end": "16:45",
-    "rate": 0,
-    "status": "pending",
-    "tag": "PREMIUM",
-    "source": "email"
-  },
-  {
     "id": "vd4rann44r2d",
     "event": "DIF - Halmstad",
     "venue": "3Arena",
