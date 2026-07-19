@@ -1164,30 +1164,6 @@
     "source": "email"
   },
   {
-    "id": "uvnfx0b13qdx",
-    "event": "HIF - Degerfors",
-    "venue": "3Arena",
-    "date": "2026-07-19",
-    "start": "13:45",
-    "end": "19:15",
-    "rate": 0,
-    "status": "confirmed",
-    "tag": "PREMIUM",
-    "source": "email"
-  },
-  {
-    "id": "5bdd1729k5mg",
-    "event": "HIF - Degerfors",
-    "venue": "3Arena",
-    "date": "2026-07-19",
-    "start": "14:45",
-    "end": "18:45",
-    "rate": 0,
-    "status": "confirmed",
-    "tag": "",
-    "source": "email"
-  },
-  {
     "id": "0k5o6tlcgbv3",
     "event": "AIK - Örgryte IS",
     "venue": "Strawberry Arena",
