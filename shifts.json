@@ -1171,7 +1171,7 @@
     "start": "13:45",
     "end": "19:15",
     "rate": 0,
-    "status": "reserve",
+    "status": "confirmed",
     "tag": "PREMIUM",
     "source": "email"
   },
