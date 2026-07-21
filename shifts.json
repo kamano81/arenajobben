@@ -1123,7 +1123,7 @@
     "start": "11:15",
     "end": "16:45",
     "rate": 0,
-    "status": "pending",
+    "status": "reserve",
     "tag": "PREMIUM",
     "source": "email"
   },
@@ -1422,6 +1422,18 @@
     "date": "2026-08-24",
     "start": "17:45",
     "end": "22:45",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "9ty3wjgrmwjn",
+    "event": "DIF - Mjällby",
+    "venue": "3Arena",
+    "date": "2026-08-31",
+    "start": "",
+    "end": "",
     "rate": 0,
     "status": "pending",
     "tag": "",
