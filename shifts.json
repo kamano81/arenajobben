@@ -1116,30 +1116,6 @@
     "source": "email"
   },
   {
-    "id": "d9m2s2a3tvg5",
-    "event": "Lenny Kravitz",
-    "venue": "Avicii Arena",
-    "date": "2026-07-24",
-    "start": "16:00",
-    "end": "00:00",
-    "rate": 0,
-    "status": "confirmed",
-    "tag": "PREMIUM",
-    "source": "email"
-  },
-  {
-    "id": "x5km2l9g46f2",
-    "event": "Lenny Kravitz",
-    "venue": "Avicii Arena",
-    "date": "2026-07-24",
-    "start": "17:00",
-    "end": "00:00",
-    "rate": 0,
-    "status": "reserve",
-    "tag": "",
-    "source": "email"
-  },
-  {
     "id": "kmqcpa87w0ni",
     "event": "DIF - AIK",
     "venue": "3Arena",
@@ -1161,30 +1137,6 @@
     "rate": 0,
     "status": "confirmed",
     "tag": "",
-    "source": "email"
-  },
-  {
-    "id": "0k5o6tlcgbv3",
-    "event": "AIK - Örgryte IS",
-    "venue": "Strawberry Arena",
-    "date": "2026-08-02",
-    "start": "12:45",
-    "end": "20:00",
-    "rate": 0,
-    "status": "confirmed",
-    "tag": "",
-    "source": "email"
-  },
-  {
-    "id": "p4e5ia42wapv",
-    "event": "AIK - Örgryte IS",
-    "venue": "Strawberry Arena",
-    "date": "2026-08-02",
-    "start": "11:00",
-    "end": "20:00",
-    "rate": 0,
-    "status": "reserve",
-    "tag": "PREMIUM",
     "source": "email"
   },
   {
@@ -1256,18 +1208,6 @@
     "end": "00:00",
     "rate": 0,
     "status": "pending",
-    "tag": "",
-    "source": "email"
-  },
-  {
-    "id": "wu23kwywbc75",
-    "event": "Manchester United - Atletico de Madrid",
-    "venue": "Strawberry Arena",
-    "date": "2026-08-01",
-    "start": "12:00",
-    "end": "17:45",
-    "rate": 0,
-    "status": "confirmed",
     "tag": "",
     "source": "email"
   },
@@ -1353,18 +1293,6 @@
     "rate": 0,
     "status": "reserve",
     "tag": "",
-    "source": "email"
-  },
-  {
-    "id": "cv7gzu2rpbqv",
-    "event": "HIF - Anderlecht",
-    "venue": "3Arena",
-    "date": "2026-07-23",
-    "start": "",
-    "end": "",
-    "rate": 0,
-    "status": "reserve",
-    "tag": "PREMIUM",
     "source": "email"
   },
   {
@@ -1497,18 +1425,6 @@
     "rate": 0,
     "status": "pending",
     "tag": "",
-    "source": "email"
-  },
-  {
-    "id": "2i13fvbkdswz",
-    "event": "Manchester United - Atletico de Madrid",
-    "venue": "",
-    "date": "2026-08-01",
-    "start": "",
-    "end": "",
-    "rate": 0,
-    "status": "reserve",
-    "tag": "PREMIUM",
     "source": "email"
   }
 ]
