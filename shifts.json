@@ -1510,5 +1510,17 @@
     "status": "pending",
     "tag": "",
     "source": "email"
+  },
+  {
+    "id": "shpewxq406e1",
+    "event": "AIK - HIF",
+    "venue": "Strawberry Arena",
+    "date": "2026-08-30",
+    "start": "11:00",
+    "end": "16:45",
+    "rate": 0,
+    "status": "pending",
+    "tag": "PREMIUM",
+    "source": "email"
   }
 ]
