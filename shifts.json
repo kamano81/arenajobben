@@ -1495,7 +1495,7 @@
     "start": "17:00",
     "end": "00:15",
     "rate": 0,
-    "status": "pending",
+    "status": "confirmed",
     "tag": "PREMIUM",
     "source": "email"
   },
