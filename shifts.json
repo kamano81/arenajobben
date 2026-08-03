@@ -1483,7 +1483,7 @@
     "start": "17:00",
     "end": "23:00",
     "rate": 0,
-    "status": "pending",
+    "status": "reserve",
     "tag": "",
     "source": "email"
   },
@@ -1557,6 +1557,30 @@
     "rate": 0,
     "status": "pending",
     "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "lwvb7b4tu7tl",
+    "event": "HIF - GAIS - (PREL. DATUM)",
+    "venue": "3Arena",
+    "date": "2026-08-23",
+    "start": "14:45",
+    "end": "18:45",
+    "rate": 0,
+    "status": "confirmed",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "wjexttp08jh6",
+    "event": "The Neighbourhood",
+    "venue": "Avicii Arena",
+    "date": "2026-08-24",
+    "start": "16:00",
+    "end": "00:15",
+    "rate": 0,
+    "status": "pending",
+    "tag": "PREMIUM",
     "source": "email"
   }
 ]
