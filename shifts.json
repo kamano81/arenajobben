@@ -1020,18 +1020,6 @@
     "source": "email"
   },
   {
-    "id": "1ul5b2slan0e",
-    "event": "The Weeknd 10 Aug",
-    "venue": "Strawberry Arena",
-    "date": "2026-08-10",
-    "start": "15:00",
-    "end": "00:00",
-    "rate": 0,
-    "status": "pending",
-    "tag": "PREMIUM",
-    "source": "email"
-  },
-  {
     "id": "vd4rann44r2d",
     "event": "DIF - Halmstad",
     "venue": "3Arena",
