@@ -996,18 +996,6 @@
     "source": "email"
   },
   {
-    "id": "7md03tgvdovm",
-    "event": "The Weeknd 9 Aug",
-    "venue": "Strawberry Arena",
-    "date": "2026-08-09",
-    "start": "16:00",
-    "end": "23:30",
-    "rate": 0,
-    "status": "pending",
-    "tag": "",
-    "source": "email"
-  },
-  {
     "id": "9jcvct7ly76s",
     "event": "The Weeknd 10 Aug",
     "venue": "Strawberry Arena",
@@ -1028,18 +1016,6 @@
     "end": "00:15",
     "rate": 0,
     "status": "confirmed",
-    "tag": "PREMIUM",
-    "source": "email"
-  },
-  {
-    "id": "smom92b4wuld",
-    "event": "The Weeknd 9 Aug",
-    "venue": "Strawberry Arena",
-    "date": "2026-08-09",
-    "start": "15:00",
-    "end": "00:00",
-    "rate": 0,
-    "status": "pending",
     "tag": "PREMIUM",
     "source": "email"
   },
