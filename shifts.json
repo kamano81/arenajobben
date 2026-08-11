@@ -1918,5 +1918,17 @@
     "status": "pending",
     "tag": "",
     "source": "email"
+  },
+  {
+    "id": "d19lecdzv8ti",
+    "event": "HIF- Rakow Czestochowa",
+    "venue": "3Arena",
+    "date": "2026-08-13",
+    "start": "16:15",
+    "end": "21:45",
+    "rate": 0,
+    "status": "pending",
+    "tag": "PREMIUM",
+    "source": "email"
   }
 ]
