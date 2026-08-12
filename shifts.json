@@ -1930,5 +1930,53 @@
     "status": "pending",
     "tag": "PREMIUM",
     "source": "email"
+  },
+  {
+    "id": "1tuoo7xklrp4",
+    "event": "Entrévärdsutbildning",
+    "venue": "3Arena",
+    "date": "2026-09-08",
+    "start": "18:00",
+    "end": "21:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "hjnukvy0mmi6",
+    "event": "AIK - Västerås",
+    "venue": "Strawberry Arena",
+    "date": "2026-09-12",
+    "start": "12:45",
+    "end": "17:30",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "v7u5zdcnnq1w",
+    "event": "Band of Horses",
+    "venue": "Annexet",
+    "date": "2026-09-25",
+    "start": "16:45",
+    "end": "22:45",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "7vahb4pvx6dt",
+    "event": "DIF Hockey - Brynäs",
+    "venue": "Hovet",
+    "date": "2026-09-03",
+    "start": "16:00",
+    "end": "21:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
   }
 ]
