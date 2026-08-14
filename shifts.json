@@ -1243,7 +1243,7 @@
     "start": "14:15",
     "end": "18:30",
     "rate": 0,
-    "status": "pending",
+    "status": "reserve",
     "tag": "PREMIUM",
     "source": "email"
   },
