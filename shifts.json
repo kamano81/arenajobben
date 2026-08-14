@@ -1368,18 +1368,6 @@
     "source": "email"
   },
   {
-    "id": "6juom2iarazq",
-    "event": "HIF Q3",
-    "venue": "3Arena",
-    "date": "2026-08-13",
-    "start": "16:15",
-    "end": "21:45",
-    "rate": 0,
-    "status": "pending",
-    "tag": "PREMIUM",
-    "source": "email"
-  },
-  {
     "id": "lbrj5k3rgctp",
     "event": "HIF - Brommapojkarna",
     "venue": "3Arena",
@@ -1917,18 +1905,6 @@
     "rate": 0,
     "status": "pending",
     "tag": "",
-    "source": "email"
-  },
-  {
-    "id": "d19lecdzv8ti",
-    "event": "HIF- Rakow Czestochowa",
-    "venue": "3Arena",
-    "date": "2026-08-13",
-    "start": "16:15",
-    "end": "21:45",
-    "rate": 0,
-    "status": "pending",
-    "tag": "PREMIUM",
     "source": "email"
   },
   {
