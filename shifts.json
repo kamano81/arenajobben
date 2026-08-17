@@ -1435,7 +1435,7 @@
     "start": "11:00",
     "end": "16:45",
     "rate": 0,
-    "status": "pending",
+    "status": "reserve",
     "tag": "PREMIUM",
     "source": "email"
   },
@@ -2010,6 +2010,18 @@
     "date": "2026-09-28",
     "start": "18:00",
     "end": "23:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "eyru26it0uc9",
+    "event": "NIKE",
+    "venue": "Avicii Arena",
+    "date": "2026-09-05",
+    "start": "09:00",
+    "end": "18:00",
     "rate": 0,
     "status": "pending",
     "tag": "",
