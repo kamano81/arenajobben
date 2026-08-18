@@ -1519,7 +1519,7 @@
     "start": "16:00",
     "end": "00:15",
     "rate": 0,
-    "status": "pending",
+    "status": "reserve",
     "tag": "PREMIUM",
     "source": "email"
   },
@@ -2049,6 +2049,102 @@
     "rate": 0,
     "status": "pending",
     "tag": "PREMIUM",
+    "source": "email"
+  },
+  {
+    "id": "yn0lccsm3sml",
+    "event": "AIK Hockey - Vimmerby",
+    "venue": "Hovet",
+    "date": "2026-10-28",
+    "start": "17:00",
+    "end": "22:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "etpr8eyv7a13",
+    "event": "AIK Hockey - Leksand",
+    "venue": "Avicii Arena",
+    "date": "2026-10-30",
+    "start": "17:00",
+    "end": "22:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "r2a6pvkklvi9",
+    "event": "AIK Hockey - Oskarshamn",
+    "venue": "Hovet",
+    "date": "2026-11-15",
+    "start": "12:00",
+    "end": "16:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "iiris35vko8c",
+    "event": "AIK Hockey - Södertälje",
+    "venue": "Hovet",
+    "date": "2026-11-20",
+    "start": "17:00",
+    "end": "22:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "szroxl3uhpuv",
+    "event": "Företagsevenemang",
+    "venue": "Avicii Arena",
+    "date": "2026-09-10",
+    "start": "15:45",
+    "end": "01:45",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "e55ve2k8tgqy",
+    "event": "AIK - Mjällby",
+    "venue": "Strawberry Arena",
+    "date": "2026-09-16",
+    "start": "16:45",
+    "end": "21:30",
+    "rate": 0,
+    "status": "pending",
+    "tag": "PREMIUM",
+    "source": "email"
+  },
+  {
+    "id": "64bum4wdiomd",
+    "event": "Köpa Hus Utomlands Lördag",
+    "venue": "Annexet",
+    "date": "2026-10-10",
+    "start": "",
+    "end": "",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "vg9b8ba5f83y",
+    "event": "Köpa Hus Utomlands Söndag (SERVICE)",
+    "venue": "Annexet",
+    "date": "2026-10-11",
+    "start": "",
+    "end": "",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
     "source": "email"
   }
 ]
