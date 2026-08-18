@@ -2146,5 +2146,53 @@
     "status": "pending",
     "tag": "",
     "source": "email"
+  },
+  {
+    "id": "m5gybfq4r7py",
+    "event": "AIK - IF Brommapojkarna",
+    "venue": "Strawberry Arena",
+    "date": "2026-10-10",
+    "start": "12:30",
+    "end": "17:45",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "be0qacx386tt",
+    "event": "AIK - IF Brommapojkarna",
+    "venue": "Strawberry Arena",
+    "date": "2026-10-10",
+    "start": "12:00",
+    "end": "17:45",
+    "rate": 0,
+    "status": "pending",
+    "tag": "PREMIUM",
+    "source": "email"
+  },
+  {
+    "id": "st9hwcbqpu28",
+    "event": "Sverige Dam-Litauen",
+    "venue": "Strawberry Arena",
+    "date": "2026-10-13",
+    "start": "16:00",
+    "end": "22:15",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "6n77xbcw1um6",
+    "event": "Sverige Dam-Litauen",
+    "venue": "Strawberry Arena",
+    "date": "2026-10-13",
+    "start": "16:00",
+    "end": "22:15",
+    "rate": 0,
+    "status": "pending",
+    "tag": "PREMIUM",
+    "source": "email"
   }
 ]
