@@ -1987,7 +1987,7 @@
     "start": "18:00",
     "end": "23:00",
     "rate": 0,
-    "status": "pending",
+    "status": "confirmed",
     "tag": "",
     "source": "email"
   },
@@ -2011,7 +2011,7 @@
     "start": "18:00",
     "end": "23:00",
     "rate": 0,
-    "status": "pending",
+    "status": "confirmed",
     "tag": "",
     "source": "email"
   },
@@ -2193,6 +2193,42 @@
     "rate": 0,
     "status": "pending",
     "tag": "PREMIUM",
+    "source": "email"
+  },
+  {
+    "id": "gks8a52igevy",
+    "event": "Travel News Market",
+    "venue": "Annexet",
+    "date": "2026-11-12",
+    "start": "07:00",
+    "end": "19:15",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "0ihonqzu6ryh",
+    "event": "Seniorfestivalen 16 okt",
+    "venue": "Annexet",
+    "date": "2026-10-16",
+    "start": "09:00",
+    "end": "16:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "id42vsnx4loi",
+    "event": "Seniorfestivalen 17 okt",
+    "venue": "Annexet",
+    "date": "2026-10-17",
+    "start": "09:00",
+    "end": "16:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
     "source": "email"
   }
 ]
