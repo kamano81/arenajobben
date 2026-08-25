@@ -1140,30 +1140,6 @@
     "source": "email"
   },
   {
-    "id": "2ciu8wu8tu9w",
-    "event": "Way KVÄLL 24/8",
-    "venue": "Annexet",
-    "date": "2026-08-24",
-    "start": "15:00",
-    "end": "23:00",
-    "rate": 0,
-    "status": "pending",
-    "tag": "",
-    "source": "email"
-  },
-  {
-    "id": "4d07nlm8a09s",
-    "event": "Way DAG 24/8",
-    "venue": "Annexet",
-    "date": "2026-08-24",
-    "start": "08:15",
-    "end": "15:30",
-    "rate": 0,
-    "status": "pending",
-    "tag": "",
-    "source": "email"
-  },
-  {
     "id": "32lgtg4tclut",
     "event": "Way DAG 25/8",
     "venue": "Avicii Arena",
@@ -2229,18 +2205,6 @@
     "rate": 0,
     "status": "pending",
     "tag": "PREMIUM",
-    "source": "email"
-  },
-  {
-    "id": "jgdhrbzsuv1g",
-    "event": "Skärmkontrollant",
-    "venue": "Stockholm stad",
-    "date": "2026-08-24",
-    "start": "",
-    "end": "",
-    "rate": 0,
-    "status": "pending",
-    "tag": "",
     "source": "email"
   },
   {
