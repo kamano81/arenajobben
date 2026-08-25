@@ -2095,7 +2095,7 @@
     "start": "12:00",
     "end": "17:45",
     "rate": 0,
-    "status": "pending",
+    "status": "reserve",
     "tag": "PREMIUM",
     "source": "email"
   },
@@ -2371,7 +2371,7 @@
     "start": "17:30",
     "end": "21:30",
     "rate": 0,
-    "status": "pending",
+    "status": "confirmed",
     "tag": "",
     "source": "email"
   },
@@ -2491,7 +2491,7 @@
     "start": "14:30",
     "end": "19:00",
     "rate": 0,
-    "status": "pending",
+    "status": "confirmed",
     "tag": "",
     "source": "email"
   },
