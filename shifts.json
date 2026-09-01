@@ -2686,5 +2686,29 @@
     "status": "pending",
     "tag": "PREMIUM",
     "source": "email"
+  },
+  {
+    "id": "ee3zy1bityt5",
+    "event": "Årets Kock",
+    "venue": "Annexet",
+    "date": "2026-10-01",
+    "start": "08:45",
+    "end": "16:15",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "n3pid3zshepj",
+    "event": "AIK halvårsmöte",
+    "venue": "Strawberry Arena",
+    "date": "2026-10-01",
+    "start": "17:30",
+    "end": "22:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "PREMIUM",
+    "source": "email"
   }
 ]
