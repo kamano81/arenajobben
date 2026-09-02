@@ -2467,7 +2467,7 @@
     "start": "16:00",
     "end": "23:45",
     "rate": 0,
-    "status": "pending",
+    "status": "confirmed",
     "tag": "",
     "source": "email"
   },
@@ -2709,6 +2709,54 @@
     "rate": 0,
     "status": "pending",
     "tag": "PREMIUM",
+    "source": "email"
+  },
+  {
+    "id": "t8zpc2twighb",
+    "event": "AIK - IFK Göteborg",
+    "venue": "Strawberry Arena",
+    "date": "2026-10-17",
+    "start": "",
+    "end": "",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "oq0wpijlyv4b",
+    "event": "AIK - IFK Göteborg",
+    "venue": "Strawberry Arena",
+    "date": "2026-10-17",
+    "start": "15:30",
+    "end": "20:30",
+    "rate": 0,
+    "status": "pending",
+    "tag": "PREMIUM",
+    "source": "email"
+  },
+  {
+    "id": "pan5z4f9ql0b",
+    "event": "Joe Bonamassa",
+    "venue": "Avicii Arena",
+    "date": "2026-10-23",
+    "start": "17:00",
+    "end": "23:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "3kurj7x4o1tr",
+    "event": "CA7RIEL & Paco Amoroso",
+    "venue": "Annexet",
+    "date": "2026-09-26",
+    "start": "",
+    "end": "",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
     "source": "email"
   }
 ]
