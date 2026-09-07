@@ -2866,5 +2866,77 @@
     "status": "pending",
     "tag": "",
     "source": "email"
+  },
+  {
+    "id": "y5c2gx01we4g",
+    "event": "DIF - Örgryte",
+    "venue": "3Arena,",
+    "date": "2026-10-24",
+    "start": "14:30",
+    "end": "20:30",
+    "rate": 0,
+    "status": "pending",
+    "tag": "PREMIUM",
+    "source": "email"
+  },
+  {
+    "id": "5vrgyx4bwf9n",
+    "event": "DIF - Degerfors",
+    "venue": "3Arena,",
+    "date": "2026-11-01",
+    "start": "11:00",
+    "end": "17:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "PREMIUM",
+    "source": "email"
+  },
+  {
+    "id": "5wl1l2pc42g6",
+    "event": "DIF - BK Häcken",
+    "venue": "3Arena,",
+    "date": "2026-11-29",
+    "start": "12:00",
+    "end": "18:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "PREMIUM",
+    "source": "email"
+  },
+  {
+    "id": "06is4rx3bxqd",
+    "event": "DIF - Örgryte",
+    "venue": "3Arena,",
+    "date": "2026-10-24",
+    "start": "15:30",
+    "end": "19:30",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "skm3hw36jwv2",
+    "event": "DIF - Degerfors",
+    "venue": "3Arena,",
+    "date": "2026-11-01",
+    "start": "12:00",
+    "end": "16:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "jqttcsjrvl7l",
+    "event": "DIF - BK Häcken",
+    "venue": "3Arena,",
+    "date": "2026-11-29",
+    "start": "13:00",
+    "end": "17:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
   }
 ]
