@@ -1495,7 +1495,7 @@
     "start": "13:00",
     "end": "18:00",
     "rate": 0,
-    "status": "pending",
+    "status": "reserve",
     "tag": "",
     "source": "email"
   },
@@ -2644,10 +2644,10 @@
     "event": "AIK - IFK Göteborg",
     "venue": "Strawberry Arena",
     "date": "2026-10-17",
-    "start": "",
-    "end": "",
+    "start": "15:30",
+    "end": "20:30",
     "rate": 0,
-    "status": "pending",
+    "status": "confirmed",
     "tag": "",
     "source": "email"
   },
@@ -2937,6 +2937,42 @@
     "rate": 0,
     "status": "pending",
     "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "x02u0w3yurtj",
+    "event": "Ison & Fille",
+    "venue": "Annexet, Stockholm",
+    "date": "2026-10-24",
+    "start": "16:45",
+    "end": "22:45",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "qhxm6o8lnaj3",
+    "event": "Deep Purple",
+    "venue": "Avicii Arena, Stockholm",
+    "date": "2026-10-26",
+    "start": "17:00",
+    "end": "23:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "zzhzz6dnfpb9",
+    "event": "Deep Purple",
+    "venue": "Avicii Arena, Stockholm",
+    "date": "2026-10-26",
+    "start": "16:30",
+    "end": "00:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "PREMIUM",
     "source": "email"
   }
 ]
