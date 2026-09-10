@@ -1884,18 +1884,6 @@
     "source": "email"
   },
   {
-    "id": "mvuqmazzvgal",
-    "event": "Bonnier Dag",
-    "venue": "Avicii Arena",
-    "date": "2026-09-09",
-    "start": "08:30",
-    "end": "16:30",
-    "rate": 0,
-    "status": "pending",
-    "tag": "",
-    "source": "email"
-  },
-  {
     "id": "9q1fqxm9qjrt",
     "event": "AIK - Västerås",
     "venue": "Strawberry Arena",
@@ -2268,18 +2256,6 @@
     "source": "email"
   },
   {
-    "id": "fssg9ybxf4gz",
-    "event": "Bonnier Kväll",
-    "venue": "Avicii Arena",
-    "date": "2026-09-09",
-    "start": "17:30",
-    "end": "23:30",
-    "rate": 0,
-    "status": "pending",
-    "tag": "",
-    "source": "email"
-  },
-  {
     "id": "fbhuqduckfar",
     "event": "AIK Hockey - MoDo",
     "venue": "Avicii Arena",
@@ -2601,18 +2577,6 @@
     "rate": 0,
     "status": "pending",
     "tag": "PREMIUM",
-    "source": "email"
-  },
-  {
-    "id": "8hmaf38tdm73",
-    "event": "UF-Kickoff",
-    "venue": "Strawberry Arena",
-    "date": "2026-09-09",
-    "start": "08:15",
-    "end": "13:00",
-    "rate": 0,
-    "status": "pending",
-    "tag": "",
     "source": "email"
   },
   {
