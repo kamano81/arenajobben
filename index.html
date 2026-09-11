@@ -63,6 +63,7 @@
   .shift-chip.reserve   { background: #2e1065; color: #d8b4fe; border-left: 3px solid #9333ea; }
   .chip-name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: flex; align-items: center; gap: 4px; }
   .chip-premium { font-size: .6rem; background: #92400e; color: #fcd34d; border-radius: 3px; padding: 0 3px; flex-shrink: 0; font-weight: 700; letter-spacing: .3px; }
+  .chip-fab     { font-size: .6rem; background: #064e3b; color: #6ee7b7; border-radius: 3px; padding: 0 3px; flex-shrink: 0; font-weight: 700; letter-spacing: .3px; }
   .chip-time { font-size: .65rem; opacity: .8; white-space: nowrap; }
 
   /* ── Modals ── */
@@ -243,6 +244,7 @@
   .m-list-shift.pending .m-list-shift-time { color: #d97706; }
   .m-list-shift.reserve .m-list-shift-time { color: #d8b4fe; }
   .m-prem-tag { font-size: .58rem; background: #78350f; color: #fcd34d; border-radius: 3px; padding: 1px 4px; font-weight: 700; letter-spacing: .3px; margin-left: 5px; vertical-align: middle; flex-shrink: 0; }
+  .m-fab-tag  { font-size: .58rem; background: #064e3b; color: #6ee7b7; border-radius: 3px; padding: 1px 4px; font-weight: 700; letter-spacing: .3px; margin-left: 5px; vertical-align: middle; flex-shrink: 0; }
   .m-list-shift-venue { font-size: .73rem; color: #555; margin-top: 1px; }
   .m-empty-month { text-align: center; padding: 50px 20px; color: #555; font-size: .9rem; }
 
@@ -574,12 +576,12 @@ function mergeFromJson(jsonShifts) {
   jsonShifts.forEach(incoming => {
     // Skip shifts the user has manually deleted
     if (tombstones.has(tombstoneKey(incoming))) return;
-    // PREMIUM and non-PREMIUM are separate shifts (same match, different role)
-    const incomingPremium = !!(incoming.tag && /premium/i.test(incoming.tag));
+    // Different role tags (PREMIUM, F&B, SERVICE) are separate shifts for the same event
+    const incomingTag = (incoming.tag || '').toUpperCase();
     const idx = shifts.findIndex(s => {
       if (s.date !== incoming.date) return false;
       if (s.event.toLowerCase().trim() !== (incoming.event||'').toLowerCase().trim()) return false;
-      return !!(s.tag && /premium/i.test(s.tag)) === incomingPremium;
+      return (s.tag || '').toUpperCase() === incomingTag;
     });
     if (idx === -1) {
       shifts.push({ ...incoming, id: incoming.id || uid() });
@@ -767,7 +769,9 @@ function parseStructuredBlocks(raw) {
     for (let j = dateIdx-1; j >= 0; j--) {
       if (lines[j]) {
         const tagMatch = lines[j].match(/\[([^\]]+)\]/g);
-        shift.tag = tagMatch ? tagMatch.map(t=>t.replace(/[\[\]]/g,'')).find(t=>/premium/i.test(t)) || '' : '';
+        const tagVals = tagMatch ? tagMatch.map(t=>t.replace(/[\[\]]/g,'')) : [];
+        shift.tag = tagVals.find(t=>/premium/i.test(t)) ? 'PREMIUM'
+                  : tagVals.find(t=>/f&b|f\s*&\s*b/i.test(t)) ? 'F&B' : '';
         shift.event = lines[j].replace(/\s*\[.*?\]/g,'').trim();
         break;
       }
@@ -1045,10 +1049,10 @@ function renderCalendar() {
         const isWorked = shift.status === 'confirmed' && dateStr < todayStr;
         chip.className=`shift-chip ${isWorked ? 'worked' : shift.status}`;
         chip.title=`${shift.event}${shift.tag?' ['+shift.tag+']':''} @ ${shift.venue}`;
-        const isPremium = shift.tag && /premium/i.test(shift.tag);
-        const premBadge = isPremium ? `<span class="chip-premium">PREMIUM</span>` : '';
+        const roleBadge = /premium/i.test(shift.tag||'') ? `<span class="chip-premium">PREMIUM</span>`
+                        : /f&b/i.test(shift.tag||'') ? `<span class="chip-fab">F&amp;B</span>` : '';
         const timeStr = (shift.start && shift.end) ? `<div class="chip-time">${shift.start}–${shift.end}</div>` : '';
-        chip.innerHTML = `<div class="chip-name"><span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0">${escHtml(shift.event||'Pass')}</span>${premBadge}</div>${timeStr}`;
+        chip.innerHTML = `<div class="chip-name"><span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0">${escHtml(shift.event||'Pass')}</span>${roleBadge}</div>${timeStr}`;
         chip.addEventListener('click', e=>{e.stopPropagation(); openDetail(shift.id);});
         cell.appendChild(chip);
       });
@@ -1172,8 +1176,8 @@ document.getElementById('cancelBtn').addEventListener('click',closeModals);
 // ── Detail Modal ──────────────────────────────────────────────────────
 function openDetail(id) {
   const s=shifts.find(s=>s.id===id); if(!s)return; viewingId=id;
-  const isPrem = s.tag && /premium/i.test(s.tag);
-  document.getElementById('detailTitle').textContent=(s.event||'Pass')+(isPrem?' ★ PREMIUM':'');
+  const roleLabel = /premium/i.test(s.tag||'') ? ' ★ PREMIUM' : /f&b/i.test(s.tag||'') ? ' ★ F&B' : '';
+  document.getElementById('detailTitle').textContent=(s.event||'Pass')+roleLabel;
   document.getElementById('detailVenue').textContent=s.venue||'—';
   document.getElementById('detailTime').textContent=
     `${fmtDate(s.date)}${s.start?', '+fmtTime(s.start):''}${s.end?' – '+fmtTime(s.end):''}`;
@@ -1287,7 +1291,7 @@ function parseTarantsecPdf(text) {
     if (ms.length >= 2) event = ms[ms.length - 1][1].trim();
     else if (ms.length === 1) event = ms[0][1].trim();
   }
-  event = event.replace(/\s*\[(SERVICE|PREMIUM|STHLM LIVE|LIVE)\]\s*/gi, '').trim();
+  event = event.replace(/\s*\[(SERVICE|PREMIUM|STHLM LIVE|LIVE|F&B)\]\s*/gi, '').trim();
 
   const toTime = s => s ? s.replace('T', ' ').split(' ')[1] : '';
   const toDate = s => s ? s.replace('T', ' ').split(' ')[0] : '';
@@ -1478,13 +1482,17 @@ function renderMobile() {
     const dateStr = nd.toLocaleDateString('sv-SE', { weekday:'long', day:'numeric', month:'long' });
     const capDate = dateStr.charAt(0).toUpperCase() + dateStr.slice(1);
     const timeStr = nextShift.start ? (nextShift.start + (nextShift.end ? ' – ' + nextShift.end : '')) : '';
-    const isPrem = nextShift.tag && /premium/i.test(nextShift.tag);
+    const nextRoleTag = /premium/i.test(nextShift.tag||'')
+      ? ' <span style="font-size:.65rem;background:#78350f;color:#fcd34d;border-radius:3px;padding:1px 5px;font-weight:700;vertical-align:middle">P</span>'
+      : /f&b/i.test(nextShift.tag||'')
+      ? ' <span style="font-size:.65rem;background:#064e3b;color:#6ee7b7;border-radius:3px;padding:1px 5px;font-weight:700;vertical-align:middle">F&amp;B</span>'
+      : '';
     nextCardEl.innerHTML = `<div class="m-next-card" onclick="openDetail('${nextShift.id}')">
       <div class="m-next-header">
         <span class="m-next-label">Nästa pass</span>
         <span class="m-next-countdown">${countdown}</span>
       </div>
-      <div class="m-next-event">${escHtml(nextShift.event)}${isPrem ? ' <span style="font-size:.65rem;background:#78350f;color:#fcd34d;border-radius:3px;padding:1px 5px;font-weight:700;vertical-align:middle">P</span>' : ''}</div>
+      <div class="m-next-event">${escHtml(nextShift.event)}${nextRoleTag}</div>
       <div class="m-next-meta">${capDate}${timeStr ? '  ·  ' + timeStr : ''}</div>
       ${nextShift.venue ? `<div class="m-next-venue">${escHtml(nextShift.venue)}</div>` : ''}
     </div>`;
@@ -1568,11 +1576,11 @@ function renderMobile() {
         <div class="m-day-right">
           ${dayShifts.length ? dayShifts.map(s=>{
               const worked = s.status==='worked' || (s.status==='confirmed' && date < todayStr2);
-              const isPrem = s.tag && /premium/i.test(s.tag);
-              const premTag = isPrem ? `<span class="m-prem-tag">P</span>` : '';
+              const roleTag = /premium/i.test(s.tag||'') ? `<span class="m-prem-tag">P</span>`
+                            : /f&b/i.test(s.tag||'') ? `<span class="m-fab-tag">F&amp;B</span>` : '';
               return `<div class="m-list-shift ${worked?'worked':s.status}" onclick="event.stopPropagation();openDetail('${s.id}')">
                 <div class="m-list-shift-body">
-                  <div class="m-list-shift-name">${escHtml(s.event)}${premTag}</div>
+                  <div class="m-list-shift-name">${escHtml(s.event)}${roleTag}</div>
                   <div class="m-list-shift-time">${s.start?(s.start+(s.end?' – '+s.end:'')):'Tid okänd'}</div>
                   ${(worked||s.status==='confirmed')?`<div class="m-list-shift-venue">${escHtml(s.venue||'')}</div>`:''}
                 </div>
