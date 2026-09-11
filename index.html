@@ -62,8 +62,8 @@
   .shift-chip.pending   { background: #1c1000; color: #d97706; border-left: 3px solid #b45309; }
   .shift-chip.reserve   { background: #2e1065; color: #d8b4fe; border-left: 3px solid #9333ea; }
   .chip-name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: flex; align-items: center; gap: 4px; }
-  .chip-premium { font-size: .6rem; background: #92400e; color: #fcd34d; border-radius: 3px; padding: 0 3px; flex-shrink: 0; font-weight: 700; letter-spacing: .3px; }
-  .chip-fab     { font-size: .6rem; background: #064e3b; color: #6ee7b7; border-radius: 3px; padding: 0 3px; flex-shrink: 0; font-weight: 700; letter-spacing: .3px; }
+  .chip-premium { font-size: .6rem; background: #0f0f0f; color: #f5f5f5; border-radius: 3px; padding: 0 3px; flex-shrink: 0; font-weight: 700; letter-spacing: .3px; }
+  .chip-fab     { font-size: .6rem; background: #c2410c; color: #fff;    border-radius: 3px; padding: 0 3px; flex-shrink: 0; font-weight: 700; letter-spacing: .3px; }
   .chip-time { font-size: .65rem; opacity: .8; white-space: nowrap; }
 
   /* ── Modals ── */
@@ -243,8 +243,8 @@
   .m-list-shift.worked .m-list-shift-time  { color: #60a5fa; }
   .m-list-shift.pending .m-list-shift-time { color: #d97706; }
   .m-list-shift.reserve .m-list-shift-time { color: #d8b4fe; }
-  .m-prem-tag { font-size: .58rem; background: #78350f; color: #fcd34d; border-radius: 3px; padding: 1px 4px; font-weight: 700; letter-spacing: .3px; margin-left: 5px; vertical-align: middle; flex-shrink: 0; }
-  .m-fab-tag  { font-size: .58rem; background: #064e3b; color: #6ee7b7; border-radius: 3px; padding: 1px 4px; font-weight: 700; letter-spacing: .3px; margin-left: 5px; vertical-align: middle; flex-shrink: 0; }
+  .m-prem-tag { font-size: .58rem; background: #0f0f0f; color: #f5f5f5; border-radius: 3px; padding: 1px 4px; font-weight: 700; letter-spacing: .3px; margin-left: 5px; vertical-align: middle; flex-shrink: 0; }
+  .m-fab-tag  { font-size: .58rem; background: #c2410c; color: #fff;    border-radius: 3px; padding: 1px 4px; font-weight: 700; letter-spacing: .3px; margin-left: 5px; vertical-align: middle; flex-shrink: 0; }
   .m-list-shift-venue { font-size: .73rem; color: #555; margin-top: 1px; }
   .m-empty-month { text-align: center; padding: 50px 20px; color: #555; font-size: .9rem; }
 
@@ -1483,9 +1483,9 @@ function renderMobile() {
     const capDate = dateStr.charAt(0).toUpperCase() + dateStr.slice(1);
     const timeStr = nextShift.start ? (nextShift.start + (nextShift.end ? ' – ' + nextShift.end : '')) : '';
     const nextRoleTag = /premium/i.test(nextShift.tag||'')
-      ? ' <span style="font-size:.65rem;background:#78350f;color:#fcd34d;border-radius:3px;padding:1px 5px;font-weight:700;vertical-align:middle">P</span>'
+      ? ' <span style="font-size:.65rem;background:#0f0f0f;color:#f5f5f5;border-radius:3px;padding:1px 5px;font-weight:700;vertical-align:middle">P</span>'
       : /f&b/i.test(nextShift.tag||'')
-      ? ' <span style="font-size:.65rem;background:#064e3b;color:#6ee7b7;border-radius:3px;padding:1px 5px;font-weight:700;vertical-align:middle">F&amp;B</span>'
+      ? ' <span style="font-size:.65rem;background:#c2410c;color:#fff;border-radius:3px;padding:1px 5px;font-weight:700;vertical-align:middle">F&amp;B</span>'
       : '';
     nextCardEl.innerHTML = `<div class="m-next-card" onclick="openDetail('${nextShift.id}')">
       <div class="m-next-header">
