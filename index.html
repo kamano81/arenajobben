@@ -669,8 +669,9 @@ function parseHours(date, start, end) {
   let d = (e - s) / 3600000; if (d < 0) d += 24; return Math.max(0, d);
 }
 function getDefaultRate() { return parseFloat(document.getElementById('defaultRate')?.value) || 0; }
+const FAB_RATE = 175;
 function calcPay(s) {
-  const rate = parseFloat(s.rate) || getDefaultRate();
+  const rate = parseFloat(s.rate) || (/f&b/i.test(s.tag||'') ? FAB_RATE : getDefaultRate());
   return parseHours(s.date, s.start, s.end) * rate;
 }
 function fmtPay(n) { return n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,' ') + ' kr'; }
@@ -1103,8 +1104,13 @@ function updateStats() {
 
   const fmtH = h => Number.isInteger(h) ? String(h) : h.toFixed(1);
 
-  document.getElementById('statConfirmed').textContent = conf.length;
-  document.getElementById('statPending').textContent   = pend.length;
+  const monthPend = pend.filter(s => {
+    if (!s.date) return false;
+    const d = new Date(s.date + 'T00:00:00');
+    return d.getFullYear() === currentYear && d.getMonth() === currentMonth;
+  });
+  document.getElementById('statConfirmed').textContent = monthConf.length;
+  document.getElementById('statPending').textContent   = monthPend.length;
   document.getElementById('statPayMonth').textContent  = fmtPay(monthConf.reduce((s, sh) => s + calcPay(sh), 0));
   document.getElementById('statPayMonthLabel').textContent = `lön ${monthNameCap}`;
   document.getElementById('statPayYear').textContent   = fmtPay(yearConf.reduce((s, sh) => s + calcPay(sh), 0));
@@ -1463,8 +1469,9 @@ function renderMobile() {
   const pend = shifts.filter(s => s.status === 'pending');
   const monthConf = conf.filter(s => { const d = new Date(s.date+'T00:00:00'); return d.getFullYear()===currentYear && d.getMonth()===currentMonth; });
   const monthPay  = monthConf.reduce((t,s) => t + calcPay(s), 0);
-  document.getElementById('mStatConf').textContent = conf.length;
-  document.getElementById('mStatPend').textContent = pend.length;
+  const monthPend = pend.filter(s => { const d = new Date(s.date+'T00:00:00'); return d.getFullYear()===currentYear && d.getMonth()===currentMonth; });
+  document.getElementById('mStatConf').textContent = monthConf.length;
+  document.getElementById('mStatPend').textContent = monthPend.length;
   document.getElementById('mStatPay').textContent  = Math.round(monthPay).toLocaleString('sv') + ' kr';
 
   const todayStr2 = toDateStr(new Date());
