@@ -294,7 +294,7 @@
 
 <div class="stats">
   <div class="stat confirmed"><strong id="statConfirmed">0</strong>bekräftade</div>
-  <div class="stat pending"><strong id="statPending">0</strong>väntande</div>
+  <div class="stat pending"><strong id="statPending">0</strong>timmar</div>
   <div class="stat pay">
     <strong id="statPayMonth">0 kr</strong><span id="statPayMonthLabel">lön</span>
     <span id="statHoursMonth" style="color:#6c7086;font-size:12px;margin-left:6px;"></span>
@@ -344,7 +344,7 @@
     </div>
     <div class="m-stat">
       <span class="m-stat-val yellow" id="mStatPend">0</span>
-      <span class="m-stat-label">väntande</span>
+      <span class="m-stat-label">timmar</span>
     </div>
     <div class="m-stat">
       <span class="m-stat-val green" id="mStatPay">0 kr</span>
@@ -1104,13 +1104,9 @@ function updateStats() {
 
   const fmtH = h => Number.isInteger(h) ? String(h) : h.toFixed(1);
 
-  const monthPend = pend.filter(s => {
-    if (!s.date) return false;
-    const d = new Date(s.date + 'T00:00:00');
-    return d.getFullYear() === currentYear && d.getMonth() === currentMonth;
-  });
+  const monthHours = monthConf.reduce((t, s) => t + parseHours(s.date, s.start, s.end), 0);
   document.getElementById('statConfirmed').textContent = monthConf.length;
-  document.getElementById('statPending').textContent   = monthPend.length;
+  document.getElementById('statPending').textContent   = fmtH(monthHours);
   document.getElementById('statPayMonth').textContent  = fmtPay(monthConf.reduce((s, sh) => s + calcPay(sh), 0));
   document.getElementById('statPayMonthLabel').textContent = `lön ${monthNameCap}`;
   document.getElementById('statPayYear').textContent   = fmtPay(yearConf.reduce((s, sh) => s + calcPay(sh), 0));
@@ -1469,9 +1465,10 @@ function renderMobile() {
   const pend = shifts.filter(s => s.status === 'pending');
   const monthConf = conf.filter(s => { const d = new Date(s.date+'T00:00:00'); return d.getFullYear()===currentYear && d.getMonth()===currentMonth; });
   const monthPay  = monthConf.reduce((t,s) => t + calcPay(s), 0);
-  const monthPend = pend.filter(s => { const d = new Date(s.date+'T00:00:00'); return d.getFullYear()===currentYear && d.getMonth()===currentMonth; });
+  const monthHours = monthConf.reduce((t, s) => t + parseHours(s.date, s.start, s.end), 0);
+  const fmtH = h => Number.isInteger(h) ? String(h) : h.toFixed(1);
   document.getElementById('mStatConf').textContent = monthConf.length;
-  document.getElementById('mStatPend').textContent = monthPend.length;
+  document.getElementById('mStatPend').textContent = fmtH(monthHours);
   document.getElementById('mStatPay').textContent  = Math.round(monthPay).toLocaleString('sv') + ' kr';
 
   const todayStr2 = toDateStr(new Date());
