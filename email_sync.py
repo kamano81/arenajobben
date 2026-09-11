@@ -380,7 +380,12 @@ def extract_shift(body, subject):
         # Nytt bodyformat: taggen kan sitta mitt i namnet, t.ex. "MAX [LIVE] - KVÄLL"
         event_name = re.sub(r'\s*\[.*?\]\s*', ' ', raw_name).strip()
     event_name = re.sub(r'\s+', ' ', event_name).strip()
-    premium = 'PREMIUM' if re.search(r'premium', tag, re.IGNORECASE) else ''
+    if re.search(r'premium', tag, re.IGNORECASE):
+        role_tag = 'PREMIUM'
+    elif re.search(r'f&b|f\s*&\s*b', tag, re.IGNORECASE):
+        role_tag = 'F&B'
+    else:
+        role_tag = ''
 
     # ── Sanitetskoll — filtrera skräp ──
     if not event_name or len(event_name) < 3:
@@ -428,7 +433,7 @@ def extract_shift(body, subject):
         'end':    end_time,
         'rate':   0,
         'status': status,
-        'tag':    premium,
+        'tag':    role_tag,
         'source': 'email',
     }
 
@@ -444,16 +449,14 @@ def find_existing(shift, existing, strict_tag=False):
     strict_tag=True: PREMIUM och SERVICE räknas som separata roller (används för email-import).
     strict_tag=False: ignorerar tag-skillnader (används för PDF-import och dedup)."""
     new_key      = normalize_event(shift.get('event', ''))
-    new_premium  = (shift.get('tag', '') == 'PREMIUM')
+    new_tag = shift.get('tag', '')
     for i, s in enumerate(existing):
         if s.get('date') != shift['date']:
             continue
         if normalize_event(s.get('event', '')) != new_key:
             continue
-        if strict_tag:
-            ex_premium = (s.get('tag', '') == 'PREMIUM')
-            if new_premium != ex_premium:
-                continue   # Olika roller → separata pass
+        if strict_tag and s.get('tag', '') != new_tag:
+            continue   # Olika roller → separata pass
         return i
     return -1
 
@@ -544,7 +547,12 @@ def parse_pdf_shift(pdf_path):
     if not date_str or not event_name:
         return None
 
-    premium = 'PREMIUM' if 'premium' in tag.lower() else ''
+    if 'premium' in tag.lower():
+        role_tag = 'PREMIUM'
+    elif 'f&b' in tag.lower() or 'f & b' in tag.lower():
+        role_tag = 'F&B'
+    else:
+        role_tag = ''
 
     # ── Status ────────────────────────────────────────────────────────
     # Utcheckning i avtalet → passet är redan utfört
@@ -559,7 +567,7 @@ def parse_pdf_shift(pdf_path):
         'end':    end_time,
         'rate':   rate,
         'status': status,
-        'tag':    premium,
+        'tag':    role_tag,
         'source': 'pdf',
     }
 
@@ -683,14 +691,21 @@ def sync():
                     if tombstone_key(shift) in tombstones:
                         print(f"  🪦 SKIPPAD (tombstone): {shift['event']} {shift['date']}")
                     else:
-                        # Om ett bekräftat SERVICE-pass dyker upp för ett datum där PREMIUM redan är
-                        # bekräftat → personen har blivit omplacerad från PREMIUM till SERVICE.
-                        # Nedgradera PREMIUM-posten till reserv.
-                        if shift.get('status') == 'confirmed' and shift.get('tag') != 'PREMIUM':
-                            premium_idx = find_existing({**shift, 'tag': 'PREMIUM'}, existing, strict_tag=True)
-                            if premium_idx >= 0 and existing[premium_idx].get('status') == 'confirmed':
-                                existing[premium_idx]['status'] = 'reserve'
-                                print(f"  🔄 PREMIUM → reserv (omplacering): {shift['event']} {shift['date']}")
+                        # Om ett bekräftat pass dyker upp för ett datum/evenemang där en ANNAN
+                        # roll redan är bekräftad → personen har blivit omplacerad.
+                        # Nedgradera det befintliga bekräftade passet till reserv.
+                        if shift.get('status') == 'confirmed':
+                            new_tag = shift.get('tag', '')
+                            for ex_i, ex in enumerate(existing):
+                                if (ex.get('date') == shift['date'] and
+                                        normalize_event(ex.get('event','')) == normalize_event(shift.get('event','')) and
+                                        ex.get('tag','') != new_tag and
+                                        ex.get('status') == 'confirmed'):
+                                    existing[ex_i]['status'] = 'reserve'
+                                    old_role = ex.get('tag','') or 'SERVICE'
+                                    new_role = new_tag or 'SERVICE'
+                                    print(f"  🔄 {old_role} → reserv (omplacering till {new_role}): {shift['event']} {shift['date']}")
+                                    break
                         existing.append(shift)
                         added += 1
                         print(f"  ➕ NYTT ({shift['status']}): {shift['event']} @ {shift['venue']} {shift['date']}")
