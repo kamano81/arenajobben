@@ -35,7 +35,7 @@
   .stat { font-size: .8rem; color: #888; }
   .stat strong { color: #e8e8f0; font-weight: 600; margin-right: 4px; }
   .stat.confirmed strong { color: #4ade80; }
-  .stat.pending strong   { color: #d97706; }
+  .stat.pending strong   { color: #4ade80; }
   .stat.reserve strong   { color: #c4b5fd; }
   .stat.pay strong       { color: #34d399; }
 
@@ -343,7 +343,7 @@
       <span class="m-stat-label">bekräftade</span>
     </div>
     <div class="m-stat">
-      <span class="m-stat-val yellow" id="mStatPend">0</span>
+      <span class="m-stat-val green" id="mStatPend">0</span>
       <span class="m-stat-label">timmar</span>
     </div>
     <div class="m-stat">
@@ -985,9 +985,7 @@ function getISOWeek(date) {
 // Odd ISO weeks:  Saturday (col 5) + Sunday (col 6) → OB
 // Even ISO weeks: Monday  (col 0)  + Sunday (col 6) → OB  (Mon follows odd-week Sunday)
 function isOBDay(weekNum, col) {
-  const odd = weekNum % 2 === 1;
-  return (odd  && (col === 5 || col === 6)) ||
-         (!odd && (col === 0 || col === 6));
+  return col === 5 || col === 6;
 }
 
 // ── Calendar rendering ────────────────────────────────────────────────
