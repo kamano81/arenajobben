@@ -683,6 +683,14 @@ def sync():
                     if tombstone_key(shift) in tombstones:
                         print(f"  🪦 SKIPPAD (tombstone): {shift['event']} {shift['date']}")
                     else:
+                        # Om ett bekräftat SERVICE-pass dyker upp för ett datum där PREMIUM redan är
+                        # bekräftat → personen har blivit omplacerad från PREMIUM till SERVICE.
+                        # Nedgradera PREMIUM-posten till reserv.
+                        if shift.get('status') == 'confirmed' and shift.get('tag') != 'PREMIUM':
+                            premium_idx = find_existing({**shift, 'tag': 'PREMIUM'}, existing, strict_tag=True)
+                            if premium_idx >= 0 and existing[premium_idx].get('status') == 'confirmed':
+                                existing[premium_idx]['status'] = 'reserve'
+                                print(f"  🔄 PREMIUM → reserv (omplacering): {shift['event']} {shift['date']}")
                         existing.append(shift)
                         added += 1
                         print(f"  ➕ NYTT ({shift['status']}): {shift['event']} @ {shift['venue']} {shift['date']}")
