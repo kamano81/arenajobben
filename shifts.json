@@ -2998,5 +2998,17 @@
     "status": "worked",
     "tag": "",
     "source": "pdf"
+  },
+  {
+    "id": "zbzfry3n55r0",
+    "event": "DIF - GAIS",
+    "venue": "Tele2 Arena",
+    "date": "2026-09-14",
+    "start": "",
+    "end": "",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
   }
 ]
