@@ -3004,10 +3004,10 @@
     "event": "DIF - GAIS",
     "venue": "Tele2 Arena",
     "date": "2026-09-14",
-    "start": "",
-    "end": "",
+    "start": "15:15",
+    "end": "21:45",
     "rate": 0,
-    "status": "pending",
+    "status": "confirmed",
     "tag": "",
     "source": "email"
   }
