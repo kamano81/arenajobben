@@ -1272,18 +1272,6 @@
     "source": "email"
   },
   {
-    "id": "lbrj5k3rgctp",
-    "event": "HIF - Brommapojkarna",
-    "venue": "3Arena",
-    "date": "2026-09-13",
-    "start": "11:00",
-    "end": "17:00",
-    "rate": 0,
-    "status": "reserve",
-    "tag": "",
-    "source": "email"
-  },
-  {
     "id": "3sjrpjnekdxi",
     "event": "DIF - Elfsborg",
     "venue": "3Arena",
@@ -2280,30 +2268,6 @@
     "source": "email"
   },
   {
-    "id": "na1kzlzy7urt",
-    "event": "Oskar Linnros",
-    "venue": "Avicii Arena",
-    "date": "2026-09-26",
-    "start": "16:00",
-    "end": "23:45",
-    "rate": 0,
-    "status": "reserve",
-    "tag": "",
-    "source": "email"
-  },
-  {
-    "id": "bzitbykty4ph",
-    "event": "Oskar Linnros",
-    "venue": "Avicii Arena",
-    "date": "2026-09-26",
-    "start": "16:30",
-    "end": "00:00",
-    "rate": 0,
-    "status": "confirmed",
-    "tag": "PREMIUM",
-    "source": "email"
-  },
-  {
     "id": "yamapqr5r2fs",
     "event": "AIK - Mjällby",
     "venue": "Strawberry Arena",
@@ -2973,18 +2937,6 @@
     "rate": 0,
     "status": "reserve",
     "tag": "",
-    "source": "email"
-  },
-  {
-    "id": "3lyn9u5ys0k9",
-    "event": "HIF - Brommapojkarna",
-    "venue": "3Arena",
-    "date": "2026-09-13",
-    "start": "11:15",
-    "end": "16:45",
-    "rate": 0,
-    "status": "confirmed",
-    "tag": "PREMIUM",
     "source": "email"
   },
   {
