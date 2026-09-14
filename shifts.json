@@ -2962,5 +2962,41 @@
     "status": "confirmed",
     "tag": "PREMIUM",
     "source": "email"
+  },
+  {
+    "id": "wp8mmfjf7caa",
+    "event": "Sverige - Rumänien",
+    "venue": "",
+    "date": "2026-09-25",
+    "start": "",
+    "end": "",
+    "rate": 0,
+    "status": "reserve",
+    "tag": "F&B",
+    "source": "email"
+  },
+  {
+    "id": "61s4461f5kkj",
+    "event": "Sverige - Polen",
+    "venue": "",
+    "date": "2026-09-28",
+    "start": "",
+    "end": "",
+    "rate": 0,
+    "status": "reserve",
+    "tag": "F&B",
+    "source": "email"
+  },
+  {
+    "id": "4e4olyhjqgs7",
+    "event": "DIF Hockey - Färjestad",
+    "venue": "Avicii Arena, Stockholm",
+    "date": "2026-10-01",
+    "start": "17:00",
+    "end": "22:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "F&B",
+    "source": "email"
   }
 ]
