@@ -1404,18 +1404,6 @@
     "source": "email"
   },
   {
-    "id": "av3knqe92mml",
-    "event": "DIF Hockey - Björklöven",
-    "venue": "Avicii Arena",
-    "date": "2026-09-19",
-    "start": "16:00",
-    "end": "22:00",
-    "rate": 0,
-    "status": "confirmed",
-    "tag": "F&B",
-    "source": "email"
-  },
-  {
     "id": "j7asi8khxrse",
     "event": "DIF Hockey - Växjö",
     "venue": "Hovet",
@@ -2244,18 +2232,6 @@
     "source": "email"
   },
   {
-    "id": "fbhuqduckfar",
-    "event": "AIK Hockey - MoDo",
-    "venue": "Avicii Arena",
-    "date": "2026-09-18",
-    "start": "15:00",
-    "end": "22:15",
-    "rate": 0,
-    "status": "confirmed",
-    "tag": "",
-    "source": "email"
-  },
-  {
     "id": "0ep1u6vi5ala",
     "event": "AIK Hockey - Karlskoga",
     "venue": "Hovet",
@@ -2636,18 +2612,6 @@
     "end": "23:00",
     "rate": 0,
     "status": "pending",
-    "tag": "",
-    "source": "email"
-  },
-  {
-    "id": "3kurj7x4o1tr",
-    "event": "CA7RIEL & Paco Amoroso",
-    "venue": "Annexet",
-    "date": "2026-09-26",
-    "start": "17:00",
-    "end": "23:00",
-    "rate": 0,
-    "status": "confirmed",
     "tag": "",
     "source": "email"
   },
