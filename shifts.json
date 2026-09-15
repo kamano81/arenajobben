@@ -1224,18 +1224,6 @@
     "source": "email"
   },
   {
-    "id": "gtvyzvfg1stw",
-    "event": "HIF - DIF",
-    "venue": "3Arena",
-    "date": "2026-10-12",
-    "start": "11:15",
-    "end": "16:45",
-    "rate": 0,
-    "status": "pending",
-    "tag": "PREMIUM",
-    "source": "email"
-  },
-  {
     "id": "rnqm2yyw5h6p",
     "event": "The Neighbourhood",
     "venue": "Avicii Arena",
@@ -1920,18 +1908,6 @@
     "source": "email"
   },
   {
-    "id": "vg9b8ba5f83y",
-    "event": "Köpa Hus Utomlands Söndag (SERVICE)",
-    "venue": "Annexet",
-    "date": "2026-10-11",
-    "start": "",
-    "end": "",
-    "rate": 0,
-    "status": "pending",
-    "tag": "",
-    "source": "email"
-  },
-  {
     "id": "m5gybfq4r7py",
     "event": "AIK - IF Brommapojkarna",
     "venue": "Strawberry Arena",
@@ -2034,30 +2010,6 @@
     "date": "2026-10-17",
     "start": "08:00",
     "end": "23:00",
-    "rate": 0,
-    "status": "pending",
-    "tag": "PREMIUM",
-    "source": "email"
-  },
-  {
-    "id": "pfgu394yoche",
-    "event": "Hot Wheels Stunt Show 18 okt",
-    "venue": "Avicii Arena",
-    "date": "2026-10-18",
-    "start": "08:00",
-    "end": "17:00",
-    "rate": 0,
-    "status": "pending",
-    "tag": "",
-    "source": "email"
-  },
-  {
-    "id": "h85pv9m88bqr",
-    "event": "Hot Wheels Stunt Show 18 okt",
-    "venue": "Avicii Arena",
-    "date": "2026-10-18",
-    "start": "08:00",
-    "end": "17:00",
     "rate": 0,
     "status": "pending",
     "tag": "PREMIUM",
@@ -2600,18 +2552,6 @@
     "end": "22:45",
     "rate": 0,
     "status": "confirmed",
-    "tag": "",
-    "source": "email"
-  },
-  {
-    "id": "ae64eu7t937g",
-    "event": "HIF - DIF",
-    "venue": "3Arena",
-    "date": "2026-10-11",
-    "start": "",
-    "end": "",
-    "rate": 0,
-    "status": "pending",
     "tag": "",
     "source": "email"
   },
