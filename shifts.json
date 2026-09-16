@@ -1372,10 +1372,10 @@
     "event": "DIF Hockey - Färjestad",
     "venue": "Avicii Arena",
     "date": "2026-10-01",
-    "start": "17:00",
-    "end": "22:00",
+    "start": "16:00",
+    "end": "22:30",
     "rate": 0,
-    "status": "reserve",
+    "status": "confirmed",
     "tag": "PREMIUM",
     "source": "email"
   },
@@ -2635,7 +2635,7 @@
     "start": "14:30",
     "end": "20:30",
     "rate": 0,
-    "status": "pending",
+    "status": "reserve",
     "tag": "PREMIUM",
     "source": "email"
   },
@@ -2644,10 +2644,10 @@
     "event": "DIF - Degerfors",
     "venue": "3Arena,",
     "date": "2026-11-01",
-    "start": "11:00",
-    "end": "17:00",
+    "start": "11:15",
+    "end": "16:45",
     "rate": 0,
-    "status": "pending",
+    "status": "confirmed",
     "tag": "PREMIUM",
     "source": "email"
   },
@@ -2671,7 +2671,7 @@
     "start": "15:30",
     "end": "19:30",
     "rate": 0,
-    "status": "pending",
+    "status": "reserve",
     "tag": "",
     "source": "email"
   },
@@ -2683,7 +2683,7 @@
     "start": "12:00",
     "end": "16:00",
     "rate": 0,
-    "status": "pending",
+    "status": "reserve",
     "tag": "",
     "source": "email"
   },
@@ -2865,6 +2865,18 @@
     "rate": 0,
     "status": "pending",
     "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "x4w661a3nbak",
+    "event": "Basketlandskamp: Sverige - Ungern",
+    "venue": "Avicii Arena, Stockholm",
+    "date": "2026-11-27",
+    "start": "16:00",
+    "end": "22:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "PREMIUM",
     "source": "email"
   }
 ]
