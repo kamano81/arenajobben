@@ -2203,7 +2203,7 @@
     "start": "17:00",
     "end": "00:00",
     "rate": 0,
-    "status": "pending",
+    "status": "confirmed",
     "tag": "PREMIUM",
     "source": "email"
   },
@@ -2659,7 +2659,7 @@
     "start": "12:00",
     "end": "18:00",
     "rate": 0,
-    "status": "pending",
+    "status": "reserve",
     "tag": "PREMIUM",
     "source": "email"
   },
@@ -2743,7 +2743,7 @@
     "start": "17:30",
     "end": "00:00",
     "rate": 0,
-    "status": "pending",
+    "status": "reserve",
     "tag": "",
     "source": "email"
   },
@@ -2875,8 +2875,80 @@
     "start": "16:00",
     "end": "22:00",
     "rate": 0,
-    "status": "pending",
+    "status": "reserve",
     "tag": "PREMIUM",
+    "source": "email"
+  },
+  {
+    "id": "oc8f8zwhmzuf",
+    "event": "AMEX 14 okt",
+    "venue": "Avicii Arena",
+    "date": "2026-10-14",
+    "start": "16:45",
+    "end": "22:00",
+    "rate": 0,
+    "status": "confirmed",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "us80wcv3xfc9",
+    "event": "AMEX",
+    "venue": "",
+    "date": "2026-10-14",
+    "start": "",
+    "end": "",
+    "rate": 0,
+    "status": "reserve",
+    "tag": "PREMIUM",
+    "source": "email"
+  },
+  {
+    "id": "i6modjulkjni",
+    "event": "Stevie Wonder",
+    "venue": "",
+    "date": "2026-10-22",
+    "start": "",
+    "end": "",
+    "rate": 0,
+    "status": "reserve",
+    "tag": "F&B",
+    "source": "email"
+  },
+  {
+    "id": "6vkhw0pwti6u",
+    "event": "DIF - Örgryte",
+    "venue": "3Arena, Stockholm",
+    "date": "2026-10-24",
+    "start": "16:00",
+    "end": "20:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "F&B",
+    "source": "email"
+  },
+  {
+    "id": "y65zk40aovpg",
+    "event": "Dell DAGPASS",
+    "venue": "Avicii Arena, Stockholm",
+    "date": "2026-10-22",
+    "start": "06:15",
+    "end": "18:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "w86xm73wlvtc",
+    "event": "Dell KVÄLLSPASS",
+    "venue": "Avicii Arena, Stockholm",
+    "date": "2026-10-22",
+    "start": "16:00",
+    "end": "00:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
     "source": "email"
   }
 ]
