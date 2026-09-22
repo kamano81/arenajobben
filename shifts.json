@@ -2551,7 +2551,7 @@
     "start": "16:00",
     "end": "22:30",
     "rate": 0,
-    "status": "pending",
+    "status": "reserve",
     "tag": "",
     "source": "email"
   },
@@ -2948,6 +2948,42 @@
     "end": "00:15",
     "rate": 0,
     "status": "reserve",
+    "tag": "PREMIUM",
+    "source": "email"
+  },
+  {
+    "id": "f5c6qmavckp4",
+    "event": "J. Cole",
+    "venue": "Avicii Arena, Stockholm",
+    "date": "2026-11-11",
+    "start": "16:45",
+    "end": "23:15",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "y70t68ppw2hv",
+    "event": "J. Cole",
+    "venue": "Avicii Arena, Stockholm",
+    "date": "2026-11-11",
+    "start": "16:00",
+    "end": "00:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "PREMIUM",
+    "source": "email"
+  },
+  {
+    "id": "5wm9exfstmnx",
+    "event": "AIK halvårsmöte - OBS! NYTT DATUM!",
+    "venue": "Strawberry Arena, Stockholm",
+    "date": "2026-10-14",
+    "start": "17:30",
+    "end": "22:00",
+    "rate": 0,
+    "status": "pending",
     "tag": "PREMIUM",
     "source": "email"
   }
