@@ -2986,5 +2986,29 @@
     "status": "pending",
     "tag": "PREMIUM",
     "source": "email"
+  },
+  {
+    "id": "a50hdyw601pq",
+    "event": "K-Bygg",
+    "venue": "Annexet, Stockholm",
+    "date": "2026-10-22",
+    "start": "10:45",
+    "end": "22:15",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "sf1lrgy91zbm",
+    "event": "Fontaines D.C.",
+    "venue": "Hovet, Stockholm",
+    "date": "2026-11-05",
+    "start": "17:00",
+    "end": "23:05",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
   }
 ]
