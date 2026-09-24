@@ -3070,5 +3070,17 @@
     "status": "pending",
     "tag": "F&B",
     "source": "email"
+  },
+  {
+    "id": "i0rkpoo58e0s",
+    "event": "Bleachers",
+    "venue": "Annexet, Stockholm",
+    "date": "2026-11-13",
+    "start": "",
+    "end": "",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
   }
 ]
