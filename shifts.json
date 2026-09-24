@@ -3058,5 +3058,17 @@
     "status": "reserve",
     "tag": "F&B",
     "source": "email"
+  },
+  {
+    "id": "weiigxal7al1",
+    "event": "Band of Horses",
+    "venue": "Annexet, Stockholm",
+    "date": "2026-09-25",
+    "start": "17:30",
+    "end": "22:30",
+    "rate": 0,
+    "status": "pending",
+    "tag": "F&B",
+    "source": "email"
   }
 ]
