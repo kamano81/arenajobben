@@ -3058,5 +3058,17 @@
     "status": "pending",
     "tag": "",
     "source": "email"
+  },
+  {
+    "id": "f4qs7enbysxp",
+    "event": "DIF Hockey - Linköping",
+    "venue": "Hovet, Stockholm",
+    "date": "2026-10-10",
+    "start": "16:00",
+    "end": "21:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "F&B",
+    "source": "email"
   }
 ]
