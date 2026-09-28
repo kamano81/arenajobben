@@ -1704,18 +1704,6 @@
     "source": "email"
   },
   {
-    "id": "1tuoo7xklrp4",
-    "event": "Entrévärdsutbildning",
-    "venue": "3Arena",
-    "date": "2026-09-08",
-    "start": "18:00",
-    "end": "21:00",
-    "rate": 0,
-    "status": "confirmed",
-    "tag": "",
-    "source": "email"
-  },
-  {
     "id": "hjnukvy0mmi6",
     "event": "AIK - Västerås",
     "venue": "Strawberry Arena",
@@ -1891,7 +1879,7 @@
     "start": "",
     "end": "",
     "rate": 0,
-    "status": "pending",
+    "status": "reserve",
     "tag": "",
     "source": "email"
   },
@@ -2419,7 +2407,7 @@
     "start": "15:30",
     "end": "21:30",
     "rate": 0,
-    "status": "pending",
+    "status": "reserve",
     "tag": "",
     "source": "email"
   },
