@@ -2419,7 +2419,7 @@
     "start": "15:00",
     "end": "22:00",
     "rate": 0,
-    "status": "pending",
+    "status": "reserve",
     "tag": "PREMIUM",
     "source": "email"
   },
@@ -3057,6 +3057,18 @@
     "rate": 0,
     "status": "pending",
     "tag": "F&B",
+    "source": "email"
+  },
+  {
+    "id": "tqgg2qn4181c",
+    "event": "AIK halvårsmöte",
+    "venue": "portal.tarantsec.se",
+    "date": "2026-10-14",
+    "start": "",
+    "end": "",
+    "rate": 0,
+    "status": "reserve",
+    "tag": "PREMIUM",
     "source": "email"
   }
 ]
