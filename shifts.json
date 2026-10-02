@@ -1807,7 +1807,7 @@
     "start": "17:00",
     "end": "22:00",
     "rate": 0,
-    "status": "pending",
+    "status": "reserve",
     "tag": "",
     "source": "email"
   },
@@ -2923,7 +2923,7 @@
     "start": "16:00",
     "end": "00:00",
     "rate": 0,
-    "status": "pending",
+    "status": "reserve",
     "tag": "PREMIUM",
     "source": "email"
   },
@@ -3056,6 +3056,18 @@
     "end": "",
     "rate": 0,
     "status": "reserve",
+    "tag": "PREMIUM",
+    "source": "email"
+  },
+  {
+    "id": "l0phch82c1ff",
+    "event": "Sverige - Bosnien Hercegovina",
+    "venue": "Strawberry Arena, Stockholm",
+    "date": "2026-11-14",
+    "start": "17:15",
+    "end": "23:45",
+    "rate": 0,
+    "status": "pending",
     "tag": "PREMIUM",
     "source": "email"
   }
