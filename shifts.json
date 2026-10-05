@@ -3043,7 +3043,7 @@
     "start": "16:00",
     "end": "21:00",
     "rate": 0,
-    "status": "pending",
+    "status": "reserve",
     "tag": "F&B",
     "source": "email"
   },
