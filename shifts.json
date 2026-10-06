@@ -3082,5 +3082,17 @@
     "status": "pending",
     "tag": "F&B",
     "source": "email"
+  },
+  {
+    "id": "bprk841inwve",
+    "event": "AIK - IFK Göteborg",
+    "venue": "Strawberry Arena, Stockholm",
+    "date": "2026-10-17",
+    "start": "15:30",
+    "end": "20:30",
+    "rate": 0,
+    "status": "pending",
+    "tag": "F&B",
+    "source": "email"
   }
 ]
