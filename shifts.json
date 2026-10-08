@@ -3106,5 +3106,16 @@
     "status": "pending",
     "tag": "F&B",
     "source": "email"
+  },
+  {
+    "id": "muzad5v1wtbvo2k5ij",
+    "tag": "",
+    "event": "Placebo (Show Security)",
+    "venue": "Annexet",
+    "date": "2026-10-20",
+    "start": "17:30",
+    "end": "23:30",
+    "rate": 157,
+    "status": "confirmed"
   }
 ]
