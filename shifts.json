@@ -3152,5 +3152,17 @@
     "status": "reserve",
     "tag": "PREMIUM",
     "source": "email"
+  },
+  {
+    "id": "87b42y4729xy",
+    "event": "Phoebe Bridgers",
+    "venue": "Avicii Arena, Stockholm",
+    "date": "2026-12-12",
+    "start": "16:00",
+    "end": "00:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "PREMIUM",
+    "source": "email"
   }
 ]
