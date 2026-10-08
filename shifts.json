@@ -1888,8 +1888,8 @@
     "event": "AIK - IF Brommapojkarna",
     "venue": "Strawberry Arena",
     "date": "2026-10-10",
-    "start": "12:30",
-    "end": "17:45",
+    "start": "11:15",
+    "end": "17:30",
     "rate": 0,
     "status": "confirmed",
     "tag": "",
@@ -3128,5 +3128,29 @@
     "end": "23:30",
     "rate": 157,
     "status": "confirmed"
+  },
+  {
+    "id": "nwkldcgkkdzx",
+    "event": "Robyn",
+    "venue": "",
+    "date": "2026-10-17",
+    "start": "",
+    "end": "",
+    "rate": 0,
+    "status": "reserve",
+    "tag": "F&B",
+    "source": "email"
+  },
+  {
+    "id": "tfzqvqyhr2ao",
+    "event": "Hot Wheels Stunt Show",
+    "venue": "portal.tarantsec.se",
+    "date": "2026-10-17",
+    "start": "",
+    "end": "",
+    "rate": 0,
+    "status": "reserve",
+    "tag": "PREMIUM",
+    "source": "email"
   }
 ]
