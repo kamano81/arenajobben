@@ -3079,7 +3079,7 @@
     "start": "12:30",
     "end": "16:30",
     "rate": 0,
-    "status": "pending",
+    "status": "reserve",
     "tag": "F&B",
     "source": "email"
   },
@@ -3199,6 +3199,30 @@
     "rate": 0,
     "status": "pending",
     "tag": "F&B",
+    "source": "email"
+  },
+  {
+    "id": "e1ue3yzjemxk",
+    "event": "Lars Winnerbäck",
+    "venue": "Avicii Arena, Stockholm",
+    "date": "2026-11-21",
+    "start": "16:00",
+    "end": "23:30",
+    "rate": 0,
+    "status": "pending",
+    "tag": "PREMIUM",
+    "source": "email"
+  },
+  {
+    "id": "dy1puafw032u",
+    "event": "AIK - Elfsborg",
+    "venue": "Strawberry Arena",
+    "date": "2026-10-27",
+    "start": "16:30",
+    "end": "22:30",
+    "rate": 0,
+    "status": "confirmed",
+    "tag": "",
     "source": "email"
   }
 ]
