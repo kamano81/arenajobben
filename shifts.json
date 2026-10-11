@@ -1915,7 +1915,7 @@
     "start": "16:00",
     "end": "22:15",
     "rate": 0,
-    "status": "reserve",
+    "status": "confirmed",
     "tag": "",
     "source": "email"
   },
