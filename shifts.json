@@ -2455,7 +2455,7 @@
     "start": "15:30",
     "end": "20:30",
     "rate": 0,
-    "status": "pending",
+    "status": "reserve",
     "tag": "PREMIUM",
     "source": "email"
   },
@@ -2824,8 +2824,8 @@
     "event": "AMEX 14 okt",
     "venue": "Avicii Arena",
     "date": "2026-10-14",
-    "start": "16:45",
-    "end": "21:45",
+    "start": "17:15",
+    "end": "22:00",
     "rate": 0,
     "status": "confirmed",
     "tag": "",
@@ -3091,7 +3091,7 @@
     "start": "15:30",
     "end": "20:30",
     "rate": 0,
-    "status": "pending",
+    "status": "reserve",
     "tag": "F&B",
     "source": "email"
   },
@@ -3211,6 +3211,18 @@
     "rate": 0,
     "status": "confirmed",
     "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "fyyy8n452v2b",
+    "event": "DIF Hockey - Malmö",
+    "venue": "Hovet, Stockholm",
+    "date": "2026-10-17",
+    "start": "13:00",
+    "end": "18:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "F&B",
     "source": "email"
   }
 ]
