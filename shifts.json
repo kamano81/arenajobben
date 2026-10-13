@@ -3284,5 +3284,53 @@
     "status": "pending",
     "tag": "",
     "source": "email"
+  },
+  {
+    "id": "vnji219sd3rf",
+    "event": "Hot Wheels Stunt Show",
+    "venue": "portal.tarantsec.se",
+    "date": "2026-10-17",
+    "start": "",
+    "end": "",
+    "rate": 0,
+    "status": "reserve",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "m2y6m3gavj86",
+    "event": "Benjamin Ingrosso",
+    "venue": "portal.tarantsec.se",
+    "date": "2026-11-14",
+    "start": "",
+    "end": "",
+    "rate": 0,
+    "status": "reserve",
+    "tag": "F&B",
+    "source": "email"
+  },
+  {
+    "id": "2ol755og9e9o",
+    "event": "Westlife",
+    "venue": "Avicii Arena, Stockholm",
+    "date": "2026-11-20",
+    "start": "15:45",
+    "end": "22:15",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "ih461fh67780",
+    "event": "Westlife",
+    "venue": "Avicii Arena, Stockholm",
+    "date": "2026-11-20",
+    "start": "16:30",
+    "end": "00:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "PREMIUM",
+    "source": "email"
   }
 ]
