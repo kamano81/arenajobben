@@ -1123,7 +1123,7 @@
     "start": "16:30",
     "end": "00:00",
     "rate": 0,
-    "status": "pending",
+    "status": "reserve",
     "tag": "PREMIUM",
     "source": "email"
   },
@@ -3223,6 +3223,78 @@
     "rate": 0,
     "status": "pending",
     "tag": "F&B",
+    "source": "email"
+  },
+  {
+    "id": "btc7gkh436gs",
+    "event": "Disney On Ice 8/1",
+    "venue": "Avicii Arena, Stockholm",
+    "date": "2027-01-08",
+    "start": "11:30",
+    "end": "21:30",
+    "rate": 0,
+    "status": "pending",
+    "tag": "PREMIUM",
+    "source": "email"
+  },
+  {
+    "id": "jujvnt703mdx",
+    "event": "Disney On Ice 9/1",
+    "venue": "Avicii Arena, Stockholm",
+    "date": "2027-01-09",
+    "start": "06:30",
+    "end": "21:30",
+    "rate": 0,
+    "status": "pending",
+    "tag": "PREMIUM",
+    "source": "email"
+  },
+  {
+    "id": "udtl9d0feyd1",
+    "event": "Disney On Ice 10/1",
+    "venue": "Avicii Arena, Stockholm",
+    "date": "2027-01-10",
+    "start": "06:30",
+    "end": "21:30",
+    "rate": 0,
+    "status": "pending",
+    "tag": "PREMIUM",
+    "source": "email"
+  },
+  {
+    "id": "gk9kjp63s6h5",
+    "event": "Disney On Ice 8/1",
+    "venue": "Avicii Arena, Stockholm",
+    "date": "2027-01-08",
+    "start": "12:00",
+    "end": "20:30",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "h3n8v21aesj3",
+    "event": "Disney On Ice 9/1",
+    "venue": "Avicii Arena, Stockholm",
+    "date": "2027-01-09",
+    "start": "08:00",
+    "end": "20:30",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "iz6l62vuwgas",
+    "event": "Disney On Ice 10/1",
+    "venue": "Avicii Arena, Stockholm",
+    "date": "2027-01-10",
+    "start": "08:00",
+    "end": "20:30",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
     "source": "email"
   }
 ]
