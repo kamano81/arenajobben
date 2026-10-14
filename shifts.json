@@ -2236,8 +2236,8 @@
     "event": "AIK Hockey - Västerås IK",
     "venue": "Hovet",
     "date": "2026-10-16",
-    "start": "17:30",
-    "end": "21:30",
+    "start": "17:00",
+    "end": "23:00",
     "rate": 0,
     "status": "confirmed",
     "tag": "",
@@ -2659,7 +2659,7 @@
     "start": "16:45",
     "end": "22:45",
     "rate": 0,
-    "status": "pending",
+    "status": "reserve",
     "tag": "",
     "source": "email"
   },
@@ -3307,6 +3307,30 @@
     "rate": 0,
     "status": "pending",
     "tag": "PREMIUM",
+    "source": "email"
+  },
+  {
+    "id": "10j08tqywlbd",
+    "event": "Granitor",
+    "venue": "3Arena, Stockholm",
+    "date": "2026-11-14",
+    "start": "12:00",
+    "end": "19:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "og4nvxh00vmi",
+    "event": "Granitor Kväll",
+    "venue": "3Arena, Stockholm",
+    "date": "2026-11-14",
+    "start": "18:30",
+    "end": "03:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
     "source": "email"
   }
 ]
