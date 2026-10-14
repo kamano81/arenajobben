@@ -3185,7 +3185,7 @@
     "start": "13:00",
     "end": "18:00",
     "rate": 0,
-    "status": "pending",
+    "status": "reserve",
     "tag": "F&B",
     "source": "email"
   },
