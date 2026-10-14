@@ -2256,18 +2256,6 @@
     "source": "email"
   },
   {
-    "id": "oumebg8zph37",
-    "event": "Företagsevenemang 13 okt",
-    "venue": "Avicii Arena",
-    "date": "2026-10-13",
-    "start": "16:00",
-    "end": "23:00",
-    "rate": 0,
-    "status": "pending",
-    "tag": "PREMIUM",
-    "source": "email"
-  },
-  {
     "id": "r9wbtmbveq03",
     "event": "Företagsevenemang 14 okt",
     "venue": "Avicii Arena",
@@ -2284,18 +2272,6 @@
     "event": "Företagsevenemang 14 okt",
     "venue": "Avicii Arena",
     "date": "2026-10-14",
-    "start": "17:00",
-    "end": "23:00",
-    "rate": 0,
-    "status": "pending",
-    "tag": "",
-    "source": "email"
-  },
-  {
-    "id": "ep2ke54dohvd",
-    "event": "Företagsevenemang 13 okt",
-    "venue": "Avicii Arena",
-    "date": "2026-10-13",
     "start": "17:00",
     "end": "23:00",
     "rate": 0,
