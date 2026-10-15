@@ -2256,30 +2256,6 @@
     "source": "email"
   },
   {
-    "id": "r9wbtmbveq03",
-    "event": "Företagsevenemang 14 okt",
-    "venue": "Avicii Arena",
-    "date": "2026-10-14",
-    "start": "16:00",
-    "end": "23:00",
-    "rate": 0,
-    "status": "pending",
-    "tag": "PREMIUM",
-    "source": "email"
-  },
-  {
-    "id": "gtzcpjwkkg4z",
-    "event": "Företagsevenemang 14 okt",
-    "venue": "Avicii Arena",
-    "date": "2026-10-14",
-    "start": "17:00",
-    "end": "23:00",
-    "rate": 0,
-    "status": "pending",
-    "tag": "",
-    "source": "email"
-  },
-  {
     "id": "yfzsua0utquh",
     "event": "Benjamin Ingrosso",
     "venue": "portal.tarantsec.se",
@@ -2888,18 +2864,6 @@
     "end": "00:00",
     "rate": 0,
     "status": "reserve",
-    "tag": "PREMIUM",
-    "source": "email"
-  },
-  {
-    "id": "5wm9exfstmnx",
-    "event": "AIK halvårsmöte - OBS! NYTT DATUM!",
-    "venue": "Strawberry Arena, Stockholm",
-    "date": "2026-10-14",
-    "start": "17:30",
-    "end": "22:00",
-    "rate": 0,
-    "status": "pending",
     "tag": "PREMIUM",
     "source": "email"
   },
