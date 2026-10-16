@@ -3308,5 +3308,17 @@
     "status": "reserve",
     "tag": "",
     "source": "email"
+  },
+  {
+    "id": "zi7susuipxjj",
+    "event": "DIF Hockey - Hv71",
+    "venue": "Hovet, Stockholm",
+    "date": "2026-10-29",
+    "start": "17:00",
+    "end": "22:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "F&B",
+    "source": "email"
   }
 ]
