@@ -3317,8 +3317,92 @@
     "start": "17:00",
     "end": "22:00",
     "rate": 0,
-    "status": "pending",
+    "status": "reserve",
     "tag": "F&B",
+    "source": "email"
+  },
+  {
+    "id": "4nmjkria04zy",
+    "event": "HIF - Elfsborg",
+    "venue": "3Arena, Stockholm",
+    "date": "2026-11-06",
+    "start": "17:15",
+    "end": "21:15",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "vsnw7kzyibxr",
+    "event": "HIF - Elfsborg",
+    "venue": "3Arena, Stockholm",
+    "date": "2026-11-06",
+    "start": "16:15",
+    "end": "21:45",
+    "rate": 0,
+    "status": "pending",
+    "tag": "PREMIUM",
+    "source": "email"
+  },
+  {
+    "id": "58dz9skpo6d1",
+    "event": "Good Charlotte",
+    "venue": "Hovet, Stockholm",
+    "date": "2026-11-08",
+    "start": "",
+    "end": "",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "yq9gb4gxw7a7",
+    "event": "SIHS 3 Dec",
+    "venue": "Strawberry Arena, Stockholm",
+    "date": "2026-12-03",
+    "start": "14:00",
+    "end": "23:30",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "7umnjw5d6ugs",
+    "event": "SIHS 4 Dec",
+    "venue": "Strawberry Arena, Stockholm",
+    "date": "2026-12-04",
+    "start": "17:00",
+    "end": "23:30",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "x1pisovz03z9",
+    "event": "SIHS 5 Dec",
+    "venue": "Strawberry Arena, Stockholm",
+    "date": "2026-12-05",
+    "start": "16:00",
+    "end": "23:30",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "notjxqdzh8dr",
+    "event": "SIHS 6 Dec",
+    "venue": "Strawberry Arena, Stockholm",
+    "date": "2026-12-06",
+    "start": "16:00",
+    "end": "22:30",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
     "source": "email"
   }
 ]
