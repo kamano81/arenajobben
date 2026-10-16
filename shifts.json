@@ -3404,5 +3404,17 @@
     "status": "pending",
     "tag": "",
     "source": "email"
+  },
+  {
+    "id": "xo1sxa8rwiy9",
+    "event": "Tarantsec Awards",
+    "venue": "Stockholm stad, Stockholm",
+    "date": "2027-01-16",
+    "start": "08:00",
+    "end": "01:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
   }
 ]
