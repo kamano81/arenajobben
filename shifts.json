@@ -3401,7 +3401,7 @@
     "start": "08:00",
     "end": "01:00",
     "rate": 0,
-    "status": "pending",
+    "status": "confirmed",
     "tag": "",
     "source": "email"
   }
