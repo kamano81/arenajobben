@@ -1932,42 +1932,6 @@
     "source": "email"
   },
   {
-    "id": "id42vsnx4loi",
-    "event": "Seniorfestivalen 17 okt",
-    "venue": "Annexet",
-    "date": "2026-10-17",
-    "start": "16:00",
-    "end": "20:00",
-    "rate": 0,
-    "status": "pending",
-    "tag": "",
-    "source": "email"
-  },
-  {
-    "id": "ndg0p74f51ok",
-    "event": "Hot Wheels Stunt Show 17 okt",
-    "venue": "Avicii Arena",
-    "date": "2026-10-17",
-    "start": "08:15",
-    "end": "14:15",
-    "rate": 0,
-    "status": "pending",
-    "tag": "",
-    "source": "email"
-  },
-  {
-    "id": "yyvmj61k5rzu",
-    "event": "Hot Wheels Stunt Show 17 okt",
-    "venue": "Avicii Arena",
-    "date": "2026-10-17",
-    "start": "08:00",
-    "end": "23:00",
-    "rate": 0,
-    "status": "pending",
-    "tag": "PREMIUM",
-    "source": "email"
-  },
-  {
     "id": "2ol5co19ukzr",
     "event": "BIGBANG Halloween",
     "venue": "Annexet",
@@ -2564,18 +2528,6 @@
     "end": "17:00",
     "rate": 0,
     "status": "reserve",
-    "tag": "",
-    "source": "email"
-  },
-  {
-    "id": "cgns271yhhqg",
-    "event": "är kommer Hot Wheels Stunt Show 17 okt",
-    "venue": "Avicii Arena,",
-    "date": "2026-10-17",
-    "start": "08:15",
-    "end": "14:15",
-    "rate": 0,
-    "status": "pending",
     "tag": "",
     "source": "email"
   },
