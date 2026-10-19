@@ -2275,7 +2275,7 @@
     "start": "17:00",
     "end": "23:30",
     "rate": 0,
-    "status": "pending",
+    "status": "reserve",
     "tag": "PREMIUM",
     "source": "email"
   },
@@ -2356,10 +2356,10 @@
     "event": "Joe Bonamassa",
     "venue": "Avicii Arena",
     "date": "2026-10-23",
-    "start": "17:00",
+    "start": "17:15",
     "end": "23:00",
     "rate": 0,
-    "status": "pending",
+    "status": "confirmed",
     "tag": "",
     "source": "email"
   },
