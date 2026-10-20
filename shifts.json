@@ -3356,5 +3356,29 @@
     "status": "confirmed",
     "tag": "",
     "source": "email"
+  },
+  {
+    "id": "65jvf88fm0xz",
+    "event": "AIK - Elfsborg",
+    "venue": "Strawberry Arena, Stockholm",
+    "date": "2026-10-27",
+    "start": "17:00",
+    "end": "22:30",
+    "rate": 0,
+    "status": "pending",
+    "tag": "F&B",
+    "source": "email"
+  },
+  {
+    "id": "ciqlvagl0evj",
+    "event": "AIK - Elfsborg",
+    "venue": "",
+    "date": "2026-10-27",
+    "start": "",
+    "end": "",
+    "rate": 0,
+    "status": "reserve",
+    "tag": "PREMIUM",
+    "source": "email"
   }
 ]
