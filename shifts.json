@@ -3380,5 +3380,17 @@
     "status": "reserve",
     "tag": "PREMIUM",
     "source": "email"
+  },
+  {
+    "id": "o4uojqlx5jq1",
+    "event": "Amon Amarth",
+    "venue": "Hovet, Stockholm",
+    "date": "2026-10-24",
+    "start": "16:30",
+    "end": "22:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "F&B",
+    "source": "email"
   }
 ]
