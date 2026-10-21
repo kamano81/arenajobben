@@ -2548,7 +2548,7 @@
     "event": "Stevie Wonder",
     "venue": "3Arena,",
     "date": "2026-10-22",
-    "start": "16:30",
+    "start": "17:00",
     "end": "00:00",
     "rate": 0,
     "status": "confirmed",
@@ -3391,6 +3391,66 @@
     "rate": 0,
     "status": "pending",
     "tag": "F&B",
+    "source": "email"
+  },
+  {
+    "id": "l5mz56hy09gq",
+    "event": "AIK - BK Häcken",
+    "venue": "Strawberry Arena, Stockholm",
+    "date": "2026-11-08",
+    "start": "13:30",
+    "end": "19:15",
+    "rate": 0,
+    "status": "pending",
+    "tag": "PREMIUM",
+    "source": "email"
+  },
+  {
+    "id": "3frxgosyrmj6",
+    "event": "SIHS 3 Dec",
+    "venue": "Strawberry Arena, Stockholm",
+    "date": "2026-12-03",
+    "start": "16:00",
+    "end": "23:30",
+    "rate": 0,
+    "status": "pending",
+    "tag": "PREMIUM",
+    "source": "email"
+  },
+  {
+    "id": "il7zq5odvusx",
+    "event": "SIHS 4 Dec",
+    "venue": "Strawberry Arena, Stockholm",
+    "date": "2026-12-04",
+    "start": "16:00",
+    "end": "23:30",
+    "rate": 0,
+    "status": "pending",
+    "tag": "PREMIUM",
+    "source": "email"
+  },
+  {
+    "id": "a900pdeur1tk",
+    "event": "SIHS 5 Dec",
+    "venue": "Strawberry Arena, Stockholm",
+    "date": "2026-12-05",
+    "start": "16:00",
+    "end": "23:30",
+    "rate": 0,
+    "status": "pending",
+    "tag": "PREMIUM",
+    "source": "email"
+  },
+  {
+    "id": "wtilgdrsvcuj",
+    "event": "SIHS 6 Dec",
+    "venue": "Strawberry Arena, Stockholm",
+    "date": "2026-12-06",
+    "start": "16:00",
+    "end": "21:30",
+    "rate": 0,
+    "status": "pending",
+    "tag": "PREMIUM",
     "source": "email"
   }
 ]
