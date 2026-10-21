@@ -1807,7 +1807,7 @@
     "start": "17:00",
     "end": "22:00",
     "rate": 0,
-    "status": "reserve",
+    "status": "confirmed",
     "tag": "",
     "source": "email"
   },
