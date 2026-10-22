@@ -3353,7 +3353,7 @@
     "start": "17:00",
     "end": "22:30",
     "rate": 0,
-    "status": "pending",
+    "status": "reserve",
     "tag": "F&B",
     "source": "email"
   },
@@ -3389,7 +3389,7 @@
     "start": "13:30",
     "end": "19:15",
     "rate": 0,
-    "status": "pending",
+    "status": "reserve",
     "tag": "PREMIUM",
     "source": "email"
   },
@@ -3439,6 +3439,30 @@
     "rate": 0,
     "status": "pending",
     "tag": "PREMIUM",
+    "source": "email"
+  },
+  {
+    "id": "xbdz2jlfgl3d",
+    "event": "AIK - BK Häcken",
+    "venue": "Strawberry Arena, Stockholm",
+    "date": "2026-11-08",
+    "start": "",
+    "end": "",
+    "rate": 0,
+    "status": "pending",
+    "tag": "F&B",
+    "source": "email"
+  },
+  {
+    "id": "ps2fm5ysa98s",
+    "event": "AIK - Degerfors",
+    "venue": "Strawberry Arena, Stockholm",
+    "date": "2026-11-21",
+    "start": "12:30",
+    "end": "17:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "F&B",
     "source": "email"
   }
 ]
