@@ -2736,30 +2736,6 @@
     "source": "email"
   },
   {
-    "id": "y65zk40aovpg",
-    "event": "Dell DAGPASS",
-    "venue": "Avicii Arena, Stockholm",
-    "date": "2026-10-22",
-    "start": "06:15",
-    "end": "18:00",
-    "rate": 0,
-    "status": "pending",
-    "tag": "",
-    "source": "email"
-  },
-  {
-    "id": "w86xm73wlvtc",
-    "event": "Dell KVÄLLSPASS",
-    "venue": "Avicii Arena, Stockholm",
-    "date": "2026-10-22",
-    "start": "16:00",
-    "end": "00:00",
-    "rate": 0,
-    "status": "pending",
-    "tag": "",
-    "source": "email"
-  },
-  {
     "id": "j6zjybqm1r3y",
     "event": "Duran Duran",
     "venue": "Avicii Arena, Stockholm",
@@ -2793,18 +2769,6 @@
     "rate": 0,
     "status": "reserve",
     "tag": "PREMIUM",
-    "source": "email"
-  },
-  {
-    "id": "a50hdyw601pq",
-    "event": "K-Bygg",
-    "venue": "Annexet, Stockholm",
-    "date": "2026-10-22",
-    "start": "10:45",
-    "end": "22:15",
-    "rate": 0,
-    "status": "pending",
-    "tag": "",
     "source": "email"
   },
   {
