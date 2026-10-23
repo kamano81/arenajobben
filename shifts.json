@@ -2196,18 +2196,6 @@
     "source": "email"
   },
   {
-    "id": "npfkyka8th5n",
-    "event": "Amon Amarth",
-    "venue": "Hovet",
-    "date": "2026-10-24",
-    "start": "15:30",
-    "end": "22:00",
-    "rate": 0,
-    "status": "confirmed",
-    "tag": "",
-    "source": "email"
-  },
-  {
     "id": "yfzsua0utquh",
     "event": "Benjamin Ingrosso",
     "venue": "portal.tarantsec.se",
@@ -2265,18 +2253,6 @@
     "rate": 0,
     "status": "reserve",
     "tag": "",
-    "source": "email"
-  },
-  {
-    "id": "yil3hnenlf46",
-    "event": "Joe Bonamassa",
-    "venue": "Avicii Arena",
-    "date": "2026-10-23",
-    "start": "17:00",
-    "end": "23:30",
-    "rate": 0,
-    "status": "reserve",
-    "tag": "PREMIUM",
     "source": "email"
   },
   {
@@ -2349,30 +2325,6 @@
     "rate": 0,
     "status": "reserve",
     "tag": "PREMIUM",
-    "source": "email"
-  },
-  {
-    "id": "pan5z4f9ql0b",
-    "event": "Joe Bonamassa",
-    "venue": "Avicii Arena",
-    "date": "2026-10-23",
-    "start": "17:15",
-    "end": "23:00",
-    "rate": 0,
-    "status": "confirmed",
-    "tag": "",
-    "source": "email"
-  },
-  {
-    "id": "wkytls8d6vz2",
-    "event": "PUSCIFER",
-    "venue": "Annexet",
-    "date": "2026-10-25",
-    "start": "16:45",
-    "end": "22:45",
-    "rate": 0,
-    "status": "confirmed",
-    "tag": "",
     "source": "email"
   },
   {
@@ -2517,30 +2469,6 @@
     "rate": 0,
     "status": "reserve",
     "tag": "",
-    "source": "email"
-  },
-  {
-    "id": "c8x84nbhu6x7",
-    "event": "Stevie Wonder",
-    "venue": "3Arena,",
-    "date": "2026-10-22",
-    "start": "17:00",
-    "end": "00:00",
-    "rate": 0,
-    "status": "reserve",
-    "tag": "",
-    "source": "email"
-  },
-  {
-    "id": "t18i1lu20het",
-    "event": "Stevie Wonder",
-    "venue": "3Arena,",
-    "date": "2026-10-22",
-    "start": "17:00",
-    "end": "00:00",
-    "rate": 0,
-    "status": "confirmed",
-    "tag": "PREMIUM",
     "source": "email"
   },
   {
@@ -2709,18 +2637,6 @@
     "rate": 0,
     "status": "reserve",
     "tag": "PREMIUM",
-    "source": "email"
-  },
-  {
-    "id": "i6modjulkjni",
-    "event": "Stevie Wonder",
-    "venue": "",
-    "date": "2026-10-22",
-    "start": "",
-    "end": "",
-    "rate": 0,
-    "status": "reserve",
-    "tag": "F&B",
     "source": "email"
   },
   {
@@ -3233,7 +3149,7 @@
     "start": "16:15",
     "end": "21:45",
     "rate": 0,
-    "status": "pending",
+    "status": "confirmed",
     "tag": "PREMIUM",
     "source": "email"
   },
@@ -3334,18 +3250,6 @@
     "source": "email"
   },
   {
-    "id": "o4uojqlx5jq1",
-    "event": "Amon Amarth",
-    "venue": "Hovet, Stockholm",
-    "date": "2026-10-24",
-    "start": "16:30",
-    "end": "22:00",
-    "rate": 0,
-    "status": "pending",
-    "tag": "F&B",
-    "source": "email"
-  },
-  {
     "id": "l5mz56hy09gq",
     "event": "AIK - BK Häcken",
     "venue": "Strawberry Arena, Stockholm",
@@ -3424,6 +3328,30 @@
     "date": "2026-11-21",
     "start": "12:30",
     "end": "17:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "F&B",
+    "source": "email"
+  },
+  {
+    "id": "dzyhi3cpkm9p",
+    "event": "HIF - Sirius",
+    "venue": "3Arena, Stockholm",
+    "date": "2026-10-29",
+    "start": "17:00",
+    "end": "21:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "F&B",
+    "source": "email"
+  },
+  {
+    "id": "292icnmaret2",
+    "event": "HIF - Elfsborg",
+    "venue": "3Arena, Stockholm",
+    "date": "2026-11-06",
+    "start": "16:45",
+    "end": "21:15",
     "rate": 0,
     "status": "pending",
     "tag": "F&B",
