@@ -2897,7 +2897,7 @@
     "start": "16:15",
     "end": "21:45",
     "rate": 0,
-    "status": "pending",
+    "status": "reserve",
     "tag": "PREMIUM",
     "source": "email"
   },
