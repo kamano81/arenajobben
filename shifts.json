@@ -2496,30 +2496,6 @@
     "source": "email"
   },
   {
-    "id": "qhxm6o8lnaj3",
-    "event": "Deep Purple",
-    "venue": "Avicii Arena, Stockholm",
-    "date": "2026-10-26",
-    "start": "17:00",
-    "end": "23:00",
-    "rate": 0,
-    "status": "pending",
-    "tag": "",
-    "source": "email"
-  },
-  {
-    "id": "zzhzz6dnfpb9",
-    "event": "Deep Purple",
-    "venue": "Avicii Arena, Stockholm",
-    "date": "2026-10-26",
-    "start": "16:30",
-    "end": "00:00",
-    "rate": 0,
-    "status": "pending",
-    "tag": "PREMIUM",
-    "source": "email"
-  },
-  {
     "id": "z4njl7in8zi7",
     "event": "Seniorfestivalen",
     "venue": "portal.tarantsec.se",
