@@ -2885,7 +2885,7 @@
     "start": "16:45",
     "end": "20:45",
     "rate": 0,
-    "status": "pending",
+    "status": "reserve",
     "tag": "",
     "source": "email"
   },
@@ -3317,7 +3317,7 @@
     "start": "17:00",
     "end": "21:00",
     "rate": 0,
-    "status": "pending",
+    "status": "reserve",
     "tag": "F&B",
     "source": "email"
   },
@@ -3340,6 +3340,18 @@
     "date": "2026-11-14",
     "start": "17:00",
     "end": "23:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "F&B",
+    "source": "email"
+  },
+  {
+    "id": "zx8mi3xf4owq",
+    "event": "DIF - BK Häcken",
+    "venue": "3Arena, Stockholm",
+    "date": "2026-11-29",
+    "start": "12:30",
+    "end": "16:30",
     "rate": 0,
     "status": "pending",
     "tag": "F&B",
