@@ -3293,7 +3293,7 @@
     "start": "",
     "end": "",
     "rate": 0,
-    "status": "pending",
+    "status": "reserve",
     "tag": "F&B",
     "source": "email"
   },
