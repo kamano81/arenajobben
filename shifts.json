@@ -2352,30 +2352,6 @@
     "source": "email"
   },
   {
-    "id": "795dbra1qr8w",
-    "event": "AIK - Elfsborg",
-    "venue": "Strawberry Arena,",
-    "date": "2026-10-29",
-    "start": "16:30",
-    "end": "22:30",
-    "rate": 0,
-    "status": "pending",
-    "tag": "",
-    "source": "email"
-  },
-  {
-    "id": "uzx4w15fbkeb",
-    "event": "AIK - Elfsborg",
-    "venue": "Strawberry Arena,",
-    "date": "2026-10-29",
-    "start": "17:00",
-    "end": "22:30",
-    "rate": 0,
-    "status": "pending",
-    "tag": "PREMIUM",
-    "source": "email"
-  },
-  {
     "id": "6snfjwh4xa1y",
     "event": "AIK - BK Häcken",
     "venue": "Strawberry Arena,",
