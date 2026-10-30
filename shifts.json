@@ -1824,18 +1824,6 @@
     "source": "email"
   },
   {
-    "id": "r2a6pvkklvi9",
-    "event": "AIK Hockey - Oskarshamn",
-    "venue": "Hovet",
-    "date": "2026-11-15",
-    "start": "12:00",
-    "end": "16:00",
-    "rate": 0,
-    "status": "reserve",
-    "tag": "",
-    "source": "email"
-  },
-  {
     "id": "iiris35vko8c",
     "event": "AIK Hockey - Södertälje",
     "venue": "Hovet",
@@ -3295,18 +3283,6 @@
     "rate": 0,
     "status": "pending",
     "tag": "F&B",
-    "source": "email"
-  },
-  {
-    "id": "e7wqn4dyucsp",
-    "event": "The Prodigy",
-    "venue": "Avicii Arena, Stockholm",
-    "date": "2026-11-15",
-    "start": "",
-    "end": "",
-    "rate": 0,
-    "status": "pending",
-    "tag": "PREMIUM",
     "source": "email"
   },
   {
