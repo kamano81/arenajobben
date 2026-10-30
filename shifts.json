@@ -1932,42 +1932,6 @@
     "source": "email"
   },
   {
-    "id": "ewteajnv9x54",
-    "event": "The Witcher in concert",
-    "venue": "Annexet",
-    "date": "2026-11-02",
-    "start": "17:30",
-    "end": "00:00",
-    "rate": 0,
-    "status": "reserve",
-    "tag": "",
-    "source": "email"
-  },
-  {
-    "id": "t4tblfqgfq9g",
-    "event": "Miss Li",
-    "venue": "Avicii Arena",
-    "date": "2026-11-07",
-    "start": "16:00",
-    "end": "23:00",
-    "rate": 0,
-    "status": "reserve",
-    "tag": "PREMIUM",
-    "source": "email"
-  },
-  {
-    "id": "ga1xeevptxj2",
-    "event": "Miss Li",
-    "venue": "Avicii Arena",
-    "date": "2026-11-07",
-    "start": "17:00",
-    "end": "23:00",
-    "rate": 0,
-    "status": "reserve",
-    "tag": "",
-    "source": "email"
-  },
-  {
     "id": "2p5au6ojm0j5",
     "event": "Benjamin Ingrosso 13 Nov",
     "venue": "Avicii Arena",
@@ -2604,18 +2568,6 @@
     "source": "email"
   },
   {
-    "id": "sf1lrgy91zbm",
-    "event": "Fontaines D.C.",
-    "venue": "Hovet, Stockholm",
-    "date": "2026-11-05",
-    "start": "17:00",
-    "end": "23:05",
-    "rate": 0,
-    "status": "reserve",
-    "tag": "",
-    "source": "email"
-  },
-  {
     "id": "hidftigxy70t",
     "event": "Bryson Tiller",
     "venue": "Avicii Arena, Stockholm",
@@ -2837,7 +2789,7 @@
     "start": "16:00",
     "end": "23:30",
     "rate": 0,
-    "status": "pending",
+    "status": "reserve",
     "tag": "PREMIUM",
     "source": "email"
   },
@@ -3283,18 +3235,6 @@
     "rate": 0,
     "status": "pending",
     "tag": "F&B",
-    "source": "email"
-  },
-  {
-    "id": "is85he0ts04g",
-    "event": "The Prodigy",
-    "venue": "Avicii Arena, Stockholm",
-    "date": "2026-11-15",
-    "start": "17:00",
-    "end": "23:00",
-    "rate": 0,
-    "status": "pending",
-    "tag": "",
     "source": "email"
   },
   {
