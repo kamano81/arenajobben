@@ -2671,7 +2671,7 @@
     "start": "17:15",
     "end": "23:45",
     "rate": 0,
-    "status": "pending",
+    "status": "confirmed",
     "tag": "PREMIUM",
     "source": "email"
   },
@@ -3306,6 +3306,18 @@
     "end": "22:30",
     "rate": 0,
     "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "4suicamqmqcj",
+    "event": "Benjamin Ingrosso",
+    "venue": "portal.tarantsec.se",
+    "date": "2026-11-14",
+    "start": "",
+    "end": "",
+    "rate": 0,
+    "status": "reserve",
     "tag": "",
     "source": "email"
   }
