@@ -1956,30 +1956,6 @@
     "source": "email"
   },
   {
-    "id": "rg50hv09c173",
-    "event": "Benjamin Ingrosso 14 Nov",
-    "venue": "Avicii Arena",
-    "date": "2026-11-14",
-    "start": "17:15",
-    "end": "22:15",
-    "rate": 0,
-    "status": "pending",
-    "tag": "PREMIUM",
-    "source": "email"
-  },
-  {
-    "id": "1m1fmmfsafa5",
-    "event": "Benjamin Ingrosso 14 Nov",
-    "venue": "Avicii Arena",
-    "date": "2026-11-14",
-    "start": "17:15",
-    "end": "22:15",
-    "rate": 0,
-    "status": "confirmed",
-    "tag": "",
-    "source": "email"
-  },
-  {
     "id": "e6wfpcb3p2ii",
     "event": "Victor Leksell",
     "venue": "Avicii Arena",
@@ -2770,18 +2746,6 @@
     "source": "email"
   },
   {
-    "id": "0qz1c37yzrss",
-    "event": "Benjamin Ingrosso 14 Nov",
-    "venue": "Avicii Arena, Stockholm",
-    "date": "2026-11-14",
-    "start": "17:00",
-    "end": "23:00",
-    "rate": 0,
-    "status": "pending",
-    "tag": "F&B",
-    "source": "email"
-  },
-  {
     "id": "e1ue3yzjemxk",
     "event": "Lars Winnerbäck",
     "venue": "Avicii Arena, Stockholm",
@@ -3125,7 +3089,7 @@
     "start": "16:00",
     "end": "23:30",
     "rate": 0,
-    "status": "pending",
+    "status": "confirmed",
     "tag": "PREMIUM",
     "source": "email"
   },
@@ -3137,7 +3101,7 @@
     "start": "16:00",
     "end": "23:30",
     "rate": 0,
-    "status": "pending",
+    "status": "confirmed",
     "tag": "PREMIUM",
     "source": "email"
   },
@@ -3149,7 +3113,7 @@
     "start": "16:00",
     "end": "23:30",
     "rate": 0,
-    "status": "pending",
+    "status": "confirmed",
     "tag": "PREMIUM",
     "source": "email"
   },
@@ -3161,7 +3125,7 @@
     "start": "16:00",
     "end": "21:30",
     "rate": 0,
-    "status": "pending",
+    "status": "confirmed",
     "tag": "PREMIUM",
     "source": "email"
   },
@@ -3305,7 +3269,7 @@
     "start": "16:00",
     "end": "22:30",
     "rate": 0,
-    "status": "pending",
+    "status": "reserve",
     "tag": "",
     "source": "email"
   },
