@@ -3284,5 +3284,17 @@
     "status": "reserve",
     "tag": "",
     "source": "email"
+  },
+  {
+    "id": "gx4e6q7fvc5x",
+    "event": "Kulturamas Julshow",
+    "venue": "Annexet, Stockholm",
+    "date": "2026-12-17",
+    "start": "16:30",
+    "end": "22:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
   }
 ]
