@@ -2563,7 +2563,7 @@
     "start": "16:00",
     "end": "23:30",
     "rate": 0,
-    "status": "pending",
+    "status": "reserve",
     "tag": "",
     "source": "email"
   },
@@ -3149,7 +3149,7 @@
     "start": "12:30",
     "end": "17:00",
     "rate": 0,
-    "status": "pending",
+    "status": "reserve",
     "tag": "F&B",
     "source": "email"
   },
