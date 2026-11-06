@@ -3392,5 +3392,17 @@
     "status": "pending",
     "tag": "PREMIUM",
     "source": "email"
+  },
+  {
+    "id": "h53dk0rlsxtq",
+    "event": "Ernst & Young",
+    "venue": "Annexet, Stockholm",
+    "date": "2026-11-27",
+    "start": "16:30",
+    "end": "01:15",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
   }
 ]
