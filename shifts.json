@@ -2299,7 +2299,7 @@
     "start": "18:15",
     "end": "23:00",
     "rate": 0,
-    "status": "pending",
+    "status": "reserve",
     "tag": "",
     "source": "email"
   },
@@ -2611,7 +2611,7 @@
     "start": "",
     "end": "",
     "rate": 0,
-    "status": "pending",
+    "status": "reserve",
     "tag": "",
     "source": "email"
   },
@@ -3403,6 +3403,30 @@
     "rate": 0,
     "status": "pending",
     "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "m8za06up0sgr",
+    "event": "Premiumvärd",
+    "venue": "Stockholm stad, Stockholm",
+    "date": "2026-11-14",
+    "start": "",
+    "end": "",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "36uvpc60dykd",
+    "event": "Granitor",
+    "venue": "3Arena, Stockholm",
+    "date": "2026-11-14",
+    "start": "16:00",
+    "end": "03:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "F&B",
     "source": "email"
   }
 ]
