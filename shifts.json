@@ -3428,5 +3428,53 @@
     "status": "pending",
     "tag": "F&B",
     "source": "email"
+  },
+  {
+    "id": "dljstkautjhm",
+    "event": "AIK Hockey - Almtuna",
+    "venue": "Hovet, Stockholm",
+    "date": "2026-12-06",
+    "start": "12:00",
+    "end": "17:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "ygjcsj0a968l",
+    "event": "AIK Hockey - Södertälje",
+    "venue": "Hovet, Stockholm",
+    "date": "2026-12-12",
+    "start": "17:00",
+    "end": "22:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "ip7c9s4j7j64",
+    "event": "AIK Hockey - Västerås",
+    "venue": "Hovet, Stockholm",
+    "date": "2026-12-18",
+    "start": "17:00",
+    "end": "22:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "gdpl72mdwi9x",
+    "event": "AIK Hockey - Leksand",
+    "venue": "Avicii Arena, Stockholm",
+    "date": "2026-12-27",
+    "start": "16:00",
+    "end": "21:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
   }
 ]
