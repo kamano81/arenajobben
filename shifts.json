@@ -3440,5 +3440,41 @@
     "status": "pending",
     "tag": "",
     "source": "email"
+  },
+  {
+    "id": "v8rzw99aumbi",
+    "event": "Kulturamas Julshow REP",
+    "venue": "Annexet, Stockholm",
+    "date": "2026-12-16",
+    "start": "08:30",
+    "end": "18:45",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "5vp12t0h4y2e",
+    "event": "Cancergalan",
+    "venue": "Annexet, Stockholm",
+    "date": "2027-01-11",
+    "start": "17:30",
+    "end": "22:15",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "18lmtnkh4n2k",
+    "event": "Westlife",
+    "venue": "Avicii Arena, Stockholm",
+    "date": "2026-11-20",
+    "start": "17:00",
+    "end": "23:00",
+    "rate": 0,
+    "status": "pending",
+    "tag": "F&B",
+    "source": "email"
   }
 ]
