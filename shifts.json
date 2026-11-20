@@ -2443,7 +2443,7 @@
     "start": "16:00",
     "end": "22:00",
     "rate": 0,
-    "status": "reserve",
+    "status": "confirmed",
     "tag": "PREMIUM",
     "source": "email"
   },
