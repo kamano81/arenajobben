@@ -2520,18 +2520,6 @@
     "source": "email"
   },
   {
-    "id": "hidftigxy70t",
-    "event": "Bryson Tiller",
-    "venue": "Avicii Arena, Stockholm",
-    "date": "2026-11-22",
-    "start": "16:00",
-    "end": "22:45",
-    "rate": 0,
-    "status": "pending",
-    "tag": "",
-    "source": "email"
-  },
-  {
     "id": "uos9nss3ykyt",
     "event": "Lars Winnerbäck",
     "venue": "Avicii Arena, Stockholm",
@@ -3439,18 +3427,6 @@
     "rate": 0,
     "status": "pending",
     "tag": "",
-    "source": "email"
-  },
-  {
-    "id": "g0cl8o7m5rgm",
-    "event": "Lars Winnerbäck",
-    "venue": "Avicii Arena, Stockholm",
-    "date": "2026-11-21",
-    "start": "17:30",
-    "end": "22:30",
-    "rate": 0,
-    "status": "pending",
-    "tag": "F&B",
     "source": "email"
   },
   {
