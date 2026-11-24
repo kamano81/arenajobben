@@ -3716,5 +3716,17 @@
     "status": "pending",
     "tag": "",
     "source": "email"
+  },
+  {
+    "id": "hi1rvj3cpfzj",
+    "event": "Heliview Konferens",
+    "venue": "3Arena, Stockholm",
+    "date": "2026-12-01",
+    "start": "08:00",
+    "end": "17:15",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
   }
 ]
