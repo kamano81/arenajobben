@@ -1555,7 +1555,7 @@
     "start": "17:00",
     "end": "22:00",
     "rate": 0,
-    "status": "pending",
+    "status": "confirmed",
     "tag": "",
     "source": "email"
   },
@@ -3724,6 +3724,18 @@
     "date": "2026-12-01",
     "start": "08:00",
     "end": "17:15",
+    "rate": 0,
+    "status": "pending",
+    "tag": "",
+    "source": "email"
+  },
+  {
+    "id": "rxxdyfdrvdzl",
+    "event": "Fanzone",
+    "venue": "Annexet, Stockholm",
+    "date": "2026-12-05",
+    "start": "12:00",
+    "end": "16:45",
     "rate": 0,
     "status": "pending",
     "tag": "",
