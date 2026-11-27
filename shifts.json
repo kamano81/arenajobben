@@ -3502,30 +3502,6 @@
     "source": "email"
   },
   {
-    "id": "3698l8n6ko1x",
-    "event": "Volkswagen 25/11",
-    "venue": "Scandinavian XPO, Arlandastad",
-    "date": "2026-11-25",
-    "start": "",
-    "end": "",
-    "rate": 0,
-    "status": "pending",
-    "tag": "",
-    "source": "email"
-  },
-  {
-    "id": "y5ps5bfaxors",
-    "event": "MRF 26/11",
-    "venue": "Scandinavian XPO, Arlandastad",
-    "date": "2026-11-26",
-    "start": "",
-    "end": "",
-    "rate": 0,
-    "status": "pending",
-    "tag": "",
-    "source": "email"
-  },
-  {
     "id": "4oz9inpue5r3",
     "event": "Coca Cola LOAD-IN",
     "venue": "Annexet, Stockholm",
@@ -3535,18 +3511,6 @@
     "rate": 0,
     "status": "pending",
     "tag": "",
-    "source": "email"
-  },
-  {
-    "id": "267aku5w86ck",
-    "event": "HIF - IFK Göteborg Garden",
-    "venue": "Avicii Arena, Stockholm",
-    "date": "2026-11-23",
-    "start": "15:30",
-    "end": "19:30",
-    "rate": 0,
-    "status": "pending",
-    "tag": "F&B",
     "source": "email"
   },
   {
