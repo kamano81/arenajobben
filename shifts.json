@@ -1932,30 +1932,6 @@
     "source": "email"
   },
   {
-    "id": "e6wfpcb3p2ii",
-    "event": "Victor Leksell",
-    "venue": "Avicii Arena",
-    "date": "2026-11-28",
-    "start": "16:30",
-    "end": "23:30",
-    "rate": 0,
-    "status": "reserve",
-    "tag": "",
-    "source": "email"
-  },
-  {
-    "id": "8fh1zm15y1n5",
-    "event": "Victor Leksell",
-    "venue": "Avicii Arena",
-    "date": "2026-11-28",
-    "start": "16:00",
-    "end": "23:00",
-    "rate": 0,
-    "status": "confirmed",
-    "tag": "PREMIUM",
-    "source": "email"
-  },
-  {
     "id": "399v1b7wsx93",
     "event": "S:t Eriks-Cupen",
     "venue": "3Arena",
@@ -1986,18 +1962,6 @@
     "date": "2026-09-16",
     "start": "15:15",
     "end": "21:30",
-    "rate": 0,
-    "status": "confirmed",
-    "tag": "",
-    "source": "email"
-  },
-  {
-    "id": "f9s95f58mh8p",
-    "event": "Basketlandskamp: Sverige - Ungern",
-    "venue": "Hovet",
-    "date": "2026-11-27",
-    "start": "16:00",
-    "end": "22:00",
     "rate": 0,
     "status": "confirmed",
     "tag": "",
@@ -2433,18 +2397,6 @@
     "rate": 0,
     "status": "confirmed",
     "tag": "",
-    "source": "email"
-  },
-  {
-    "id": "x4w661a3nbak",
-    "event": "Basketlandskamp: Sverige - Ungern",
-    "venue": "Avicii Arena, Stockholm",
-    "date": "2026-11-27",
-    "start": "16:00",
-    "end": "22:00",
-    "rate": 0,
-    "status": "confirmed",
-    "tag": "PREMIUM",
     "source": "email"
   },
   {
